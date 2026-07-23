@@ -1,0 +1,11 @@
+# Binder pulls this file to build the environment. Mirrors ../requirements.txt.
+vfb_connect
+navis
+navis-flybrains
+neuprint-python
+python-catmaid
+pandas
+seaborn
+matplotlib
+ipywidgets
+jsonpath_rw

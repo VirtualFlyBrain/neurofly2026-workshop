@@ -1,0 +1,12 @@
+# VFB NeuroFly 2026 workshop — Python track
+# NOTE: pin exact versions after a full live test run (see PLAN.md §7).
+vfb_connect
+navis
+navis-flybrains
+neuprint-python
+python-catmaid      # imported as `pymaid`
+pandas
+seaborn
+matplotlib
+ipywidgets
+jsonpath_rw

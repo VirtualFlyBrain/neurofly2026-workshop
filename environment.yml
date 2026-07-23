@@ -1,0 +1,18 @@
+name: vfb-workshop-2026
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - jupyterlab
+  - pandas
+  - seaborn
+  - matplotlib
+  - ipywidgets
+  - pip:
+      - vfb_connect
+      - navis
+      - navis-flybrains
+      - neuprint-python
+      - python-catmaid
+      - jsonpath_rw
