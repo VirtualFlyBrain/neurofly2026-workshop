@@ -1,5 +1,8 @@
 # VFB NeuroFly 2026 workshop — Python track
 # NOTE: pin exact versions after a full live test run (see PLAN.md §7).
+# vfb_connect pulls legacy deps (jsonpath-rw, colormath) that only build on
+# setuptools<58 — install that FIRST (see the setup notebook / Dockerfile).
+setuptools<58
 vfb_connect
 navis
 navis-flybrains

@@ -116,8 +116,32 @@ these move.*
 - [ ] Confirm final repo name & create under `VirtualFlyBrain/` (see delivery notes); wire up Colab
       badge URLs to the real default branch.
 - [x] Verify `vfb_connect` method names against current source (done — see §5).
-- [ ] **Execute every notebook against live services** with real IDs and pin `requirements.txt`
-      versions once stable (method names are confirmed; live values/outputs still need a run-through).
+- [x] Live-run the core calls against the VFB service with a real worked example (see §9). Fixed
+      three issues found only at runtime: connectivity is via `get_connected_neurons_by_type`
+      (per-instance `get_neurons_downstream_of` returned nothing here); NBLAST output column is
+      `score` not `NBLAST_score`; browse-new-datasets uses a `data_source` filter, not
+      `get_instances_by_dataset('BANC')` (which returned empty — needs the exact dataset id).
+- [x] Confirmed the Colab/pip install needs `setuptools<58` first (jsonpath-rw / colormath build
+      on modern setuptools otherwise fails) — baked into the setup notebook, requirements, Dockerfile.
+- [ ] Full cell-by-cell execution of every module + reference notebook, then pin exact dep versions.
+- [ ] Decide the self-host target (Binder vs a VFB JupyterHub) and stand it up.
+
+## 9. Worked example baked into the notebooks (all real, from live VFB)
+
+`DA1 lPN` = **FBbt_00067363** ("adult antennal lobe projection neuron DA1 lPN").
+- **Discovery (01):** `vfb.get_instances('adult antennal lobe projection neuron DA1 lPN')` → **68
+  individuals** across hemibrain, FlyWire (v783), BANC (v626), male-CNS, FAFB. Absent from MANC &
+  optic-lobe (central-brain neuron) — a deliberate teaching point.
+- **Example instance:** `VFB_jrchjtdb` (DA1_lPN_R, hemibrain bodyId 1734350908); FlyWire counterpart
+  `VFB_fw035286` — used in Bridging (02) and Visualisation (03).
+- **Connectivity (04):** `vfb.get_connected_neurons_by_type(upstream_type='...DA1 lPN',
+  downstream_type='Kenyon cell', weight=10)` → 1,132 rows; shows the DA1 lPN → Kenyon cell
+  (mushroom-body) pathway with real weights, incl. BANC.
+- **NBLAST (05):** `vfb.get_similar_neurons('VFB_jrchjtdb', similarity_score='NBLAST_score')` → 107
+  hits; top matches are other DA1 lPNs, in-dataset first (~0.75–0.80) then cross-dataset in FlyWire &
+  FAFB (~0.66–0.68) — the same type recovered by morphology alone.
+- **Transcriptomics (06):** `vfb.get_transcriptomic_profile('Kenyon cell')` → returns a large
+  gene×cluster table (verified non-empty).
 - [ ] Fill the R/natverse track (currently a stub mirroring the Python modules).
 - [ ] Add/refresh slides in `presentations/` (data-landscape 2026; type-vs-individual; tool map).
 - [ ] Record a short intro video (as in prior workshops) and link it.
