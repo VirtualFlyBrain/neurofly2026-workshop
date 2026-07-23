@@ -80,11 +80,23 @@ these move.*
 
 ## 5. 2024 → 2026 diff (what to update)
 
+> **Heads-up on the source material:** the "2024" workshop pages on the VFB site wrap notebooks whose
+> repos were last substantively updated in **2021–2022** (`training` last commit 2022-06; `natworkshop`
+> 2021-05). Treat them as *structural* references only — the code is rebuilt against the current API,
+> not copied. `vfb_connect` itself is current (last release May 2026).
+
 - **Datasets:** add BANC, male-CNS, optic lobe; bump FlyWire/MANC/hemibrain versions. Re-run any
   cell that hard-codes dataset lists or counts.
-- **API:** modern import is `from vfb_connect import vfb` (singleton) returning DataFrames; the old
-  notebooks use `from vfb_connect.cross_server_tools import VfbConnect; vc = VfbConnect()`. Prefer
-  the new surface; keep a compatibility note.
+- **API (verified against vfb_connect source, 2026):** modern import is `from vfb_connect import vfb`
+  (a ready singleton) returning DataFrames; the old notebooks use
+  `from vfb_connect.cross_server_tools import VfbConnect; vc = VfbConnect()`. The notebooks now use
+  the confirmed current methods: `get_datasets`, `get_instances`, `get_instances_by_dataset`,
+  `get_terms_by_region`, `get_neurons_downstream_of` / `get_neurons_upstream_of` /
+  `get_connected_neurons_by_type`, `get_similar_neurons(similarity_score='NBLAST_score')`,
+  `get_transcriptomic_profile` / `get_cell_types_by_genes` / `get_scRNAseq_expression`,
+  `get_images(..., image_type='swc')`, `get_vfb_link`, `term`/`terms`, `search`. New since 2024 and
+  worth featuring: neurotransmitter-prediction helpers (`get_nt_predictions`,
+  `get_nt_receptors_in_downstream_neurons`).
 - **New routes:** add the MCP and chat solution to every problem (didn't exist in 2024).
 - **Transcriptomics:** refresh scRNAseq datasets and the connectome↔expression bridge.
 - **Transforms:** `navis-flybrains` template list has grown — confirm bridging paths for the new
@@ -103,8 +115,9 @@ these move.*
 
 - [ ] Confirm final repo name & create under `VirtualFlyBrain/` (see delivery notes); wire up Colab
       badge URLs to the real default branch.
-- [ ] **Execute every notebook against live services** and pin `requirements.txt` versions once
-      stable (the code cells here are drafts to validate).
+- [x] Verify `vfb_connect` method names against current source (done — see §5).
+- [ ] **Execute every notebook against live services** with real IDs and pin `requirements.txt`
+      versions once stable (method names are confirmed; live values/outputs still need a run-through).
 - [ ] Fill the R/natverse track (currently a stub mirroring the Python modules).
 - [ ] Add/refresh slides in `presentations/` (data-landscape 2026; type-vs-individual; tool map).
 - [ ] Record a short intro video (as in prior workshops) and link it.
