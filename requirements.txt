@@ -1,15 +1,28 @@
 # VFB NeuroFly 2026 workshop — Python track
-# NOTE: pin exact versions after a full live test run (see PLAN.md §7).
-# vfb_connect pulls legacy deps (jsonpath-rw, colormath) that only build on
-# setuptools<58 — install that FIRST (see the setup notebook / Dockerfile).
-setuptools<58
-vfb_connect
-navis
-navis-flybrains
-neuprint-python
-python-catmaid      # imported as `pymaid`
-pandas
-seaborn
-matplotlib
-ipywidgets
-jsonpath_rw
+#
+# These are the exact versions every notebook in python/ was executed against,
+# cell-by-cell, on Python 3.11 (see PLAN.md §7). The VFB stack is pinned hard
+# so the workshop is reproducible on the day; the general scientific stack has
+# floors only, so an existing Colab/Jupyter environment is not force-
+# downgraded — a pandas or matplotlib downgrade needs a runtime restart on
+# Colab, which derails a live session.
+#
+# vfb_connect pulls two legacy sdists (jsonpath-rw, colormath). These used to
+# need setuptools<58 to build; as of 2026-07 they build cleanly on modern
+# setuptools (verified on 79.0.1), so the pin is no longer listed here. The
+# Dockerfile keeps it defensively for the pre-built image.
+
+# --- VFB stack: pinned exactly ---
+vfb_connect==2.3.14
+navis==1.12.0
+flybrains==0.6.3
+neuprint-python==0.6.3
+python-catmaid==2.4.2       # imported as `pymaid`
+jsonpath_rw==1.4.0
+
+# --- plotting / notebook stack: floors only ---
+plotly>=6.0                 # navis.plot3d needs a 3D backend (plotly|octarine|k3d)
+pandas>=2.2
+seaborn>=0.13
+matplotlib>=3.8
+ipywidgets>=8.1

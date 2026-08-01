@@ -123,7 +123,27 @@ these move.*
       `get_instances_by_dataset('BANC')` (which returned empty — needs the exact dataset id).
 - [x] Confirmed the Colab/pip install needs `setuptools<58` first (jsonpath-rw / colormath build
       on modern setuptools otherwise fails) — baked into the setup notebook, requirements, Dockerfile.
-- [ ] Full cell-by-cell execution of every module + reference notebook, then pin exact dep versions.
+- [x] Full cell-by-cell execution of every module + reference notebook, then pin exact dep versions.
+      All 13 notebooks now execute clean against live VFB (harness: `tools/run_notebooks.py`,
+      re-run it before the event). Four defects found and fixed:
+      **(a)** the PyPI package is `flybrains`, **not** `navis-flybrains` (which does not exist) —
+      this made the very first `%pip install` line fail in *every* notebook, and because one bad
+      name aborts the whole pip invocation, no attendee would have had any package installed;
+      **(b)** `navis.plot3d` raised `ModuleNotFoundError: No 3D plotting backends available` —
+      needs one of plotly/octarine/k3d, now added everywhere (Colab ships plotly, so this only
+      bit self-host/Binder/Docker/local);
+      **(c)** 01 filtered the list-valued `data_source` column with `.str.contains`, silently
+      matching nothing and printing "0 … in datasets new since 2024" — now a set-membership test
+      returning 31 of 68;
+      **(d)** 02 built its cross-connectome comparison from two `vfb.terms()` calls, emitting 25+
+      "VFBTerm only has one item" warnings — now one call plus `.summary`.
+      Versions pinned in `requirements.txt` / `binder/requirements.txt` / `environment.yml`:
+      vfb_connect 2.3.14, navis 1.12.0, flybrains 0.6.3, neuprint-python 0.6.3,
+      python-catmaid 2.4.2, jsonpath_rw 1.4.0 (VFB stack hard-pinned; pandas/matplotlib/seaborn/
+      ipywidgets/plotly floors only, so Colab isn't force-downgraded into a runtime restart).
+      Note: the `setuptools<58` pin appears obsolete — jsonpath-rw and colormath now build fine
+      on setuptools 79.0.1 — but it is still in the notebook install cells and Dockerfile pending
+      a check on Colab itself.
 - [ ] Decide the self-host target (Binder vs a VFB JupyterHub) and stand it up.
 
 ## 9. Worked example baked into the notebooks (all real, from live VFB)

@@ -6,3 +6,11 @@ __pycache__/
 env/
 .env
 # Keep notebooks clean: strip outputs before committing (nbstripout recommended).
+
+# Downloaded skeletons (module 03 writes SWC files next to the notebook).
+swc/
+python/swc/
+
+# Local test-run artefacts (see PLAN.md §7 cell-by-cell execution).
+_exec/
+run.log

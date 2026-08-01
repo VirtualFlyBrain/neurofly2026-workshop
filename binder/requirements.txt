@@ -1,11 +1,17 @@
-# Binder pulls this file to build the environment. Mirrors ../requirements.txt.
-vfb_connect
-navis
-navis-flybrains
-neuprint-python
-python-catmaid
-pandas
-seaborn
-matplotlib
-ipywidgets
-jsonpath_rw
+# Binder pulls this file to build the environment. Mirrors ../requirements.txt —
+# keep the two in sync.
+
+# --- VFB stack: pinned exactly ---
+vfb_connect==2.3.14
+navis==1.12.0
+flybrains==0.6.3
+neuprint-python==0.6.3
+python-catmaid==2.4.2
+jsonpath_rw==1.4.0
+
+# --- plotting / notebook stack: floors only ---
+plotly>=6.0
+pandas>=2.2
+seaborn>=0.13
+matplotlib>=3.8
+ipywidgets>=8.1
