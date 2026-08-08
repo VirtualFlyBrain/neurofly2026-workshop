@@ -33,6 +33,11 @@ along at whatever technical level they're comfortable with.
 
 The canonical problems live in [`problems/`](problems/) and are reused across the notebooks.
 
+**Content specification:** [`DESIGN.md`](DESIGN.md) states, per module, the question asked, the
+exemplar data it is built on, and the result a learner should expect — all verified against live
+VFB. That document is what curators review; the notebooks are built from it. Change the exemplars
+there, not in the code.
+
 ## 3. Module outline (Python-first; R mirrors it)
 
 | # | Module | Core question | New-for-2026 emphasis |
@@ -144,7 +149,10 @@ these move.*
       Note: the `setuptools<58` pin appears obsolete — jsonpath-rw and colormath now build fine
       on setuptools 79.0.1 — but it is still in the notebook install cells and Dockerfile pending
       a check on Colab itself.
-- [ ] Decide the self-host target (Binder vs a VFB JupyterHub) and stand it up.
+- [ ] Publish the workshop image to Docker Hub alongside the other VirtualFlyBrain
+      containers, and document `docker run` as the supported self-host path (supersedes the
+      Binder-vs-JupyterHub question).
+- [ ] Curator review of [`DESIGN.md`](DESIGN.md), then rebuild the notebooks from it.
 
 ## 9. Worked example baked into the notebooks (all real, from live VFB)
 
