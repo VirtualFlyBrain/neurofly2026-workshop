@@ -30,6 +30,9 @@ fully scripted analysis:
 > The MCP tool and chat are **woven into every module**, not treated as an add-on. A short
 > *"when to reach for which"* box closes each problem.
 
+The questions each module asks, the exemplar data behind them and the results you should expect are
+specified in [`DESIGN.md`](DESIGN.md).
+
 ---
 
 ## 🚀 Getting started
