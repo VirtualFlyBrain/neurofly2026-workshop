@@ -48,7 +48,7 @@ identifiers rather than starting over each time.
 | **CURIE** | `FBbt:00067363` (symbol `DA1_lPN`) |
 | **Exact synonyms** | `DA1 lPN`, `iACT (DA1)`, `mALT (DA1)` |
 | **What it is** | Adult uniglomerular antennal lobe projection neuron from the dorsal hemilineage of the lateral neuroblast (ALl1); dendrites mainly in antennal lobe glomerulus DA1; innervates the mushroom body calyx and the anterior edge of the lateral horn; cholinergic; fasciculates with the medial antennal lobe tract |
-| **Also classified as** | adult *fruitless* aDT-e (female) neuron (`FBbt:00110423`) |
+| **Also classified as** | adult *fruitless* aDT-e (female) neuron (`FBbt:00110423`) — in the female datasets only; see module 02 |
 | **Sources** | Bates et al. 2020 (FBrf0246460); Marin et al. 2002 (FBrf0146917); Cachero et al. 2010 (FBrf0211926); Ito et al. 2013 (FBrf0221438); Tanaka et al. 2004 (FBrf0174482) |
 | **Example individual** | `VFB_jrchjtdb` — DA1_lPN_R, hemibrain bodyId 1734350908 |
 | **FlyWire counterpart** | `VFB_fw035286` |
@@ -158,9 +158,29 @@ across two calls will read it as a disagreement.
 > the ontology carries them is useful) or a distraction we should suppress by pinning the label
 > form? My inclination is to show it once, in this module, and explain it.
 >
-> **[CURATOR]** The dual typing — every DA1 lPN is also an *adult fruitless aDT-e (female) neuron*
-> — is a good illustration of multiple inheritance, but "female" on a neuron in the **male**-CNS
-> dataset needs a sentence of explanation. What is the right one?
+**The dual typing splits by dataset, and the split is worth looking at.** Verified 2026-08-08,
+counting how many DA1 lPN individuals also carry *adult fruitless aDT-e (female) neuron*
+(`FBbt:00110423`) as a parent:
+
+| Dataset | Typed as *fru* aDT-e (female) |
+|---|---|
+| BANC | 18 / 18 |
+| FlyWire | 15 / 15 |
+| hemibrain | 7 / 7 |
+| FAFB | **8 / 15** |
+| male-CNS | **0 / 13** |
+
+male-CNS carrying none of it is consistent — that dataset is male, and the other four are female or
+female-derived, so the female typing is correctly withheld rather than missing. FAFB splitting
+8/7 *within one dataset* is the one that looks like annotation coverage rather than biology.
+
+> **[CURATOR]** Is the FAFB 8-of-15 split a curation gap, or is there a reason those seven cells
+> are not typed as *fruitless* aDT-e? If it is a gap, this is a good honest teaching moment about
+> integration — but only if we can say which it is.
+>
+> **[CURATOR]** Multiple inheritance is worth showing, and the sex split makes it concrete. Is
+> "the female typing is absent from male-CNS because that specimen is male" the explanation you
+> would give, or is there more to it?
 
 ---
 
