@@ -2,10 +2,10 @@
 {{ partial "route-selector.html" . }}
 
 <div class="doc">
-  <nav class="doc__side" open>
+  <details class="doc__side" open>
     <summary>
       <span class="tree__label">Problems</span>
-      <i class="fas fa-chevron-down"></i>
+      <i class="fas fa-chevron-down" aria-hidden="true"></i>
     </summary>
     <ul class="tree">
       {{ $currentPage := . }}
@@ -17,14 +17,16 @@
       </li>
       {{ end }}
     </ul>
-  </nav>
+  </details>
   
   <article class="doc__main">
-    <ul class="breadcrumb">
-      <li><a href="{{ .Site.BaseURL }}">Home</a></li>
-      <li><a href="{{ "/problems/" | relURL }}">Problems</a></li>
-      <li>{{ .Title }}</li>
-    </ul>
+    <nav aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li><a href="{{ .Site.Home.Permalink }}">Home</a></li>
+        <li><a href="{{ "/problems/" | relURL }}">Problems</a></li>
+        <li>{{ .Title }}</li>
+      </ol>
+    </nav>
     
     <header class="doc__header">
       <h1>{{ .Title }}</h1>
