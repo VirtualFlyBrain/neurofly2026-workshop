@@ -90,21 +90,25 @@ paginate = 50
     desc = "Conference homepage"
 
 [[menu.main]]
-  name = "Home"
-  url = "/"
+  name = "Virtual Fly Brain"
+  url = "https://virtualflybrain.org"
   weight = 10
+[[menu.main]]
+  name = "Workshop"
+  url = "/"
+  weight = 20
 [[menu.main]]
   name = "Problems"
   url = "/problems/"
-  weight = 20
+  weight = 30
 [[menu.main]]
   name = "Python"
   url = "https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/python/00_Setup_and_Orientation.ipynb"
-  weight = 30
+  weight = 40
 [[menu.main]]
   name = "No-Code"
   url = "/no-code/"
-  weight = 40
+  weight = 50
 [[menu.main]]
   name = "Launch VFB"
   url = "https://v2.virtualflybrain.org/"
