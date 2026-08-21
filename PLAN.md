@@ -126,8 +126,7 @@ these move.*
       (per-instance `get_neurons_downstream_of` returned nothing here); NBLAST output column is
       `score` not `NBLAST_score`; browse-new-datasets uses a `data_source` filter, not
       `get_instances_by_dataset('BANC')` (which returned empty — needs the exact dataset id).
-- [x] Confirmed the Colab/pip install needs `setuptools<58` first (jsonpath-rw / colormath build
-      on modern setuptools otherwise fails) — baked into the setup notebook, requirements, Dockerfile.
+- [x] Confirmed the Colab/pip install works with the current VFB stack and modern setuptools.
 - [x] Full cell-by-cell execution of every module + reference notebook, then pin exact dep versions.
       All 13 notebooks now execute clean against live VFB (harness: `tools/run_notebooks.py`,
       re-run it before the event). Four defects found and fixed:
@@ -146,9 +145,7 @@ these move.*
       vfb_connect 2.3.14, navis 1.12.0, flybrains 0.6.3, neuprint-python 0.6.3,
       python-catmaid 2.4.2, jsonpath_rw 1.4.0 (VFB stack hard-pinned; pandas/matplotlib/seaborn/
       ipywidgets/plotly floors only, so Colab isn't force-downgraded into a runtime restart).
-      Note: the `setuptools<58` pin appears obsolete — jsonpath-rw and colormath now build fine
-      on setuptools 79.0.1 — but it is still in the notebook install cells and Dockerfile pending
-      a check on Colab itself.
+      Note: jsonpath-rw and colormath build cleanly on modern setuptools (verified on 79.0.1).
 - [ ] Publish the workshop image to Docker Hub alongside the other VirtualFlyBrain
       containers, and document `docker run` as the supported self-host path (supersedes the
       Binder-vs-JupyterHub question).

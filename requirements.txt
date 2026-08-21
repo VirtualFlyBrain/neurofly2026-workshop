@@ -7,11 +7,6 @@
 # downgraded — a pandas or matplotlib downgrade needs a runtime restart on
 # Colab, which derails a live session.
 #
-# vfb_connect pulls two legacy sdists (jsonpath-rw, colormath). These used to
-# need setuptools<58 to build; as of 2026-07 they build cleanly on modern
-# setuptools (verified on 79.0.1), so the pin is no longer listed here. The
-# Dockerfile keeps it defensively for the pre-built image.
-
 # --- VFB stack: pinned exactly ---
 vfb_connect==2.3.14
 navis==1.12.0
