@@ -1,10 +1,33 @@
 {{ define "main" }}
 <div class="doc">
-  <article class="doc__main">
-    <ul class="breadcrumb">
-      <li><a href="{{ .Site.BaseURL }}">Home</a></li>
-      <li>{{ .Title }}</li>
+  <details class="doc__side" open>
+    <summary>
+      <span class="tree__label">Contents</span>
+      <i class="fas fa-chevron-down" aria-hidden="true"></i>
+    </summary>
+    <ul class="tree">
+      {{ $currentPage := . }}
+      {{ range .Site.RegularPages.ByWeight }}
+      <li>
+        <a href="{{ .Permalink }}"{{ if eq . $currentPage }} class="is-active"{{ end }}>
+          {{ .Title }}
+        </a>
+      </li>
+      {{ end }}
     </ul>
+  </details>
+  
+  <article class="doc__main">
+    <nav aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li><a href="{{ .Site.Home.Permalink }}">Home</a></li>
+        {{ with .Parent }}
+        {{ if not .IsHome }}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+        {{ end }}
+        {{ end }}
+      </ol>
+    </nav>
     
     <header class="doc__header">
       <h1>{{ .Title }}</h1>
