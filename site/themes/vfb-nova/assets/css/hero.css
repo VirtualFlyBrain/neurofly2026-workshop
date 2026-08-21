@@ -203,3 +203,14 @@
 .notice i { color: var(--signal); margin-top: .2rem; font-size: 1.1rem; }
 .notice strong { color: var(--text); }
 .notice p:last-child { margin-bottom: 0; }
+
+.hero__news-icon--fly {
+  background: var(--grad-brand);
+  color: #05070e;
+}
+
+.hero__news-icon--fly svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: currentColor;
+}
