@@ -35,5 +35,7 @@
   {{ partial "footer.html" . }}
   
   {{ block "scripts" . }}{{ end }}
+  
+  {{ if .IsHome }}{{ partialCached "script-connectome.html" . }}{{ end }}
 </body>
 </html>
