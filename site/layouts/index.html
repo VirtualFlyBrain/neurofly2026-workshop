@@ -1,58 +1,97 @@
 {{ define "main" }}
-<div class="hero">
-  <div class="hero__bg"></div>
+<section class="hero">
+  <canvas id="connectome" aria-hidden="true"></canvas>
   <div class="wrap">
-    <div class="hero__content">
-      <p class="eyebrow">NeuroFly 2026 · 7–11 September · University of Cologne</p>
-      <h1 class="hero__title">
-        Bridging <span class="gradient-text">connectomes</span> and <span class="gradient-text">transcriptomics</span>
-      </h1>
-      <p class="lede">
-        Interactive workshop materials from <a href="https://virtualflybrain.org">Virtual Fly Brain</a>. 
-        Learn to find, bridge, visualise and analyse neurons across datasets — three ways.
-      </p>
-      <div class="hero__actions">
-        <a href="#problems" class="btn btn--primary">
-          <i class="fas fa-arrow-right"></i>
-          Start the Workshop
-        </a>
-        <a href="https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/python/00_Setup_and_Orientation.ipynb" class="btn" target="_blank" rel="noopener">
-          <i class="fab fa-google"></i>
-          Open in Colab
-        </a>
+    <div class="hero__grid">
+      <div class="hero__main">
+        <p class="eyebrow">NeuroFly 2026 · 7–11 September · University of Cologne</p>
+        <h1 class="hero__title">
+          Bridging <em>connectomes</em> and <em>transcriptomics</em>
+        </h1>
+        <p class="hero__sub">
+          Interactive workshop materials from <a href="https://virtualflybrain.org">Virtual Fly Brain</a>.
+          Learn to find, bridge, visualise and analyse neurons across datasets — three ways.
+        </p>
+        <div class="hero__actions">
+          <a href="#problems" class="btn btn--primary btn--lg">
+            <i class="fas fa-arrow-right"></i>
+            Start the Workshop
+          </a>
+          <a href="https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/python/00_Setup_and_Orientation.ipynb" class="btn btn--lg" target="_blank" rel="noopener">
+            <i class="fab fa-google"></i>
+            Open in Colab
+          </a>
+        </div>
       </div>
+      <aside class="hero__aside reveal">
+        <h3>Workshop Tracks</h3>
+        <a class="hero__news" href="#problems">
+          <span class="hero__news-icon"><i class="fas fa-flask"></i></span>
+          <span class="hero__news-title">Python Track</span>
+          <span class="hero__news-desc">Scriptable analysis with vfb_connect API</span>
+        </a>
+        <a class="hero__news" href="/no-code/">
+          <span class="hero__news-icon"><i class="fas fa-comments"></i></span>
+          <span class="hero__news-title">No-Code Track</span>
+          <span class="hero__news-desc">Natural language exploration with VFB Chat & MCP</span>
+        </a>
+        <a class="hero__news" href="https://v2.virtualflybrain.org/" target="_blank" rel="noopener">
+          <span class="hero__news-icon"><i class="fas fa-cube"></i></span>
+          <span class="hero__news-title">3D Browser</span>
+          <span class="hero__news-desc">Interactive visualization in VFB Circuit Browser</span>
+        </a>
+        <a class="btn btn--ghost btn--sm" href="/problems/">
+          All problems <i class="fas fa-arrow-right"></i>
+        </a>
+      </aside>
     </div>
   </div>
-</div>
+  <div class="scroll-cue" aria-hidden="true">
+    <span></span>
+  </div>
+</section>
 
 <section class="section" id="problems">
   <div class="wrap">
-    <h2>One Problem, Three Routes</h2>
-    <p class="lede">
-      The workshop is built around real research questions. For each one we show the same answer via three routes, 
-      so you can pick whichever fits your workflow.
-    </p>
+    <div class="section__head reveal">
+      <div>
+        <p class="eyebrow">Workshop Problems</p>
+        <h2>One Problem, Three Routes</h2>
+        <p>The workshop is built around real research questions. For each one we show the same answer via three routes,
+        so you can pick whichever fits your workflow.</p>
+      </div>
+      <a class="btn btn--ghost" href="/problems/">
+        Browse all problems <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
     
     {{ partial "route-selector.html" . }}
     
     <div class="grid" style="margin-top: var(--sp-6);">
       {{ range .Site.RegularPages.ByWeight }}
-      <article class="card">
+      <article class="card reveal">
+        <span class="card__icon"><i class="fas fa-flask"></i></span>
         <h3 class="card__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
         <p class="card__body">{{ .Description }}</p>
         <div class="card__meta">
           <span class="pill"><i class="fas fa-route"></i> {{ .Params.route | default "python" }}</span>
         </div>
+        <span class="card__arrow">View problem <i class="fas fa-arrow-right"></i></span>
       </article>
       {{ end }}
     </div>
   </div>
 </section>
 
-<section class="section section--tight">
-  <div class="wrap">
-    <h2>What's New for 2026</h2>
-    <div class="prose" style="max-width: 80ch;">
+<section class="section band">
+  <div class="wrap wrap--narrow">
+    <div class="section__head reveal">
+      <div>
+        <p class="eyebrow">What's New for 2026</p>
+        <h2>Expanded Connectome Coverage</h2>
+      </div>
+    </div>
+    <div class="prose reveal">
       <p>The fly CNS is now covered by whole-CNS and sex-specific connectomes that didn't exist (or weren't integrated) at the last workshop:</p>
       <ul>
         <li><strong>BANC</strong> (Brain And Nerve Cord) — whole adult CNS</li>
@@ -64,4 +103,79 @@
     </div>
   </div>
 </section>
+
+<script>
+// Simple connectome canvas animation - particle network resembling neural connections
+(function() {
+  const canvas = document.getElementById('connectome');
+  if (!canvas) return;
+  
+  const ctx = canvas.getContext('2d');
+  let width, height;
+  let particles = [];
+  
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    initParticles();
+  }
+  
+  function initParticles() {
+    const count = Math.min(80, Math.floor((width * height) / 15000));
+    particles = [];
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        r: Math.random() * 2 + 1
+      });
+    }
+  }
+  
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+    
+    // Draw connections
+    ctx.strokeStyle = 'rgba(76, 141, 255, 0.15)';
+    ctx.lineWidth = 0.5;
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    
+    // Draw particles
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(53, 231, 224, 0.6)';
+      ctx.fill();
+    });
+    
+    // Update positions
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > width) p.vx *= -1;
+      if (p.y < 0 || p.y > height) p.vy *= -1;
+    });
+    
+    requestAnimationFrame(draw);
+  }
+  
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+})();
+</script>
 {{ end }}
