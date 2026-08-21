@@ -37,9 +37,18 @@ mcp_prompt: |
   Starting from the mushroom body: find its intrinsic neuron types, pick one, show it, list its main partners, find its closest match in another connectome, and summarise any expression data — give me all the VFB IDs so I can reproduce this in vfb_connect.
 
 chat_content: |
-  Walk through the same chain one question at a time in chat.
+  Walk through the same chain one question at a time in chat. Each question builds on the previous answer.
+  
+  **Step-by-step prompts:**
+  1. "What neuron types are intrinsic to the mushroom body?"
+  2. "Show me instances of [type from step 1] with VFB IDs"
+  3. "What are the top 5 downstream partners of [ID from step 2]?"
+  4. "Find the cross-dataset match for [ID from step 2] in another connectome"
+  5. "What expression data exists for [type from step 1]?"
 
-chat_query: "What neuron types are in the mushroom body?"
+chat_screenshot: "/img/chat-p7-together.png"
+
+chat_screenshot_alt: "VFB Chat showing multi-step conversation exploring mushroom body neurons through discovery, visualization, connectivity, and expression"
 
 browser_content: |
   Explore the complete workflow in the Circuit Browser.

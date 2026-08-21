@@ -25,8 +25,14 @@ mcp_prompt: |
 
 chat_content: |
   Chat can help you find neurons to visualise, though for publication-quality figures you'll want the Python API.
+  
+  **Optimized prompt:** Ask for the image link and key morphology facts.
 
-chat_query: "Show me what neuron VFB_jrchjtdb looks like."
+chat_query: "Show me the 3D image of neuron VFB_jrchjtdb. What are its main morphological features and which brain region is it in?"
+
+chat_screenshot: "/img/chat-p3-visualisation.png"
+
+chat_screenshot_alt: "VFB Chat showing 3D viewer link and morphological description of neuron"
 
 browser_content: |
   The Circuit Browser provides interactive 3D visualization with no code.

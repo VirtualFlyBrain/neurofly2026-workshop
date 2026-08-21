@@ -25,8 +25,14 @@ mcp_prompt: |
 
 chat_content: |
   VFB Chat provides a zero-install way to discover neurons. It stays focused on Drosophila neuroanatomy and answers from VFB's data.
+  
+  **Optimized prompt:** Ask for the count and list with IDs in one question.
 
-chat_query: "Where do I find DA1 lPN neurons in VFB, and which connectomes have them?"
+chat_query: "List all DA1 lPN neurons in VFB with their VFB IDs and which datasets they're in (FlyWire, hemibrain, BANC, etc)."
+
+chat_screenshot: "/img/chat-p1-discovery.png"
+
+chat_screenshot_alt: "VFB Chat showing 68 DA1 lPN neurons listed with VFB IDs and dataset names"
 
 browser_content: |
   The 3D Circuit Browser lets you explore neuron instances spatially. Search for the type and see all instances overlaid in template space.

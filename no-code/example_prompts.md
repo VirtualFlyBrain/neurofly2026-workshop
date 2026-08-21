@@ -1,43 +1,119 @@
-# Example prompts — MCP (B) & chat (C), by problem
+# Optimized Chat Prompts — by Problem
 
-Copy-paste starting points for the natural-language routes. Each maps to a problem card in
-[`../problems/`](../problems/) and to the Python route (A) in the notebooks. Adjust the neuron type,
-region, gene or dataset to your own interest.
+Copy-paste starting points for VFB Chat. Each maps to a problem card in [`../problems/`](../problems/) and to the Python route (A) in the notebooks.
 
-> Tip: end MCP/chat prompts with *"…and list the VFB IDs"* so you can reproduce the result with
-> `vfb_connect`.
+> **Tip:** Always end with *"…and give me the VFB IDs"* so you can reproduce results with `vfb_connect`.
+
+---
 
 ## P1 · Discovery — find a neuron type across datasets
-- **B (MCP):** "Search VFB for the neuron type 'DA1 lPN' (or a type I care about) and list every
-  individual neuron across all datasets, with their dataset and VFB ID."
-- **C (chat):** "Where do I find DA1 lPN neurons in VFB, and which connectomes have them?"
+
+**Goal:** Find every instance of a neuron type with IDs and dataset names
+
+**Optimized Chat Prompt:**
+> "List all DA1 lPN neurons in VFB with their VFB IDs and which datasets they're in (FlyWire, hemibrain, BANC, etc)."
+
+**Expected Answer:** ~68 individual neurons with VFB IDs across FlyWire, hemibrain, BANC, male-CNS, MANC, and optic lobe datasets.
+
+**Screenshot:** `/img/chat-p1-discovery.png`
+
+---
 
 ## P2 · Bridging — is this the same cell in another dataset?
-- **B:** "Here's a FlyWire neuron VFB_id X. Find the morphologically closest neuron in the hemibrain
-  and tell me if they're annotated as the same type."
-- **C:** "Is there a hemibrain equivalent of this FlyWire neuron, and do they share a cell type?"
+
+**Goal:** Cross-dataset identity via morphology and cell type
+
+**Optimized Chat Prompt:**
+> "Find the hemibrain neuron that matches FlyWire neuron VFB_fw035286. Are they the same cell type? Give me both VFB IDs."
+
+**Expected Answer:** Match confirmation with both VFB IDs and shared cell type annotation.
+
+**Screenshot:** `/img/chat-p2-bridging.png`
+
+---
 
 ## P3 · Visualisation — see neurons together
-- **B:** "Show me the 3D image of neuron X and two of its strongest partners in the same template."
-- **C:** "Show me what neuron X looks like."
+
+**Goal:** Quick 3D visualization and morphology summary
+
+**Optimized Chat Prompt:**
+> "Show me the 3D image of neuron VFB_jrchjtdb. What are its main morphological features and which brain region is it in?"
+
+**Expected Answer:** 3D viewer link plus key morphology facts (arborization pattern, brain region).
+
+**Screenshot:** `/img/chat-p3-visualisation.png`
+
+---
 
 ## P4 · Connectomics — strongest partners & pathway
-- **B:** "For neuron X, list the top 10 downstream partners by synaptic weight, and tell me which are
-  in the mushroom body."
-- **C:** "Who does neuron X connect to most strongly?"
+
+**Goal:** Top downstream partners with synaptic weights
+
+**Optimized Chat Prompt:**
+> "List the top 10 downstream partners of neuron VFB_jrchjtdb by synapse count. Include their VFB IDs, names, and synaptic weights."
+
+**Expected Answer:** Ranked list of 10 partners with VFB IDs, names, and synapse counts.
+
+**Screenshot:** `/img/chat-p4-connectomics.png`
+
+---
 
 ## P5 · Similarity / NBLAST — cross-dataset morphological match
-- **B:** "Run an NBLAST similarity query for neuron X and return the top matches with scores across
-  datasets; note which come from BANC or male-CNS."
-- **C:** "What neurons look most similar to neuron X?"
+
+**Goal:** Find morphologically similar neurons with scores
+
+**Optimized Chat Prompt:**
+> "What are the top 5 neurons most similar to VFB_jrchjtdb by NBLAST score? Include their VFB IDs, datasets, and similarity scores."
+
+**Expected Answer:** Top 5 matches with NBLAST scores, noting which come from BANC or male-CNS.
+
+**Screenshot:** `/img/chat-p5-similarity.png`
+
+---
 
 ## P6 · Transcriptomics — expression profile of a cell type
-- **B:** "For cell type T, what scRNAseq / expression data does VFB have, and which marker genes are
-  associated with it?"
-- **C:** "What genes are expressed in cell type T?"
 
-## P7 · Putting it together
-- **B:** "Starting from region R: find its intrinsic neuron types, pick one, show it, list its main
-  partners, find its closest match in another connectome, and summarise any expression data — give
-  me all the VFB IDs so I can reproduce this in vfb_connect."
-- **C:** Walk the same chain one question at a time.
+**Goal:** Expression data and marker genes for a cell type
+
+**Optimized Chat Prompt:**
+> "What scRNAseq expression data and marker genes are associated with the DA1 lPN cell type in VFB? List the genes with expression levels."
+
+**Expected Answer:** Expression profile with marker genes and their expression levels.
+
+**Screenshot:** `/img/chat-p6-transcriptomics.png`
+
+---
+
+## P7 · Putting it together — multi-step exploration
+
+**Goal:** Chain multiple questions to explore a brain region
+
+**Step-by-Step Prompts:**
+
+1. **Discovery:** "What neuron types are intrinsic to the mushroom body?"
+2. **Instances:** "Show me instances of [type from step 1] with VFB IDs"
+3. **Connectivity:** "What are the top 5 downstream partners of [ID from step 2]?"
+4. **Cross-dataset:** "Find the cross-dataset match for [ID from step 2] in another connectome"
+5. **Expression:** "What expression data exists for [type from step 1]?"
+
+**Expected Answer:** Complete workflow from region → type → instances → partners → matches → expression.
+
+**Screenshot:** `/img/chat-p7-together.png`
+
+---
+
+## Blank Question Template
+
+After working through these examples, use the [blank question template](/no-code/chat-template/) to explore your own neurons of interest.
+
+**Quick Tips:**
+- Name entities precisely (neuron type, VFB ID, FlyBase ID)
+- Always ask for VFB IDs for reproducibility
+- Specify datasets when it matters ("in FlyWire", "in BANC")
+- One step at a time — search, then drill in, then compare
+
+---
+
+**Compare with:**
+- **Python (A):** See notebooks in `../python/`
+- **MCP (B):** See setup guide in `../no-code/MCP_setup.md`

@@ -26,8 +26,14 @@ mcp_prompt: |
 
 chat_content: |
   Chat can provide connectivity summaries.
+  
+  **Optimized prompt:** Specify top N partners and ask for synaptic weights with IDs.
 
-chat_query: "Who does neuron VFB_jrchjtdb connect to most strongly?"
+chat_query: "List the top 10 downstream partners of neuron VFB_jrchjtdb by synapse count. Include their VFB IDs, names, and synaptic weights."
+
+chat_screenshot: "/img/chat-p4-connectomics.png"
+
+chat_screenshot_alt: "VFB Chat showing top 10 downstream partners with VFB IDs and synapse counts"
 
 browser_content: |
   The Circuit Browser shows connectivity graphically with interactive exploration.
