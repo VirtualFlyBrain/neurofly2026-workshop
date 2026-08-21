@@ -3,9 +3,21 @@ title: "No-Code Track"
 description: "Explore VFB with natural language — no Python required"
 ---
 
-## Two Routes, Zero Code
+## Three Routes to VFB Data
 
-You don't need to write code to explore VFB's data. We provide two natural-language routes for different needs:
+Choose the right tool for your needs:
+
+### Route A: Python (vfb_connect) — Bulk Analysis
+
+The [`vfb_connect`](https://pypi.org/project/vfb-connect/) Python API provides fast, programmatic access to VFB data.
+
+**Best for:** Large-scale analysis, reproducible pipelines, bulk data access, repeatable results
+
+**Example:**
+```python
+from vfb_connect import vfb
+df = vfb.get_instances("DA1 lPN")  # Returns DataFrame with all instances
+```
 
 ### Route C: VFB Chat — Quick & Easy
 
