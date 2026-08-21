@@ -1,0 +1,11 @@
+name = "VFB Nova"
+license = "MIT"
+licenselink = "https://github.com/VirtualFlyBrain/VFB2/blob/master/LICENSE"
+description = "Virtual Fly Brain design system"
+homepage = "https://virtualflybrain.org"
+tags = ["documentation", "dark", "scientific"]
+features = ["responsive", "dark mode", "custom branding"]
+
+[author]
+  name = "Virtual Fly Brain"
+  homepage = "https://virtualflybrain.org"

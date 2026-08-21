@@ -1,0 +1,128 @@
+{{/* Embedded VFB Chat — VFB Nova styled */}}
+{{ $query := .query | default "" }}
+<div class="embedded-chat">
+  <div class="embedded-chat__header">
+    <div class="embedded-chat__title">
+      <svg class="embedded-chat__icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M4.913 2.658c2.075-.255 4.106-.255 6.087 0 1.98.255 3.87.85 5.59 1.742 1.72.892 3.134 2.13 4.087 3.63.953 1.5 1.463 3.226 1.463 5.03 0 1.804-.51 3.53-1.463 5.03-.953 1.5-2.367 2.738-4.087 3.63-1.72.892-3.61 1.487-5.59 1.742-1.98.255-4.012.255-6.087 0-1.98-.255-3.87-.85-5.59-1.742-1.72-.892-3.134-2.13-4.087-3.63C.51 16.46 0 14.734 0 12.93c0-1.804.51-3.53 1.463-5.03.953-1.5 2.367-2.738 4.087-3.63 1.72-.892 3.61-1.487 5.59-1.742z"/>
+      </svg>
+      <span>VFB Chat</span>
+    </div>
+    <a href="https://chat.virtualflybrain.org/?query={{ $query | urlquery }}" 
+       target="_blank" 
+       rel="noopener"
+       class="embedded-chat__link btn btn--sm btn--ghost">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+      </svg>
+      <span>Open in new tab</span>
+    </a>
+  </div>
+  <div class="embedded-chat__container">
+    <iframe 
+      src="https://chat.virtualflybrain.org/?query={{ $query | urlquery }}"
+      class="embedded-chat__iframe"
+      title="VFB Chat Interface"
+      loading="lazy"
+      allow="clipboard-read; clipboard-write">
+    </iframe>
+  </div>
+  <div class="embedded-chat__footer">
+    <p class="embedded-chat__note">
+      <strong>Tip:</strong> End your questions with "and give me the VFB IDs" to get identifiers you can use in Python.
+    </p>
+  </div>
+</div>
+
+<style>
+.embedded-chat {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--elev-1);
+  border: 1px solid var(--line);
+  margin: var(--sp-5) 0;
+  box-shadow: var(--shadow-1);
+}
+
+.embedded-chat__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--surface);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.embedded-chat__title {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-display);
+  font-size: var(--step-0);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.embedded-chat__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--cyan);
+}
+
+.embedded-chat__link {
+  color: var(--brand);
+}
+
+.embedded-chat__link:hover {
+  color: var(--cyan);
+}
+
+.embedded-chat__container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background: var(--bg);
+}
+
+.embedded-chat__iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: var(--bg);
+}
+
+.embedded-chat__footer {
+  padding: var(--sp-3) var(--sp-5);
+  background: var(--surface);
+  border-top: 1px solid var(--line-soft);
+}
+
+.embedded-chat__note {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: .885rem;
+  color: var(--text-dim);
+}
+
+.embedded-chat__note strong {
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .embedded-chat__container {
+    height: 450px;
+  }
+  
+  .embedded-chat__header {
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+  }
+  
+  .embedded-chat__link span {
+    display: none;
+  }
+}
+</style>

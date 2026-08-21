@@ -1,0 +1,49 @@
+{{/* Footer — VFB Nova style */}}
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <h4>About VFB</h4>
+        <ul>
+          <li><a href="https://virtualflybrain.org">Virtual Fly Brain</a></li>
+          <li><a href="https://v2.virtualflybrain.org/">Launch VFB</a></li>
+          <li><a href="https://chat.virtualflybrain.org">VFB Chat</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Workshop</h4>
+        <ul>
+          <li><a href="{{ "/problems/" | relURL }}">Problems</a></li>
+          <li><a href="https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/python/00_Setup_and_Orientation.ipynb">Python Notebooks</a></li>
+          <li><a href="{{ "/no-code/" | relURL }}">No-Code Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://github.com/VirtualFlyBrain/neurofly2026-workshop">GitHub</a></li>
+          <li><a href="https://neurofly.org/y2026/">NeuroFly 2026</a></li>
+          <li><a href="https://pypi.org/project/vfb-connect/">vfb_connect</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://virtualflybrain.bsky.social">Bluesky</a></li>
+          <li><a href="https://groups.google.com/g/vfb-suport">Support Forum</a></li>
+          <li><a href="mailto:support@virtualflybrain.org">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer__legal">
+      <p class="footer__credit">
+        &copy; {{ now.Year }} Virtual Fly Brain. Released under <a href="https://github.com/VirtualFlyBrain/neurofly2026-workshop/blob/main/LICENSE">GPL v2</a>.
+      </p>
+      <div class="footer__social">
+        <a href="https://github.com/VirtualFlyBrain" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://virtualflybrain.bsky.social" aria-label="Bluesky"><i class="fab fa-bluesky"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="doc">
+  <article class="doc__main">
+    <ul class="breadcrumb">
+      <li><a href="{{ .Site.BaseURL }}">Home</a></li>
+      <li>{{ .Title }}</li>
+    </ul>
+    
+    <header class="doc__header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}
+      <p class="lede">{{ . }}</p>
+      {{ end }}
+    </header>
+    
+    <div class="prose">
+      {{ .Content }}
+    </div>
+  </article>
+</div>
+{{ end }}

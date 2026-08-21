@@ -94,6 +94,8 @@ and a 2024 → 2026 diff.
 
 ## 💻 Self-hosting
 
+### JupyterLab (Notebooks)
+
 ```bash
 git clone https://github.com/VirtualFlyBrain/neurofly2026-workshop.git
 cd neurofly2026-workshop
@@ -101,8 +103,49 @@ pip install -r requirements.txt
 jupyter lab
 ```
 
-Or build the container: `docker build -t vfb-workshop . && docker run -p 8888:8888 vfb-workshop`.
+Or use Docker:
+```bash
+docker build -t vfb-workshop-notebooks .
+docker run -p 8888:8888 vfb-workshop-notebooks
+```
+
+Or pull the pre-built image:
+```bash
+docker pull virtualflybrain/vfb-workshop-notebooks:latest
+docker run -p 8888:8888 virtualflybrain/vfb-workshop-notebooks:latest
+```
+
 A [Binder](binder/) config is included for a free hosted session.
+
+### Workshop Website
+
+The workshop site is a Hugo static site with VFB Nova styling, featuring:
+- Sticky route selector (Python / MCP / Chat / 3D Browser)
+- Embedded VFB Chat with pre-filled queries
+- All 7 problem pages with route-specific content
+
+```bash
+# Build locally (requires Hugo)
+cd site
+hugo server
+
+# Or use Docker
+docker pull virtualflybrain/vfb-workshop-site:latest
+docker run -p 8080:80 virtualflybrain/vfb-workshop-site:latest
+```
+
+Open http://localhost:8080 in your browser.
+
+### CI/CD
+
+Both Docker images are built and pushed automatically on push to `main` or tags:
+
+| Image | Docker Hub | Description |
+|-------|------------|-------------|
+| Notebooks | [`virtualflybrain/vfb-workshop-notebooks`](https://hub.docker.com/r/virtualflybrain/vfb-workshop-notebooks) | JupyterLab with all dependencies |
+| Site | [`virtualflybrain/vfb-workshop-site`](https://hub.docker.com/r/virtualflybrain/vfb-workshop-site) | Hugo workshop website |
+
+Workflows are in [`.github/workflows/`](.github/workflows/). See [`.github/workflows/README.md`](.github/workflows/README.md) for setup instructions.
 
 ## 📜 Licence & citing
 

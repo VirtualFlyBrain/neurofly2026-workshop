@@ -1,0 +1,113 @@
+# =============================================================================
+# VFB Workshop — NeuroFly 2026
+# =============================================================================
+
+baseURL = "https://workshop.virtualflybrain.org/"
+title = "VFB Workshop — NeuroFly 2026"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+theme = "vfb-nova"
+
+enableGitInfo = false
+timeZone = "Europe/London"
+
+[security]
+  allowContent = ['^text/html$', '^text/markdown$', '^text/x-org$', '^text/asciidoc$']
+
+[module]
+  [[module.mounts]]
+    source = "content/en"
+    target = "content"
+
+[permalinks]
+  problems = "/problems/:slug/"
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML", "RSS"]
+  page = ["HTML"]
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.goldmark.parser]
+    [markup.goldmark.parser.attribute]
+      block = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+  [markup.highlight]
+    style = "github-dark"
+    noClasses = true
+    lineNos = false
+    tabWidth = 2
+
+[imaging]
+  resampleFilter = "CatmullRom"
+  quality = 82
+  anchor = "smart"
+
+paginate = 50
+
+[taxonomies]
+  tag = "tags"
+  route = "routes"
+
+[params]
+  description = "Bridging connectomes and transcriptomics across the Drosophila CNS — Interactive workshop materials for NeuroFly 2026"
+  tagline = "VFB Workshop — NeuroFly 2026"
+  copyright = "VirtualFlyBrain.org"
+  github_repo = "https://github.com/VirtualFlyBrain/neurofly2026-workshop"
+  github_branch = "main"
+
+  [params.ui]
+    navbar_logo = "vfb-logo.svg"
+    navbar_translucent_over_cover = false
+    sidebar_menu_compact = true
+    sidebar_menu_foldable = false
+    breadcrumb_disable = false
+
+[params.links]
+  [[params.links.user]]
+    name = "Virtual Fly Brain"
+    url = "https://virtualflybrain.org"
+    icon = "fa-solid fa-globe"
+    desc = "Virtual Fly Brain homepage"
+  [[params.links.user]]
+    name = "VFB Chat"
+    url = "https://chat.virtualflybrain.org"
+    icon = "fa-solid fa-comments"
+    desc = "Natural language interface to VFB"
+  [[params.links.user]]
+    name = "GitHub"
+    url = "https://github.com/VirtualFlyBrain/neurofly2026-workshop"
+    icon = "fa-brands fa-github"
+    desc = "Workshop source code"
+  [[params.links.user]]
+    name = "NeuroFly 2026"
+    url = "https://neurofly.org/y2026/"
+    icon = "fa-solid fa-calendar"
+    desc = "Conference homepage"
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 10
+[[menu.main]]
+  name = "Problems"
+  url = "/problems/"
+  weight = 20
+[[menu.main]]
+  name = "Python"
+  url = "https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/python/00_Setup_and_Orientation.ipynb"
+  weight = 30
+[[menu.main]]
+  name = "No-Code"
+  url = "/no-code/"
+  weight = 40
+[[menu.main]]
+  name = "Launch VFB"
+  url = "https://v2.virtualflybrain.org/"
+  weight = 90
+  [menu.main.params]
+    cta = true

@@ -1,0 +1,67 @@
+{{/* Top navigation — VFB Nova style */}}
+<nav class="nav" id="site-nav">
+  <div class="nav__inner">
+    <a href="{{ .Site.BaseURL }}" class="brand">
+      <span class="brand__mark">
+        <span class="fly-glyph"></span>
+      </span>
+      <span class="brand__name">VFB Workshop</span>
+      <span class="brand__sub">NeuroFly 2026</span>
+    </a>
+    
+    <ul class="nav__links" id="nav-links">
+      {{ range .Site.Menus.main -}}
+      <li class="nav__item">
+        <a href="{{ .URL }}" class="nav__link{{ if $.IsMenuCurrent "main" . }} is-active{{ end }}"
+           {{ with .Params.cta }}data-cta="true"{{ end }}>
+          {{ .Name }}
+        </a>
+      </li>
+      {{ end -}}
+    </ul>
+    
+    <div class="nav__tools">
+      <button class="icon-btn search-trigger" id="search-trigger" aria-label="Search">
+        <i class="fas fa-search"></i>
+      </button>
+      <button class="icon-btn nav__burger" id="nav-burger" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<script>
+(function() {
+  const nav = document.getElementById('site-nav');
+  const links = document.getElementById('nav-links');
+  const burger = document.getElementById('nav-burger');
+  
+  // Sticky state
+  const onScroll = () => {
+    if (window.scrollY > 50) {
+      nav.classList.add('is-stuck');
+    } else {
+      nav.classList.remove('is-stuck');
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  
+  // Mobile menu
+  if (burger) {
+    burger.addEventListener('click', () => {
+      links.classList.toggle('is-open');
+      const isOpen = links.classList.contains('is-open');
+      burger.setAttribute('aria-expanded', isOpen);
+    });
+  }
+  
+  // Close menu on link click
+  links.addEventListener('click', (e) => {
+    if (e.target.closest('a')) {
+      links.classList.remove('is-open');
+    }
+  });
+})();
+</script>

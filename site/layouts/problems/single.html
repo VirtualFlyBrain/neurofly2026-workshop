@@ -1,0 +1,117 @@
+{{ define "main" }}
+{{ partial "route-selector.html" . }}
+
+<div class="doc">
+  <nav class="doc__side" open>
+    <summary>
+      <span class="tree__label">Problems</span>
+      <i class="fas fa-chevron-down"></i>
+    </summary>
+    <ul class="tree">
+      {{ $currentPage := . }}
+      {{ range .Site.RegularPages.ByWeight }}
+      <li>
+        <a href="{{ .Permalink }}"{{ if eq . $currentPage }} class="is-active"{{ end }}>
+          {{ .Title }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </nav>
+  
+  <article class="doc__main">
+    <ul class="breadcrumb">
+      <li><a href="{{ .Site.BaseURL }}">Home</a></li>
+      <li><a href="{{ "/problems/" | relURL }}">Problems</a></li>
+      <li>{{ .Title }}</li>
+    </ul>
+    
+    <header class="doc__header">
+      <h1>{{ .Title }}</h1>
+      <p class="lede">{{ .Description }}</p>
+    </header>
+    
+    <div class="prose">
+      {{ .Content }}
+    </div>
+    
+    <div class="route-content" data-route-content="python">
+      <h2>Route A: Python API</h2>
+      {{ with .Params.python_content }}
+      <div class="prose">
+        {{ . | markdownify }}
+      </div>
+      {{ end }}
+    </div>
+    
+    <div class="route-content" data-route-content="mcp">
+      <h2>Route B: MCP Tool</h2>
+      {{ with .Params.mcp_content }}
+      <div class="prose">
+        {{ . | markdownify }}
+      </div>
+      {{ end }}
+      {{ with .Params.mcp_prompt }}
+      <div class="card" style="margin-top: var(--sp-4);">
+        <h4>Example Prompt</h4>
+        <pre><code>{{ . }}</code></pre>
+      </div>
+      {{ end }}
+    </div>
+    
+    <div class="route-content" data-route-content="chat">
+      <h2>Route C: VFB Chat</h2>
+      {{ with .Params.chat_content }}
+      <div class="prose">
+        {{ . | markdownify }}
+      </div>
+      {{ end }}
+      {{ with .Params.chat_query }}
+      {{ partial "embedded-chat.html" (dict "query" .) }}
+      {{ end }}
+    </div>
+    
+    <div class="route-content" data-route-content="browser">
+      <h2>Route D: 3D Circuit Browser</h2>
+      {{ with .Params.browser_content }}
+      <div class="prose">
+        {{ . | markdownify }}
+      </div>
+      {{ end }}
+      {{ with .Params.browser_url }}
+      <div class="card" style="margin-top: var(--sp-4);">
+        <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn--primary">
+          <i class="fas fa-external-link-alt"></i>
+          Open in Circuit Browser
+        </a>
+      </div>
+      {{ end }}
+    </div>
+    
+    {{ with .Params.when_to_use }}
+    <div class="card" style="margin-top: var(--sp-6);">
+      <h3>When to Reach for Which Route</h3>
+      <div class="prose">
+        {{ . | markdownify }}
+      </div>
+    </div>
+    {{ end }}
+  </article>
+  
+  <aside class="doc__toc">
+    <h4>On This Page</h4>
+    <nav id="TableOfContents">
+      {{ .TableOfContents }}
+    </nav>
+  </aside>
+</div>
+
+<style>
+.route-content { display: none; }
+.route-content:first-of-type { display: block; }
+</style>
+
+<script>
+// Route visibility handled by route-selector.html
+</script>
+{{ end }}

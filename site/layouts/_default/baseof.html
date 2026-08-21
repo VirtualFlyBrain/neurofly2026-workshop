@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Local CSS bundle -->
+  {{ $css := slice (resources.Get "css/tokens.css") (resources.Get "css/base.css") (resources.Get "css/nav.css") (resources.Get "css/docs.css") (resources.Get "css/palette.css") (resources.Get "css/prose.css") (resources.Get "css/cards.css") (resources.Get "css/hero.css") (resources.Get "css/content-hooks.css") (resources.Get "css/compat.css") }}
+  {{ $styles := $css | resources.Concat "css/bundle.css" | resources.Minify | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.Permalink }}">
+  
+  {{ block "head" . }}{{ end }}
+</head>
+<body class="js">
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  {{ partial "nav.html" . }}
+  
+  {{ block "header" . }}{{ end }}
+  
+  <main id="main">
+    {{ block "main" . }}{{ end }}
+  </main>
+  
+  {{ partial "footer.html" . }}
+  
+  {{ block "scripts" . }}{{ end }}
+</body>
+</html>
