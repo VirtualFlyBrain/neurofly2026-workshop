@@ -13,18 +13,18 @@
           Learn to find, bridge, visualise and analyse neurons across datasets — three ways.
         </p>
         <div class="hero__actions">
-          <a href="#problems" class="btn btn--primary btn--lg">
-            <i class="fas fa-arrow-right"></i>
-            Start the Workshop
+          <a href="/problems/p1-discovery/" class="btn btn--primary btn--lg">
+            <i class="fas fa-play"></i>
+            Start with P1: Discovery
           </a>
-          <a href="https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/python/00_Setup_and_Orientation.ipynb" class="btn btn--lg" target="_blank" rel="noopener">
-            <i class="fab fa-google"></i>
-            Open in Colab
+          <a href="/problems/" class="btn btn--lg">
+            <i class="fas fa-list"></i>
+            Browse All Problems
           </a>
         </div>
       </div>
       <aside class="hero__aside reveal">
-        <h3>Workshop Tracks</h3>
+        <h3>Choose Your Route</h3>
         <a class="hero__news" href="#problems">
           <span class="hero__news-icon"><i class="fas fa-flask"></i></span>
           <span class="hero__news-title">Python (vfb_connect)</span>
@@ -49,9 +49,6 @@
           <span class="hero__news-title">3D Browser</span>
           <span class="hero__news-desc">Interactive visualization</span>
         </a>
-        <a class="btn btn--ghost btn--sm" href="/problems/">
-          All problems <i class="fas fa-arrow-right"></i>
-        </a>
       </aside>
     </div>
   </div>
@@ -60,34 +57,51 @@
   </div>
 </section>
 
-<section class="section" id="problems">
+<section class="section" id="how-it-works">
   <div class="wrap">
     <div class="section__head reveal">
       <div>
-        <p class="eyebrow">Workshop Problems</p>
-        <h2>One Problem, Three Routes</h2>
-        <p>The workshop is built around real research questions. For each one we show the same answer via three routes,
-        so you can pick whichever fits your workflow.</p>
+        <p class="eyebrow">How It Works</p>
+        <h2>One Problem, Solved Three Ways</h2>
+        <p>The workshop is built around seven real research questions. For each one, choose your preferred route based on your workflow and needs.</p>
       </div>
-      <a class="btn btn--ghost" href="/problems/">
-        Browse all problems <i class="fas fa-arrow-right"></i>
-      </a>
     </div>
     
-    {{ partial "route-selector.html" . }}
+    <div class="grid grid--3" style="margin-top: var(--sp-6);">
+      <div class="card reveal">
+        <span class="card__icon"><i class="fas fa-code"></i></span>
+        <h3 class="card__title">1. Pick Your Route</h3>
+        <p class="card__body">
+          <strong>Python</strong> for reproducible analysis · 
+          <strong>Chat</strong> for quick answers · 
+          <strong>MCP</strong> for LLM-powered exploration · 
+          <strong>3D Browser</strong> for visualization
+        </p>
+      </div>
+      <div class="card reveal">
+        <span class="card__icon"><i class="fas fa-list-ol"></i></span>
+        <h3 class="card__title">2. Work Through Problems</h3>
+        <p class="card__body">
+          Start with <strong>P1: Discovery</strong> and progress through seven problems that build on each other, from finding neurons to integrating transcriptomics.
+        </p>
+      </div>
+      <div class="card reveal">
+        <span class="card__icon"><i class="fas fa-flag-checkered"></i></span>
+        <h3 class="card__title">3. Apply to Your Research</h3>
+        <p class="card__body">
+          Use the same workflows with your own neurons, regions, and genes. All examples include VFB IDs for reproducibility.
+        </p>
+      </div>
+    </div>
     
-    <div class="grid" style="margin-top: var(--sp-6);">
-      {{ range .Site.RegularPages.ByWeight }}
-      <article class="card reveal">
-        <span class="card__icon"><i class="fas fa-flask"></i></span>
-        <h3 class="card__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        <p class="card__body">{{ .Description }}</p>
-        <div class="card__meta">
-          <span class="pill"><i class="fas fa-route"></i> {{ .Params.route | default "python" }}</span>
-        </div>
-        <span class="card__arrow">View problem <i class="fas fa-arrow-right"></i></span>
-      </article>
-      {{ end }}
+    <div style="text-align: center; margin-top: var(--sp-7);">
+      <a href="/problems/p1-discovery/" class="btn btn--primary btn--lg">
+        <i class="fas fa-play"></i>
+        Start with P1: Discovery
+      </a>
+      <a href="/problems/" class="btn btn--ghost btn--lg" style="margin-left: var(--sp-4);">
+        View All Problems <i class="fas fa-arrow-right"></i>
+      </a>
     </div>
   </div>
 </section>
