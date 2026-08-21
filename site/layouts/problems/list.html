@@ -1,10 +1,28 @@
 {{ define "main" }}
 <div class="doc">
-  <article class="doc__main">
-    <ul class="breadcrumb">
-      <li><a href="{{ .Site.BaseURL }}">Home</a></li>
-      <li>{{ .Title }}</li>
+  <details class="doc__side" open>
+    <summary>
+      <span class="tree__label">Problems</span>
+      <i class="fas fa-chevron-down" aria-hidden="true"></i>
+    </summary>
+    <ul class="tree">
+      {{ range .RegularPages.ByWeight }}
+      <li>
+        <a href="{{ .Permalink }}"{{ if eq . $ }} class="is-active"{{ end }}>
+          {{ .Title }}
+        </a>
+      </li>
+      {{ end }}
     </ul>
+  </details>
+  
+  <article class="doc__main">
+    <nav aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li><a href="{{ .Site.Home.Permalink }}">Home</a></li>
+        <li>{{ .Title }}</li>
+      </ol>
+    </nav>
     
     <header class="doc__header">
       <h1>{{ .Title }}</h1>
@@ -15,29 +33,25 @@
       {{ .Content }}
     </div>
     
-    <div class="card-grid" style="margin-top: var(--sp-6);">
+    <div class="grid" style="margin-top: var(--sp-6);">
       {{ range .RegularPages.ByWeight }}
-      <article class="card">
-        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        <p>{{ .Description }}</p>
-        <a href="{{ .Permalink }}" class="btn btn--sm btn--ghost">
-          View Problem <i class="fas fa-arrow-right"></i>
-        </a>
+      <article class="card reveal">
+        <span class="card__icon"><i class="fas fa-flask"></i></span>
+        <h3 class="card__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        <p class="card__body">{{ .Description }}</p>
+        <div class="card__meta">
+          <span class="pill"><i class="fas fa-route"></i> {{ .Params.route | default "python" }}</span>
+        </div>
+        <span class="card__arrow">View problem <i class="fas fa-arrow-right"></i></span>
       </article>
       {{ end }}
     </div>
   </article>
   
   <aside class="doc__toc">
-    <h4>Problems</h4>
-    <nav>
-      <ul class="tree">
-        {{ range .RegularPages.ByWeight }}
-        <li>
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </li>
-        {{ end }}
-      </ul>
+    <h4>On This Page</h4>
+    <nav id="TableOfContents">
+      {{ .TableOfContents }}
     </nav>
   </aside>
 </div>
