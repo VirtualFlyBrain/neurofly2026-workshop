@@ -41,10 +41,12 @@ chat_content: |
   
   **Step-by-step prompts:**
   1. "What neuron types are intrinsic to the mushroom body?"
-  2. "Show me instances of [type from step 1] with VFB IDs"
-  3. "What are the top 5 downstream partners of [ID from step 2]?"
-  4. "Find the cross-dataset match for [ID from step 2] in another connectome"
-  5. "What expression data exists for [type from step 1]?"
+  2. "Show me instances of Kenyon cell with VFB IDs."
+  3. "What are the top 5 downstream partners of KCg-m_R?"
+  4. "Which neurons have a similar morphology to KCg-m_R?"
+  5. "What expression data exists for Kenyon cells?"
+  
+  Use the names the chat itself uses in its answers — plain names resolve better than IDs pasted into long questions.
 
 chat_screenshot: "/img/chat-p7-together.png"
 

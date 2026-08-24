@@ -11,9 +11,9 @@ Copy-paste starting points for VFB Chat. Each maps to a problem card in [`../pro
 **Goal:** Find every instance of a neuron type with IDs and dataset names
 
 **Optimized Chat Prompt:**
-> "List all DA1 lPN neurons in VFB with their VFB IDs and which datasets they're in (FlyWire, hemibrain, BANC, etc)."
+> "List the individual DA1 lPN neurons in VFB with VFB IDs and datasets."
 
-**Expected Answer:** ~68 individual neurons with VFB IDs across FlyWire, hemibrain, BANC, male-CNS, MANC, and optic lobe datasets.
+**Expected Answer:** 68 individual image records with VFB IDs across MaleCNS, FlyWire, hemibrain (FlyEM-HB) and BANC datasets.
 
 **Screenshot:** `/img/chat-p1-discovery.png`
 
@@ -24,9 +24,9 @@ Copy-paste starting points for VFB Chat. Each maps to a problem card in [`../pro
 **Goal:** Cross-dataset identity via morphology and cell type
 
 **Optimized Chat Prompt:**
-> "Find the hemibrain neuron that matches FlyWire neuron VFB_fw035286. Are they the same cell type? Give me both VFB IDs."
+> "Which FlyWire neuron is the closest NBLAST match to hemibrain neuron VFB_jrchjtdb? Give both VFB IDs, the score, and whether they are the same cell type."
 
-**Expected Answer:** Match confirmation with both VFB IDs and shared cell type annotation.
+**Expected Answer:** The closest FlyWire neuron with its NBLAST score (~0.68) and confirmation both are annotated DA1 lPN.
 
 **Screenshot:** `/img/chat-p2-bridging.png`
 
@@ -37,9 +37,9 @@ Copy-paste starting points for VFB Chat. Each maps to a problem card in [`../pro
 **Goal:** Quick 3D visualization and morphology summary
 
 **Optimized Chat Prompt:**
-> "Show me the 3D image of neuron VFB_jrchjtdb. What are its main morphological features and which brain region is it in?"
+> "Show me images of DA1_lPN_R and tell me its neurotransmitter and which brain regions it connects to."
 
-**Expected Answer:** 3D viewer link plus key morphology facts (arborization pattern, brain region).
+**Expected Answer:** Registered image thumbnails and formats, predicted neurotransmitter (acetylcholine), connected regions and partner counts.
 
 **Screenshot:** `/img/chat-p3-visualisation.png`
 
@@ -50,7 +50,7 @@ Copy-paste starting points for VFB Chat. Each maps to a problem card in [`../pro
 **Goal:** Top downstream partners with synaptic weights
 
 **Optimized Chat Prompt:**
-> "List the top 10 downstream partners of neuron VFB_jrchjtdb by synapse count. Include their VFB IDs, names, and synaptic weights."
+> "Which neurons are downstream of DA1_lPN_R? List the 10 strongest partners with synapse counts and VFB IDs."
 
 **Expected Answer:** Ranked list of 10 partners with VFB IDs, names, and synapse counts.
 
@@ -63,9 +63,9 @@ Copy-paste starting points for VFB Chat. Each maps to a problem card in [`../pro
 **Goal:** Find morphologically similar neurons with scores
 
 **Optimized Chat Prompt:**
-> "What are the top 5 neurons most similar to VFB_jrchjtdb by NBLAST score? Include their VFB IDs, datasets, and similarity scores."
+> "Which neurons have a similar morphology to DA1_lPN_R? Give the top 5 NBLAST matches with scores and which dataset each is from."
 
-**Expected Answer:** Top 5 matches with NBLAST scores, noting which come from BANC or male-CNS.
+**Expected Answer:** Top matches with NBLAST scores (best ~0.81), spread across hemibrain, FAFB, FlyWire and FlyCircuit.
 
 **Screenshot:** `/img/chat-p5-similarity.png`
 
@@ -76,9 +76,9 @@ Copy-paste starting points for VFB Chat. Each maps to a problem card in [`../pro
 **Goal:** Expression data and marker genes for a cell type
 
 **Optimized Chat Prompt:**
-> "What scRNAseq expression data and marker genes are associated with the DA1 lPN cell type in VFB? List the genes with expression levels."
+> "What scRNAseq expression data does VFB hold for Kenyon cells? Name the datasets and list the top marker genes with expression levels."
 
-**Expected Answer:** Expression profile with marker genes and their expression levels.
+**Expected Answer:** scRNAseq datasets (Davie 2018, Baker 2021) with top marker genes and per-cluster expression levels.
 
 **Screenshot:** `/img/chat-p6-transcriptomics.png`
 
@@ -91,10 +91,12 @@ Copy-paste starting points for VFB Chat. Each maps to a problem card in [`../pro
 **Step-by-Step Prompts:**
 
 1. **Discovery:** "What neuron types are intrinsic to the mushroom body?"
-2. **Instances:** "Show me instances of [type from step 1] with VFB IDs"
-3. **Connectivity:** "What are the top 5 downstream partners of [ID from step 2]?"
-4. **Cross-dataset:** "Find the cross-dataset match for [ID from step 2] in another connectome"
-5. **Expression:** "What expression data exists for [type from step 1]?"
+2. **Instances:** "Show me instances of Kenyon cell with VFB IDs."
+3. **Connectivity:** "What are the top 5 downstream partners of KCg-m_R?"
+4. **Cross-dataset:** "Which neurons have a similar morphology to KCg-m_R?"
+5. **Expression:** "What expression data exists for Kenyon cells?"
+
+Substitute the type and neuron names from each answer — and use the names the chat itself uses.
 
 **Expected Answer:** Complete workflow from region → type → instances → partners → matches → expression.
 
@@ -107,9 +109,9 @@ Copy-paste starting points for VFB Chat. Each maps to a problem card in [`../pro
 After working through these examples, use the [blank question template](/no-code/chat-template/) to explore your own neurons of interest.
 
 **Quick Tips:**
-- Name entities precisely (neuron type, VFB ID, FlyBase ID)
+- Keep each question to one plainly-named entity — short questions resolve best
+- Prefer the names the chat uses in its answers (e.g. `DA1_lPN_R`) over IDs pasted into long questions; parenthesised IDs like "(FlyEM-HB:...)" often fail to resolve
 - Always ask for VFB IDs for reproducibility
-- Specify datasets when it matters ("in FlyWire", "in BANC")
 - One step at a time — search, then drill in, then compare
 
 ---

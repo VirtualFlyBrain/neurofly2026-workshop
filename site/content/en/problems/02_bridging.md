@@ -27,13 +27,13 @@ mcp_prompt: |
 chat_content: |
   Chat can help you explore candidate matches across datasets.
   
-  **Optimized prompt:** Give the specific ID and ask for the match with type confirmation.
+  **Optimized prompt:** Give the specific VFB ID and ask for the match, score, and type confirmation.
 
-chat_query: "Find the hemibrain neuron that matches FlyWire neuron VFB_fw035286. Are they the same cell type? Give me both VFB IDs."
+chat_query: "Which FlyWire neuron is the closest NBLAST match to hemibrain neuron VFB_jrchjtdb? Give both VFB IDs, the score, and whether they are the same cell type."
 
 chat_screenshot: "/img/chat-p2-bridging.png"
 
-chat_screenshot_alt: "VFB Chat showing cross-dataset match between FlyWire and hemibrain neurons with cell type confirmation"
+chat_screenshot_alt: "VFB Chat matching hemibrain DA1_lPN_R to its closest FlyWire neuron by NBLAST score with cell type confirmation"
 
 browser_content: |
   Visualize both neurons together in template space to assess morphological similarity.

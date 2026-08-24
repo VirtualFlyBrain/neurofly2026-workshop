@@ -14,3 +14,4 @@ python/swc/
 # Local test-run artefacts (see PLAN.md §7 cell-by-cell execution).
 _exec/
 run.log
+_to_delete/

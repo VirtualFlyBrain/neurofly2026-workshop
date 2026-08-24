@@ -29,11 +29,11 @@ chat_content: |
   
   **Optimized prompt:** Specify top N partners and ask for synaptic weights with IDs.
 
-chat_query: "List the top 10 downstream partners of neuron VFB_jrchjtdb by synapse count. Include their VFB IDs, names, and synaptic weights."
+chat_query: "Which neurons are downstream of DA1_lPN_R? List the 10 strongest partners with synapse counts and VFB IDs."
 
 chat_screenshot: "/img/chat-p4-connectomics.png"
 
-chat_screenshot_alt: "VFB Chat showing top 10 downstream partners with VFB IDs and synapse counts"
+chat_screenshot_alt: "VFB Chat ranking the 10 strongest downstream partners of DA1_lPN_R with synapse counts and VFB IDs"
 
 browser_content: |
   The Circuit Browser shows connectivity graphically with interactive exploration.

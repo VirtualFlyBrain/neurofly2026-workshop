@@ -29,11 +29,11 @@ chat_content: |
   
   **Optimized prompt:** Ask for both expression profile and marker genes with IDs.
 
-chat_query: "What scRNAseq expression data and marker genes are associated with the DA1 lPN cell type in VFB? List the genes with expression levels."
+chat_query: "What scRNAseq expression data does VFB hold for Kenyon cells? Name the datasets and list the top marker genes with expression levels."
 
 chat_screenshot: "/img/chat-p6-transcriptomics.png"
 
-chat_screenshot_alt: "VFB Chat showing expression profile with marker genes and expression levels for DA1 lPN"
+chat_screenshot_alt: "VFB Chat showing scRNAseq datasets and marker gene expression levels for Kenyon cells"
 
 browser_content: |
   The Circuit Browser can overlay expression data on neurons.

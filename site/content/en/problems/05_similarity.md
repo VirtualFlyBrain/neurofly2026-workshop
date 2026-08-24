@@ -25,11 +25,11 @@ chat_content: |
   
   **Optimized prompt:** Ask for top matches with scores and dataset names.
 
-chat_query: "What are the top 5 neurons most similar to VFB_jrchjtdb by NBLAST score? Include their VFB IDs, datasets, and similarity scores."
+chat_query: "Which neurons have a similar morphology to DA1_lPN_R? Give the top 5 NBLAST matches with scores and which dataset each is from."
 
 chat_screenshot: "/img/chat-p5-similarity.png"
 
-chat_screenshot_alt: "VFB Chat showing top 5 NBLAST matches with scores and dataset names"
+chat_screenshot_alt: "VFB Chat showing top NBLAST matches for DA1_lPN_R with scores across hemibrain, FAFB, FlyWire and FlyCircuit"
 
 browser_content: |
   The Circuit Browser includes NBLAST search functionality.
