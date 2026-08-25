@@ -114,6 +114,13 @@ browser_content: |
 
 browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=FBbt_00067363"
 
+try_next: |
+  All of these are known to work — run them yourself and see what changes:
+
+  - **Scale shock (Python):** `vfb.get_instances("alpha/beta Kenyon cell")` returns **7,212** records to DA1 lPN's 68. Which datasets contribute the most, and why might a numerous cell type be *less* completely catalogued?
+  - **Chat:** ask *"What is DA1 lPN?"* for the ontology view with literature sources — then follow one of the EXPLORE chips it offers.
+  - **Browser:** on the DA1 lPN term page, run *Subclasses of adult antennal lobe projection neuron DA1* from its parent type to meet the sibling glomerular types.
+
 when_to_use: |
   - **Chat** to find the right name fast and get oriented
   - **MCP** when you want conversational search with structured output
@@ -124,10 +131,3 @@ The ontology gives each cell type one name, so a single query spans FlyWire, hem
 
 **Key question:** *Find all instances of a neuron type across every dataset.*
 
-### Try it next
-
-All of these are known to work — run them yourself and see what changes:
-
-- **Scale shock (Python):** `vfb.get_instances("alpha/beta Kenyon cell")` returns **7,212** records to DA1 lPN's 68. Which datasets contribute the most, and why might a numerous cell type be *less* completely catalogued?
-- **Chat:** ask *"What is DA1 lPN?"* for the ontology view with literature sources — then follow one of the EXPLORE chips it offers.
-- **Browser:** on the DA1 lPN term page, run *Subclasses of adult antennal lobe projection neuron DA1* from its parent type to meet the sibling glomerular types.

@@ -78,6 +78,11 @@ browser_content: |
 
 browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=FBbt_00003686"
 
+try_next: |
+  - **Subtype contrast:** profile `"adult Kenyon cell"` (69,168 rows, ~70 s) and compare which markers separate the γ clusters from α/β in the Davie 2018 data.
+  - **Chat:** *"What single-cell transcriptomic clusters are there for Kenyon cell?"* lists all 79 with their publications — pick one cluster and ask for its top markers.
+  - **Check before you query:** search any other cell type and look for the `hasScRNAseq` facet before requesting a profile — which of *your* favourite types has data?
+
 when_to_use: |
   - **API** to join expression data to connectivity for analysis
   - **MCP/Chat** to survey what expression data exists
@@ -88,8 +93,3 @@ The connectomics–transcriptomics bridge — the through-line of the workshop.
 
 **Key question:** *What's this cell type's expression profile and marker genes?*
 
-### Try it next
-
-- **Subtype contrast:** profile `"adult Kenyon cell"` (69,168 rows, ~70 s) and compare which markers separate the γ clusters from α/β in the Davie 2018 data.
-- **Chat:** *"What single-cell transcriptomic clusters are there for Kenyon cell?"* lists all 79 with their publications — pick one cluster and ask for its top markers.
-- **Check before you query:** search any other cell type and look for the `hasScRNAseq` facet before requesting a profile — which of *your* favourite types has data?

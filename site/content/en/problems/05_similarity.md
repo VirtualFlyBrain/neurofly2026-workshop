@@ -87,6 +87,11 @@ browser_content: |
 
 browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrchjtdb&i=VFB_00101567,VFB_jrchjtdb"
 
+try_next: |
+  - **Does the ranking replicate?** Run the identical query from another hemibrain sister, `VFB_jrchjtdd` — it returns ~112 neighbours. Do the FlyWire and FAFB matches keep their order?
+  - **Find the impostor:** somewhere below the DA1 matches sits DL3_lPN_R (a *different* glomerulus) at ≈0.65 — locate it in your table and compare its score with the genuine cross-dataset matches above it. What threshold would you have had to pick?
+  - **Close the loop in 3D:** tick the query neuron plus the 0.68 FlyWire match in the browser and rotate — can you see *why* the score dropped from the 0.80 in-dataset match?
+
 when_to_use: |
   - **API** when scores and thresholds matter for your analysis
   - **MCP/Chat** for a fast shortlist of candidates
@@ -97,8 +102,3 @@ NBLAST via VFB / `navis`; rank matches with scores across datasets.
 
 **Key question:** *What's the morphological match to this neuron in another dataset?*
 
-### Try it next
-
-- **Does the ranking replicate?** Run the identical query from another hemibrain sister, `VFB_jrchjtdd` — it returns ~112 neighbours. Do the FlyWire and FAFB matches keep their order?
-- **Find the impostor:** somewhere below the DA1 matches sits DL3_lPN_R (a *different* glomerulus) at ≈0.65 — locate it in your table and compare its score with the genuine cross-dataset matches above it. What threshold would you have had to pick?
-- **Close the loop in 3D:** tick the query neuron plus the 0.68 FlyWire match in the browser and rotate — can you see *why* the score dropped from the 0.80 in-dataset match?

@@ -103,6 +103,11 @@ browser_content: |
 
 browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrmc37h9"
 
+try_next: |
+  - **How stable is a ranking?** Run the same question on the sister individual `VFB_jrchjtdf` (FlyEM-HB:1734350788) — its top partners are v2LN30_R (60), DA1_vPN_R (59), lLN2T_c (47). Same cast, different counts: how much do individual neurons of one type vary?
+  - **Which partners are Kenyon cells?** At type level, `get_connected_neurons_by_type(upstream_type='DA1 lPN', downstream_type='Kenyon cell', weight=10)` → 1,132 pairs — now try other downstream types (lateral horn neurons?).
+  - **By region:** the browser/MCP *Show connectivity per region* query breaks the same 484 partners down across 11 neuropils — which fraction of the output is in the mushroom-body calyx?
+
 when_to_use: |
   - **API** for quantitative partner tables and multi-hop pathway analysis
   - **MCP/Chat** to orient and get quick summaries
@@ -113,8 +118,3 @@ VFB connectivity queries and neuPrint for weighted partners; trace a short pathw
 
 **Key question:** *Who are neuron X's strongest partners, and along what pathway?*
 
-### Try it next
-
-- **How stable is a ranking?** Run the same question on the sister individual `VFB_jrchjtdf` (FlyEM-HB:1734350788) — its top partners are v2LN30_R (60), DA1_vPN_R (59), lLN2T_c (47). Same cast, different counts: how much do individual neurons of one type vary?
-- **Which partners are Kenyon cells?** At type level, `get_connected_neurons_by_type(upstream_type='DA1 lPN', downstream_type='Kenyon cell', weight=10)` → 1,132 pairs — now try other downstream types (lateral horn neurons?).
-- **By region:** the browser/MCP *Show connectivity per region* query breaks the same 484 partners down across 11 neuropils — which fraction of the output is in the mushroom-body calyx?

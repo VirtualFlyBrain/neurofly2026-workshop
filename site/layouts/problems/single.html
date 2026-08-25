@@ -104,6 +104,15 @@
       {{ end }}
     </div>
     
+    {{ with .Params.try_next }}
+    <div class="card" style="margin-top: var(--sp-6);">
+      <h3>Try It Next</h3>
+      <div class="prose">
+        {{ . | markdownify }}
+      </div>
+    </div>
+    {{ end }}
+
     {{ with .Params.when_to_use }}
     <div class="card" style="margin-top: var(--sp-6);">
       <h3>When to Reach for Which Route</h3>

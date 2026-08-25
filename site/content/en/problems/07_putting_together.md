@@ -138,6 +138,11 @@ browser_content: |
 
 browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=FBbt_00005801"
 
+try_next: |
+  - **Change the region:** rerun the whole chain from the *antennal lobe* or *lateral horn* — every synaptic neuropil carries the same query set (*Neurons with part here*, *Parts of*, *Transgene expression*…).
+  - **Swap the route per step:** do discovery in chat, visualisation in the browser, connectivity in Python — the VFB IDs are the interchange format; nothing else needs to match.
+  - **Interrogate the discrepancy:** the chat and MCP transcripts on these pages resolved "DA1_lPN_R" to *different individuals* with different synapse counts. Reproduce both and decide which you would report — then always give the ID.
+
 when_to_use: |
   This is where the three routes complement each other most:
   - **Chat/MCP** for exploration and hypothesis generation
@@ -151,8 +156,3 @@ A short guided mini-project using all three routes. Do it once with the API and 
 
 **Key question:** *Region → intrinsic types → pick one → visualise → partners → cross-dataset match → expression.*
 
-### Try it next
-
-- **Change the region:** rerun the whole chain from the *antennal lobe* or *lateral horn* — every synaptic neuropil carries the same query set (*Neurons with part here*, *Parts of*, *Transgene expression*…).
-- **Swap the route per step:** do discovery in chat, visualisation in the browser, connectivity in Python — the VFB IDs are the interchange format; nothing else needs to match.
-- **Interrogate the discrepancy:** the chat and MCP transcripts on these pages resolved "DA1_lPN_R" to *different individuals* with different synapse counts. Reproduce both and decide which you would report — then always give the ID.

@@ -77,6 +77,11 @@ browser_content: |
 
 browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrmc37h9&i=VFB_00101567,VFB_jrmc37ha,VFB_jrmc37h9"
 
+try_next: |
+  - **Build the circuit scene:** add the strongest partner v2LN30_R (`VFB_jrchk8e8`) to the viewer URL — `…?id=VFB_jrchjtdb&i=VFB_00101567,VFB_jrchjtdb,VFB_jrchk8e8` — and look at where their arbours interleave in the antennal lobe.
+  - **Publication still (Python):** `da1.plot2d(template="JRC2018Unisex")` gives a matplotlib figure you can drop in a paper.
+  - **See the raw data:** reopen the neuron with its EM template first (`i=VFB_00101384,VFB_jrchjtdb`) and scroll the actual hemibrain electron microscopy it was traced from.
+
 when_to_use: |
   - **API/navis** for publication figures and morphometric measurements
   - **MCP/Chat** for a quick look and orientation
@@ -87,8 +92,3 @@ Load skeletons/meshes with `navis` (+ `pymaid`/neuPrint loaders), plot co-regist
 
 **Key question:** *Show these neurons together in a common template.*
 
-### Try it next
-
-- **Build the circuit scene:** add the strongest partner v2LN30_R (`VFB_jrchk8e8`) to the viewer URL — `…?id=VFB_jrchjtdb&i=VFB_00101567,VFB_jrchjtdb,VFB_jrchk8e8` — and look at where their arbours interleave in the antennal lobe.
-- **Publication still (Python):** `da1.plot2d(template="JRC2018Unisex")` gives a matplotlib figure you can drop in a paper.
-- **See the raw data:** reopen the neuron with its EM template first (`i=VFB_00101384,VFB_jrchjtdb`) and scroll the actual hemibrain electron microscopy it was traced from.

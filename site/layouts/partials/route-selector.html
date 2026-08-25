@@ -193,14 +193,23 @@
   }
   
   function init() {
-    const storedRoute = getStoredRoute();
-    updateRouteDisplay(storedRoute);
+    const params = new URLSearchParams(window.location.search);
+    const urlRoute = params.get('route');
+    const valid = Array.from(document.querySelectorAll('.route-selector__btn')).map(b => b.dataset.route);
+    const startRoute = (urlRoute && valid.includes(urlRoute)) ? urlRoute : getStoredRoute();
+    if (urlRoute && valid.includes(urlRoute)) setStoredRoute(urlRoute);
+    updateRouteDisplay(startRoute);
     
     document.querySelectorAll('.route-selector__btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const route = btn.dataset.route;
         setStoredRoute(route);
         updateRouteDisplay(route);
+        try {
+          const u = new URL(window.location);
+          u.searchParams.set('route', route);
+          history.replaceState(null, '', u);
+        } catch (e) {}
         
         const firstContent = document.querySelector(`[data-route-content="${route}"]`);
         if (firstContent) {

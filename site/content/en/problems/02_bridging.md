@@ -85,6 +85,11 @@ browser_content: |
 
 browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrchjtdb&i=VFB_00101567,VFB_jrchjtdb"
 
+try_next: |
+  - **Is the bridge symmetric?** NBLAST from the FlyWire match back: query `VFB_fw036329` the same way (66 neighbours; its own FlyWire sisters top the list at 0.78, FAFB at 0.74). Where does your original hemibrain neuron rank in the reverse direction?
+  - **A third dataset:** bridge hemibrain → FAFB via `Uniglomerular mALT DA1 lPN#R1` (`VFB_00101201`, score 0.68) and check its type annotation agrees.
+  - **Chat:** *"Which FlyWire neuron is the closest NBLAST match to hemibrain neuron VFB_jrchjtdf? …"* — a sister individual; do you get the same FlyWire cell?
+
 when_to_use: |
   - **API** for a defensible, reproducible mapping with NBLAST scores
   - **MCP/Chat** to explore candidates quickly before formal analysis
@@ -94,8 +99,3 @@ Cross-dataset identity via shared typing and morphology.
 
 **Key question:** *Is this FlyWire neuron the same cell as that hemibrain one?*
 
-### Try it next
-
-- **Is the bridge symmetric?** NBLAST from the FlyWire match back: query `VFB_fw036329` the same way (66 neighbours; its own FlyWire sisters top the list at 0.78, FAFB at 0.74). Where does your original hemibrain neuron rank in the reverse direction?
-- **A third dataset:** bridge hemibrain → FAFB via `Uniglomerular mALT DA1 lPN#R1` (`VFB_00101201`, score 0.68) and check its type annotation agrees.
-- **Chat:** *"Which FlyWire neuron is the closest NBLAST match to hemibrain neuron VFB_jrchjtdf? …"* — a sister individual; do you get the same FlyWire cell?
