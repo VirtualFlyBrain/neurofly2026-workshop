@@ -102,6 +102,10 @@ paginate = 50
   url = "/problems/"
   weight = 30
 [[menu.main]]
+  name = "Setup"
+  url = "/setup/"
+  weight = 35
+[[menu.main]]
   name = "Python"
   url = "https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/python/00_Setup_and_Orientation.ipynb"
   weight = 40

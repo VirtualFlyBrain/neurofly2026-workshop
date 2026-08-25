@@ -34,7 +34,7 @@ The [VFB MCP tool](https://vfb3-mcp.virtualflybrain.org) runs inside your own LL
 
 **Best for:** Deep analysis, combining VFB data with your own datasets, leveraging your LLM's full capabilities
 
-**Setup:** Follow the [MCP setup guide](https://github.com/VirtualFlyBrain/neurofly2026-workshop/blob/main/no-code/MCP_setup.md).
+**Setup:** Follow the [MCP setup guide](/setup/#mcp).
 
 **Example prompt:**
 > "Search VFB for the neuron type 'DA1 lPN' and list every individual neuron across all datasets, with their dataset and VFB ID."

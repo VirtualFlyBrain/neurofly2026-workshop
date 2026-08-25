@@ -39,6 +39,7 @@
     
     <div class="route-content" data-route-content="python">
       <h2>Route A: Python API</h2>
+      <p class="route-setup-link"><a href="{{ "/setup/#python" | relURL }}">First time on this route? Set it up &rarr;</a></p>
       {{ with .Params.python_content }}
       <div class="prose">
         {{ . | markdownify }}
@@ -48,6 +49,7 @@
     
     <div class="route-content" data-route-content="mcp">
       <h2>Route B: MCP Tool</h2>
+      <p class="route-setup-link"><a href="{{ "/setup/#mcp" | relURL }}">First time on this route? Set it up &rarr;</a></p>
       {{ with .Params.mcp_content }}
       <div class="prose">
         {{ . | markdownify }}
@@ -63,6 +65,7 @@
     
     <div class="route-content" data-route-content="chat">
       <h2>Route C: VFB Chat</h2>
+      <p class="route-setup-link"><a href="{{ "/setup/#chat" | relURL }}">First time on this route? Set it up &rarr;</a></p>
       {{ with .Params.chat_content }}
       <div class="prose">
         {{ . | markdownify }}
@@ -75,6 +78,7 @@
     
     <div class="route-content" data-route-content="browser">
       <h2>Route D: 3D Circuit Browser</h2>
+      <p class="route-setup-link"><a href="{{ "/setup/#browser" | relURL }}">First time on this route? Set it up &rarr;</a></p>
       {{ with .Params.browser_content }}
       <div class="prose">
         {{ . | markdownify }}
@@ -109,6 +113,7 @@
 </div>
 
 <style>
+.route-setup-link { margin: -0.25rem 0 var(--sp-4); font-size: .85rem; opacity: .8; }
 .route-content { display: none; }
 .route-content:first-of-type { display: block; }
 </style>

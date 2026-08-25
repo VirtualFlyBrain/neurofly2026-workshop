@@ -36,7 +36,7 @@ python_content: |
   68 registered images, ~8 biological cells per hemisphere — records, not neurons. The `id` column is the reproducibility currency for every other route.
 
 mcp_content: |
-  Point any MCP-capable assistant (Claude Desktop, Claude Code, Copilot…) at `https://vfb3-mcp.virtualflybrain.org` ([setup guide](https://github.com/VirtualFlyBrain/neurofly2026-workshop/blob/main/no-code/MCP_setup.md)) and it answers this with two tool calls. Here is a real transcript:
+  Point any MCP-capable assistant (Claude Desktop, Claude Code, Copilot…) at `https://vfb3-mcp.virtualflybrain.org` ([setup guide](/setup/#mcp)) and it answers this with two tool calls. Here is a real transcript:
 
   > **You:** Search VFB for the neuron type 'DA1 lPN' and list every individual neuron across all datasets, with their dataset and VFB ID.
   >
