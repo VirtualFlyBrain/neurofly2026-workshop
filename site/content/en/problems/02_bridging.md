@@ -27,6 +27,19 @@ python_content: |
 
   Both carry the tags *adult antennal lobe projection neuron DA1 lPN* — same type annotation, different animal: that agreement between morphology (score) and ontology (`tags`) is the bridge. In-dataset hemibrain sisters score 0.75–0.80 for comparison, so expect a cross-dataset penalty.
 
+r_content: |
+  ```r
+  m <- vfb$get_similar_neurons("VFB_jrchjtdb",
+                               similarity_score = "NBLAST_score",
+                               return_dataframe = TRUE)
+  fw <- m[grepl("flywire", m$source_id), ]
+  head(fw[, c("id", "score", "label")], 2)
+  ```
+
+  **Verified output** (Aug 2026): the best FlyWire match is `VFB_fw036329` — AL.MB_CA.111 — at score **0.68**, tagged with the same two cell types as the query. Exactly the Python route's answer: the bridging logic (morphology score + shared ontology types) is language-independent.
+
+  For natverse users, [natverse/vfbconnectr](https://github.com/natverse/vfbconnectr) wraps the same package and adds `read.neurons.vfb()` to pull matches straight into `nat` for your own NBLAST runs.
+
 mcp_content: |
   The MCP exposes the pre-computed NBLAST neighbours of any connectome neuron, so cross-dataset bridging is one query plus a filter:
 

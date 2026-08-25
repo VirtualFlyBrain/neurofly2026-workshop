@@ -23,6 +23,18 @@ python_content: |
 
   Always pass the template explicitly — that is what guarantees every neuron you add is in the same coordinate space, whichever dataset it came from. `plot2d()` gives a publication-ready still with the same arguments.
 
+r_content: |
+  The term-object API works through reticulate too — skeletons load as `navis` objects, and `nat` users can pull them natively instead.
+
+  ```r
+  da1 <- vfb$term("VFB_jrchjtdb")
+  da1$load_skeleton(template = "JRC2018Unisex")
+  da1$skeleton                       # navis TreeNeuron, 4847 nodes (verified)
+  da1$plot3d(template = "JRC2018Unisex", include_template = TRUE)
+  ```
+
+  For a fully native R workflow, `vfbconnectr::read.neurons.vfb("VFB_jrchjtdb", template = "JRC2018Unisex")` returns a `nat::neuronlist`, so `plot3d()` from `nat`/`rgl` and the whole natverse toolchain apply. Either way, pass the template explicitly — that is what keeps every neuron in the same coordinate space.
+
 mcp_content: |
   `get_term_info` returns the registered images for a neuron keyed by template brain — and the MCP documents how to turn those into a live 3D scene URL, so your assistant can hand you a clickable view:
 

@@ -35,6 +35,31 @@ python_content: |
 
   **Gotcha to teach:** `get_connected_neurons_by_type` defaults to `exclude_dbs=['hb','fafb']` (to avoid double-counting the overlapping hemibrain/FAFB volumes) — so those 1,132 pairs are FlyWire + male-CNS + BANC. Pass `exclude_dbs=[]` to include everything.
 
+r_content: |
+  ```r
+  da1 <- vfb$term("VFB_jrchjtdb")
+  for (p in da1$downstream_partners(weight = 20L)[1:5]) print(p)
+
+  kc <- vfb$get_connected_neurons_by_type(upstream_type = "DA1 lPN",
+                                          downstream_type = "Kenyon cell",
+                                          weight = 10L, return_dataframe = TRUE)
+  nrow(kc)
+  ```
+
+  **Verified output** (Aug 2026):
+
+  ```text
+  Partner(weight=73, partner=v2LN30_R (FlyEM-HB:1671620613))
+  Partner(weight=61, partner=lLN2T_c(Tortuous)_R (FlyEM-HB:1704347707))
+  Partner(weight=61, partner=DA1_vPN_R (FlyEM-HB:733316908))
+  Partner(weight=47, partner=lLN2P_b(Patchy)_R (FlyEM-HB:1946178096))
+  Partner(weight=43, partner=lLN2T_c(Tortuous)_R (FlyEM-HB:1671292719))
+
+  [1] 1132
+  ```
+
+  Note the `L` suffixes: reticulate passes R integers as Python ints only when you write `20L` — a plain `20` is a double and some arguments reject it. The `exclude_dbs=['hb','fafb']` default applies here exactly as in Python.
+
 mcp_content: |
   The connectivity of any connectome neuron is a pre-computed query — the assistant fetches all partners with per-direction synapse counts and does the ranking itself:
 

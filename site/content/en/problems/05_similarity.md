@@ -32,6 +32,17 @@ python_content: |
 
   Sisters in the same volume top the list (0.75–0.80); the first cross-dataset matches arrive at 0.68, and morphologically similar *other* types appear further down with no clean score gap — sort, inspect, judge.
 
+r_content: |
+  ```r
+  m <- vfb$get_similar_neurons("VFB_jrchjtdb",
+                               similarity_score = "NBLAST_score",
+                               return_dataframe = TRUE)
+  nrow(m)
+  head(m[, c("id", "score", "label")], 7)
+  ```
+
+  **Verified output** (Aug 2026): 107 neighbours; hemibrain sisters at 0.80–0.75, then `VFB_00101201` (FAFB) and `VFB_fw036329` (FlyWire) tied at **0.68** — the same table as the Python route, ready for `dplyr`. Split it by dataset with `m |> dplyr::mutate(dataset = sub("_.*", "", source_id))` and compare score distributions per volume.
+
 mcp_content: |
   NBLAST similarity is served ranked, with dataset provenance on every row:
 

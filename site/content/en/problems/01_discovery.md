@@ -35,6 +35,35 @@ python_content: |
 
   68 registered images, ~8 biological cells per hemisphere — records, not neurons. The `id` column is the reproducibility currency for every other route.
 
+r_content: |
+  The same `vfb_connect` engine drives R through `reticulate` — one import line and every call from the Python route works, returning ordinary R data frames.
+
+  ```r
+  library(reticulate)                     # needs a current reticulate (see setup)
+  vfb <- import("vfb_connect")$vfb        # first call connects (~2 min), then fast
+
+  df <- vfb$get_instances("DA1 lPN", return_dataframe = TRUE)
+  nrow(df)
+  table(sapply(df$data_source, paste, collapse = ","))
+  head(df[, c("id", "label")], 3)
+  ```
+
+  **Verified output** (R 4.3 + reticulate 1.46 + vfb_connect 2.4.2, Aug 2026):
+
+  ```text
+  [1] 68
+
+  BANC fafb   fw   hb   mc
+    18   15   15    7   13
+
+              id                                     label
+  1 VFB_001052v1               BANC_626:720575941624135932
+  2 VFB_fw035057 AL.MB_CA.108 (FlyWire:720575940637208718)
+  3 VFB_fw033192 AL.MB_CA.128 (FlyWire:720575940621239679)
+  ```
+
+  Identical numbers to the Python route — same package underneath. Columns holding lists (like `data_source`) arrive as R list-columns; `sapply(..., paste)` flattens them for `table()`/`dplyr`.
+
 mcp_content: |
   Point any MCP-capable assistant (Claude Desktop, Claude Code, Copilot…) at `https://vfb3-mcp.virtualflybrain.org` ([setup guide](/setup/#mcp)) and it answers this with two tool calls. Here is a real transcript:
 

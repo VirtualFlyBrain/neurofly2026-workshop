@@ -27,6 +27,16 @@ python_content: |
 
   Each row is one gene in one cluster with expression `level` and `extent` (fraction of cells expressing), and a real publication reference (Lu 2023, Davie 2018, …). Check a type has data before profiling: `search()` results carry a `hasScRNAseq` facet. (The spine neuron DA1 lPN has **no** transcriptomic profile — which is why this problem hands over to Kenyon cells.)
 
+r_content: |
+  ```r
+  e <- vfb$get_transcriptomic_profile("alpha/beta Kenyon cell",
+                                      return_dataframe = TRUE)
+  nrow(e)
+  head(e[, c("gene", "level", "extent")], 3)
+  ```
+
+  Returns the same **18,234 gene × cluster rows** (~40 s) as the Python route, as an R data frame — `level`, `extent` (fraction of cells expressing) and a real publication `ref` per row, ready for `dplyr`/`ggplot2`. The same warnings apply: profile a *specific subtype*, never the bare parent class ("Kenyon cell" expands 37 subtypes and takes 15–20 minutes), and check a type has data first via the `hasScRNAseq` search facet.
+
 mcp_content: |
   This is where the MCP route shines over the browser: scRNAseq coverage is a first-class query.
 
@@ -64,7 +74,7 @@ browser_content: |
 
   4. **Cross-check a marker's driver.** Found an interesting gene via scRNAseq in another route? Search its driver line here and confirm where it actually expresses.
 
-  No screenshots needed for this one — the flow is identical to P1's search-and-query pattern. For expression levels and cluster tables, flip to Route A (Python) or Route C (Chat).
+  No screenshots needed for this one — the flow is identical to P1's search-and-query pattern. For expression levels and cluster tables, flip to Route A (Python), Route E (R) or Route C (Chat).
 
 browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=FBbt_00003686"
 

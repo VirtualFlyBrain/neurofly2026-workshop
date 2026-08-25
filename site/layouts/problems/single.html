@@ -47,6 +47,16 @@
       {{ end }}
     </div>
     
+    <div class="route-content" data-route-content="r">
+      <h2>Route E: R (via reticulate)</h2>
+      <p class="route-setup-link"><a class="btn btn--sm btn--ghost" href="{{ "/setup/#r" | relURL }}"><i class="fas fa-wrench"></i> First time? Set up R + vfb_connect &rarr;</a></p>
+      {{ with .Params.r_content }}
+      <div class="prose">
+        {{ . | markdownify }}
+      </div>
+      {{ end }}
+    </div>
+
     <div class="route-content" data-route-content="mcp">
       <h2>Route B: MCP Tool</h2>
       <p class="route-setup-link"><a class="btn btn--sm btn--ghost" href="{{ "/setup/#mcp" | relURL }}"><i class="fas fa-wrench"></i> First time? Connect the VFB MCP to your AI &rarr;</a></p>

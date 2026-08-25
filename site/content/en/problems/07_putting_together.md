@@ -45,6 +45,39 @@ python_content: |
 
   The giant inhibitory APL, the modulatory DPM, and an MBON — the textbook mushroom-body circuit, recovered from a cold start in six calls.
 
+r_content: |
+  The full chain, verified in R (identical results to the Python route):
+
+  ```r
+  library(reticulate)
+  vfb <- import("vfb_connect")$vfb
+
+  kc_types <- vfb$term("Kenyon cell")$children               # 37 subtypes
+  inst <- vfb$get_instances("alpha/beta Kenyon cell",
+                            return_dataframe = TRUE)         # 7212 records
+  hb  <- inst[grepl("hb", sapply(inst$data_source, paste, collapse=",")), ]
+  kc  <- vfb$term(hb$id[[1]])                                # e.g. KCab-m_R
+
+  kc$load_skeleton(template = "JRC2018Unisex")
+  kc$plot3d(template = "JRC2018Unisex", include_template = TRUE)
+
+  for (p in kc$downstream_partners(weight = 20L)) print(p)
+  m <- vfb$get_similar_neurons(kc$id, similarity_score = "NBLAST_score",
+                               return_dataframe = TRUE)
+  e <- vfb$get_transcriptomic_profile("alpha/beta Kenyon cell",
+                                      return_dataframe = TRUE)
+  ```
+
+  **Verified payoff** — the same textbook mushroom-body cast as the Python route:
+
+  ```text
+  Partner(weight=34, partner=APL_R (FlyEM-HB:425790257))
+  Partner(weight=31, partner=DPM_R (FlyEM-HB:5813105172))
+  Partner(weight=23, partner=MBON06(B1>a)(AVM07)_L (FlyEM-HB:422725634))
+  ```
+
+  From here the natverse is one step away: pull the same IDs with `vfbconnectr::read.neurons.vfb()` and continue in `nat`.
+
 mcp_content: |
   With the MCP connected, the whole chain is one conversation — the assistant carries the IDs forward so every step is reproducible. A real end-to-end transcript, condensed:
 

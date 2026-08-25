@@ -3,7 +3,7 @@ title: "Setup"
 description: "Get each of the four routes working on your system — most need no installation at all"
 ---
 
-Two of the four routes need zero setup (Chat and the 3D Browser), one needs a single `pip install` (Python), and one needs you to point your own AI assistant at a URL (MCP). Do the ones you plan to use before the workshop; each takes a few minutes at most.
+Two of the five routes need zero setup (Chat and the 3D Browser); Python and R each need a single install command, and MCP needs you to point your own AI assistant at a URL. Do the ones you plan to use before the workshop; each takes a few minutes at most.
 
 ## Route A — Python (`vfb_connect`) {#python}
 
@@ -28,6 +28,36 @@ print(len(df))                     # -> 68
 ```
 
 The first `import` establishes connections and caches term data, so give it a couple of minutes the first time; after that it is fast. `navis` (for 3D plotting) is installed as a dependency — `.plot3d()` works out of the box in Jupyter/Colab.
+
+## Route E — R (via reticulate) {#r}
+
+R users get the identical `vfb_connect` engine through [`reticulate`](https://rstudio.github.io/reticulate/) — same calls, same numbers, ordinary R data frames back.
+
+**In Google Colab:** Runtime → *Change runtime type* → **R** (or create an R notebook at `colab.research.google.com/#create=true&language=r`), then in the first cell:
+
+```r
+install.packages("reticulate")
+reticulate::py_install("vfb-connect", pip = TRUE)
+```
+
+**Locally** (R 4.x):
+
+```r
+install.packages("reticulate")          # use current CRAN reticulate —
+                                        # older versions cannot convert pandas 3 data frames
+reticulate::py_install("vfb-connect", pip = TRUE)
+```
+
+**Verify it works:**
+
+```r
+library(reticulate)
+vfb <- import("vfb_connect")$vfb        # first call connects, ~2 min
+df <- vfb$get_instances("DA1 lPN", return_dataframe = TRUE)
+nrow(df)                                # -> 68
+```
+
+Two R-specific habits: write integer arguments with an `L` suffix (`weight = 20L`), and flatten list-columns with `sapply(col, paste, collapse=",")` before `table()`/`dplyr`. **natverse users:** [natverse/vfbconnectr](https://github.com/natverse/vfbconnectr) wraps the same package and adds `read.neurons.vfb()` to pull skeletons straight into `nat` (verified working against vfb-connect 2.4.2).
 
 ## Route B — Your LLM + the VFB MCP {#mcp}
 
