@@ -3,6 +3,10 @@ title: "P2 · Bridging & Identity"
 description: "Is this FlyWire neuron the same cell as that hemibrain one?"
 weight: 2
 route: python
+colab_python: "https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/python/02_Bridging_datasets.ipynb"
+
+colab_r: "https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/R/02_Bridging_datasets_R.ipynb"
+
 python_content: |
   Resolve both IDs, compare their ontology types, then let NBLAST rank candidates — filtering the score table by source dataset does the bridging.
 

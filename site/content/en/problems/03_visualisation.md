@@ -3,6 +3,10 @@ title: "P3 · Visualisation"
 description: "Show these neurons together in a common template"
 weight: 3
 route: python
+colab_python: "https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/python/03_Visualisation.ipynb"
+
+colab_r: "https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/R/03_Visualisation_R.ipynb"
+
 python_content: |
   The term-object API loads skeletons and plots them co-registered in a chosen template space — `navis` under the bonnet.
 

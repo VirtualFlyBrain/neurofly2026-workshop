@@ -39,7 +39,10 @@
     
     <div class="route-content" data-route-content="python">
       <h2>Route A: Python API</h2>
-      <p class="route-setup-link"><a class="btn btn--sm btn--ghost" href="{{ "/setup/#python" | relURL }}"><i class="fas fa-wrench"></i> First time? Set up Python (or use Colab) &rarr;</a></p>
+      <p class="route-setup-link">
+        <a class="btn btn--sm btn--ghost" href="{{ "/setup/#python" | relURL }}"><i class="fas fa-wrench"></i> First time? Set up Python &rarr;</a>
+        {{ with .Params.colab_python }}<a class="btn btn--sm btn--primary" href="{{ . }}" target="_blank" rel="noopener"><i class="fas fa-rocket"></i> Open this problem in Colab</a>{{ end }}
+      </p>
       {{ with .Params.python_content }}
       <div class="prose">
         {{ . | markdownify }}
@@ -49,7 +52,10 @@
     
     <div class="route-content" data-route-content="r">
       <h2>Route E: R (via reticulate)</h2>
-      <p class="route-setup-link"><a class="btn btn--sm btn--ghost" href="{{ "/setup/#r" | relURL }}"><i class="fas fa-wrench"></i> First time? Set up R + vfb_connect &rarr;</a></p>
+      <p class="route-setup-link">
+        <a class="btn btn--sm btn--ghost" href="{{ "/setup/#r" | relURL }}"><i class="fas fa-wrench"></i> First time? Set up R + vfb_connect &rarr;</a>
+        {{ with .Params.colab_r }}<a class="btn btn--sm btn--primary" href="{{ . }}" target="_blank" rel="noopener"><i class="fas fa-rocket"></i> Open this problem in Colab (R)</a>{{ end }}
+      </p>
       {{ with .Params.r_content }}
       <div class="prose">
         {{ . | markdownify }}

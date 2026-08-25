@@ -3,6 +3,10 @@ title: "P5 · Similarity / NBLAST"
 description: "What's the morphological match in another dataset?"
 weight: 5
 route: python
+colab_python: "https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/python/05_Similarity_NBLAST.ipynb"
+
+colab_r: "https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/R/05_Similarity_NBLAST_R.ipynb"
+
 python_content: |
   NBLAST scores are pre-computed — one call returns the ranked table with dataset provenance.
 

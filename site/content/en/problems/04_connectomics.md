@@ -3,6 +3,10 @@ title: "P4 · Connectomics"
 description: "Who are neuron X's strongest partners, and along what pathway?"
 weight: 4
 route: python
+colab_python: "https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/python/04_Connectomics.ipynb"
+
+colab_r: "https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/R/04_Connectomics_R.ipynb"
+
 python_content: |
   Two levels, both one call. For an **individual**, the term object serves the pre-computed partner list; for **types**, `get_connected_neurons_by_type` compares across whole connectomes.
 

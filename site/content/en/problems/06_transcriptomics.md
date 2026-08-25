@@ -3,6 +3,10 @@ title: "P6 · Transcriptomics"
 description: "What's this cell type's expression profile and marker genes?"
 weight: 6
 route: python
+colab_python: "https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/python/06_Transcriptomics.ipynb"
+
+colab_r: "https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/R/06_Transcriptomics_R.ipynb"
+
 python_content: |
   Pick a type that actually has expression data, then pull its full profile. **Do not** profile the parent class — "Kenyon cell" expands 37 subtypes and takes 15–20 minutes; a specific subtype returns in under a minute.
 

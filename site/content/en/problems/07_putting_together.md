@@ -3,6 +3,10 @@ title: "P7 · Putting It Together"
 description: "A mini-project using all routes"
 weight: 7
 route: python
+colab_python: "https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/python/07_Putting_it_together.ipynb"
+
+colab_r: "https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/R/07_Putting_it_together_R.ipynb"
+
 python_content: |
   The whole chain with the term-object API — every step verified live (Aug 2026), IDs carried forward throughout.
 

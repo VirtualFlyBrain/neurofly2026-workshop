@@ -3,6 +3,10 @@ title: "P1 · Discovery"
 description: "Find every instance of a neuron type across all datasets"
 weight: 1
 route: python
+colab_python: "https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/python/01_Discovery.ipynb"
+
+colab_r: "https://colab.research.google.com/github/VirtualFlyBrain/neurofly2026-workshop/blob/main/R/01_Discovery_R.ipynb"
+
 python_content: |
   Use `vfb.get_instances()` to search for a neuron type by name. The ontology gives each cell type one name, so a single query spans FlyWire, hemibrain, BANC, male-CNS, FAFB and CATMAID datasets at once.
 
