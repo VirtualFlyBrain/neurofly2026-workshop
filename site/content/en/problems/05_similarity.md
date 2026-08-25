@@ -4,15 +4,33 @@ description: "What's the morphological match in another dataset?"
 weight: 5
 route: python
 python_content: |
-  Run NBLAST queries via VFB or navis to find morphological matches.
-  
+  NBLAST scores are pre-computed — one call returns the ranked table with dataset provenance.
+
   ```python
   from vfb_connect import vfb
-  
-  # NBLAST search
-  matches = vfb.get_similar_neurons("VFB_jrchjtdb", similarity_score='NBLAST_score')
-  print(matches[['match_id', 'match_name', 'dataset', 'NBLAST_score']].head(10))
+
+  m = vfb.get_similar_neurons("VFB_jrchjtdb",
+                              similarity_score='NBLAST_score',
+                              return_dataframe=True)
+  print(len(m), "neighbours")
+  print(m[['id', 'score', 'label', 'source_id']].head(7))
   ```
+
+  **Verified output** (Aug 2026):
+
+  ```text
+  107 neighbours
+            id  score                                       label                             source_id
+  VFB_jrchjtde   0.80              DA1_lPN_R (FlyEM-HB:754534424)  neuprint_JRC_Hemibrain_1point2point1
+  VFB_jrchjtdg   0.76              DA1_lPN_R (FlyEM-HB:754538881)  neuprint_JRC_Hemibrain_1point2point1
+  VFB_jrchjtdf   0.76             DA1_lPN_R (FlyEM-HB:1734350788)  neuprint_JRC_Hemibrain_1point2point1
+  VFB_jrchjtda   0.75              DA1_lPN_R (FlyEM-HB:722817260)  neuprint_JRC_Hemibrain_1point2point1
+  VFB_jrchjtdd   0.75             DA1_lPN_R (FlyEM-HB:5813039315)  neuprint_JRC_Hemibrain_1point2point1
+  VFB_00101201   0.68  Uniglomerular mALT DA1 lPN#R1 (FAFB:57323)                          catmaid_fafb
+  VFB_fw036329   0.68   AL.MB_CA.111 (FlyWire:720575940605102694)                            flywire783
+  ```
+
+  Sisters in the same volume top the list (0.75–0.80); the first cross-dataset matches arrive at 0.68, and morphologically similar *other* types appear further down with no clean score gap — sort, inspect, judge.
 
 mcp_content: |
   NBLAST similarity is served ranked, with dataset provenance on every row:
@@ -67,3 +85,9 @@ when_to_use: |
 NBLAST via VFB / `navis`; rank matches with scores across datasets.
 
 **Key question:** *What's the morphological match to this neuron in another dataset?*
+
+### Try it next
+
+- **Does the ranking replicate?** Run the identical query from another hemibrain sister, `VFB_jrchjtdd` — it returns ~112 neighbours. Do the FlyWire and FAFB matches keep their order?
+- **Find the impostor:** somewhere below the DA1 matches sits DL3_lPN_R (a *different* glomerulus) at ≈0.65 — locate it in your table and compare its score with the genuine cross-dataset matches above it. What threshold would you have had to pick?
+- **Close the loop in 3D:** tick the query neuron plus the 0.68 FlyWire match in the browser and rotate — can you see *why* the score dropped from the 0.80 in-dataset match?

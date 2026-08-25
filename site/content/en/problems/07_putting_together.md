@@ -4,31 +4,46 @@ description: "A mini-project using all routes"
 weight: 7
 route: python
 python_content: |
-  A guided mini-project that uses all the tools together.
-  
+  The whole chain with the term-object API — every step verified live (Aug 2026), IDs carried forward throughout.
+
   ```python
   from vfb_connect import vfb
-  import navis
-  
-  # 1. Find neurons in a region
-  region_neurons = vfb.get_terms_by_region("mushroom body")
-  
-  # 2. Pick one and get its instances
-  instances = vfb.get_instances(region_neurons['type'].iloc[0])
-  
-  # 3. Visualize
-  skeletons = vfb.get_skeletons(instances['vfb_id'].head(3).tolist())
-  navis.plot3d(skeletons)
-  
-  # 4. Get connectivity
-  partners = vfb.get_neurons_downstream_of(instances['vfb_id'].iloc[0], top_n=5)
-  
-  # 5. Find cross-dataset matches
-  matches = vfb.get_similar_neurons(instances['vfb_id'].iloc[0])
-  
-  # 6. Check expression
-  expression = vfb.get_transcriptomic_profile(region_neurons['type'].iloc[0])
+
+  # 1. Region → intrinsic types (the ontology knows the answer)
+  kc_types = vfb.term("Kenyon cell").children          # 37 subtypes
+
+  # 2. Type → instances; pick one with connectome data
+  inst = vfb.get_instances("alpha/beta Kenyon cell", return_dataframe=True)
+  print(len(inst), "records")                          # 7212
+  hb = inst[inst.data_source.astype(str).str.contains('hb')]
+  kc = vfb.term(hb['id'].iloc[0])                      # e.g. KCab-m_R
+
+  # 3. Visualise in the standard space
+  kc.load_skeleton(template="JRC2018Unisex")
+  kc.plot3d(template="JRC2018Unisex", include_template=True)
+
+  # 4. Strongest partners
+  for p in kc.downstream_partners(weight=20):
+      print(p)
+
+  # 5. Cross-dataset matches
+  m = vfb.get_similar_neurons(kc.id, similarity_score='NBLAST_score',
+                              return_dataframe=True)
+
+  # 6. Expression
+  e = vfb.get_transcriptomic_profile("alpha/beta Kenyon cell",
+                                     return_dataframe=True)   # 18234 rows
   ```
+
+  **Verified payoff at step 4** — the Kenyon cell's strongest partners are exactly the mushroom-body cast you would hope for:
+
+  ```text
+  Partner(weight=34, partner=APL_R (FlyEM-HB:425790257))
+  Partner(weight=31, partner=DPM_R (FlyEM-HB:5813105172))
+  Partner(weight=23, partner=MBON06(B1>a)(AVM07)_L (FlyEM-HB:422725634))
+  ```
+
+  The giant inhibitory APL, the modulatory DPM, and an MBON — the textbook mushroom-body circuit, recovered from a cold start in six calls.
 
 mcp_content: |
   With the MCP connected, the whole chain is one conversation — the assistant carries the IDs forward so every step is reproducible. A real end-to-end transcript, condensed:
@@ -102,3 +117,9 @@ when_to_use: |
 A short guided mini-project using all three routes. Do it once with the API and once conversationally, and compare.
 
 **Key question:** *Region → intrinsic types → pick one → visualise → partners → cross-dataset match → expression.*
+
+### Try it next
+
+- **Change the region:** rerun the whole chain from the *antennal lobe* or *lateral horn* — every synaptic neuropil carries the same query set (*Neurons with part here*, *Parts of*, *Transgene expression*…).
+- **Swap the route per step:** do discovery in chat, visualisation in the browser, connectivity in Python — the VFB IDs are the interchange format; nothing else needs to match.
+- **Interrogate the discrepancy:** the chat and MCP transcripts on these pages resolved "DA1_lPN_R" to *different individuals* with different synapse counts. Reproduce both and decide which you would report — then always give the ID.

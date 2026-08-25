@@ -4,19 +4,28 @@ description: "What's this cell type's expression profile and marker genes?"
 weight: 6
 route: python
 python_content: |
-  Query transcriptomics data linking cell types to scRNAseq clusters and expressed genes.
-  
+  Pick a type that actually has expression data, then pull its full profile. **Do not** profile the parent class — "Kenyon cell" expands 37 subtypes and takes 15–20 minutes; a specific subtype returns in under a minute.
+
   ```python
   from vfb_connect import vfb
-  
-  # Get expression profile for a cell type
-  expression = vfb.get_transcriptomic_profile("DA1 lPN")
-  print(expression[['gene', 'expression_level', 'cluster']])
-  
-  # Find marker genes
-  markers = vfb.get_marker_genes("DA1 lPN")
-  print(markers)
+
+  e = vfb.get_transcriptomic_profile("alpha/beta Kenyon cell",
+                                     return_dataframe=True)
+  print(len(e), "gene × cluster rows")
+  print(e[['gene', 'level', 'extent', 'ref']].head(3))
   ```
+
+  **Verified output** (Aug 2026, ~40 s):
+
+  ```text
+  18234 gene × cluster rows
+      gene       level    extent                                           ref
+   14-3-3ε   761.69006  0.551111  Lu et al., 2023, Science 380(6650): eadg0934
+   14-3-3ε   998.50635  0.446281  Lu et al., 2023, Science 380(6650): eadg0934
+   14-3-3ε  1092.53160  0.441065  Lu et al., 2023, Science 380(6650): eadg0934
+  ```
+
+  Each row is one gene in one cluster with expression `level` and `extent` (fraction of cells expressing), and a real publication reference (Lu 2023, Davie 2018, …). Check a type has data before profiling: `search()` results carry a `hasScRNAseq` facet. (The spine neuron DA1 lPN has **no** transcriptomic profile — which is why this problem hands over to Kenyon cells.)
 
 mcp_content: |
   This is where the MCP route shines over the browser: scRNAseq coverage is a first-class query.
@@ -68,3 +77,9 @@ when_to_use: |
 The connectomics–transcriptomics bridge — the through-line of the workshop.
 
 **Key question:** *What's this cell type's expression profile and marker genes?*
+
+### Try it next
+
+- **Subtype contrast:** profile `"adult Kenyon cell"` (69,168 rows, ~70 s) and compare which markers separate the γ clusters from α/β in the Davie 2018 data.
+- **Chat:** *"What single-cell transcriptomic clusters are there for Kenyon cell?"* lists all 79 with their publications — pick one cluster and ask for its top markers.
+- **Check before you query:** search any other cell type and look for the `hasScRNAseq` facet before requesting a profile — which of *your* favourite types has data?

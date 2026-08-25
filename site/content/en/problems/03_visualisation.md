@@ -4,18 +4,24 @@ description: "Show these neurons together in a common template"
 weight: 3
 route: python
 python_content: |
-  Load skeletons with `navis` and plot them co-registered in a common template space.
-  
+  The term-object API loads skeletons and plots them co-registered in a chosen template space — `navis` under the bonnet.
+
   ```python
-  import navis
   from vfb_connect import vfb
-  
-  # Get neuron skeletons
-  neurons = vfb.get_skeletons(["VFB_jrchjtdb", "VFB_fw035286"])
-  
-  # Plot in 3D
-  navis.plot3d(neurons, color=['red', 'blue'])
+
+  da1 = vfb.term("VFB_jrchjtdb")
+  da1.load_skeleton(template="JRC2018Unisex")
+  print(da1.skeleton)                     # TreeNeuron, 4847 nodes (verified)
+
+  # interactive 3D over the standard template (in a notebook / Colab)
+  da1.plot3d(template="JRC2018Unisex", include_template=True)
+
+  # overlay its strongest partners in the same space
+  partners = da1.downstream_partners(weight=30)
+  da1.plot_partners(partners[:3], template="JRC2018Unisex")
   ```
+
+  Always pass the template explicitly — that is what guarantees every neuron you add is in the same coordinate space, whichever dataset it came from. `plot2d()` gives a publication-ready still with the same arguments.
 
 mcp_content: |
   `get_term_info` returns the registered images for a neuron keyed by template brain — and the MCP documents how to turn those into a live 3D scene URL, so your assistant can hand you a clickable view:
@@ -68,3 +74,9 @@ when_to_use: |
 Load skeletons/meshes with `navis` (+ `pymaid`/neuPrint loaders), plot co-registered.
 
 **Key question:** *Show these neurons together in a common template.*
+
+### Try it next
+
+- **Build the circuit scene:** add the strongest partner v2LN30_R (`VFB_jrchk8e8`) to the viewer URL — `…?id=VFB_jrchjtdb&i=VFB_00101567,VFB_jrchjtdb,VFB_jrchk8e8` — and look at where their arbours interleave in the antennal lobe.
+- **Publication still (Python):** `da1.plot2d(template="JRC2018Unisex")` gives a matplotlib figure you can drop in a paper.
+- **See the raw data:** reopen the neuron with its EM template first (`i=VFB_00101384,VFB_jrchjtdb`) and scroll the actual hemibrain electron microscopy it was traced from.

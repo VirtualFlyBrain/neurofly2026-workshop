@@ -4,18 +4,36 @@ description: "Find every instance of a neuron type across all datasets"
 weight: 1
 route: python
 python_content: |
-  Use `vfb.get_instances()` to search for a neuron type by name. The ontology gives each cell type one name, so a single query spans FlyWire, hemibrain, BANC, male-CNS, MANC, optic-lobe and CATMAID datasets at once.
-  
+  Use `vfb.get_instances()` to search for a neuron type by name. The ontology gives each cell type one name, so a single query spans FlyWire, hemibrain, BANC, male-CNS, FAFB and CATMAID datasets at once.
+
   ```python
   from vfb_connect import vfb
-  
-  # Search for DA1 lPN neurons
-  df = vfb.get_instances("DA1 lPN")
-  print(f"Found {len(df)} instances across datasets")
-  print(df[['dataset', 'vfb_id', 'label']])
+
+  df = vfb.get_instances("DA1 lPN", return_dataframe=True)
+  print(f"Found {len(df)} instances")
+  print(df['data_source'].value_counts())
+  print(df[['id', 'label', 'data_source']].head())
   ```
-  
-  **Expected result:** ~68 individual neurons classified as DA1 lPN across multiple datasets.
+
+  **Verified output** (vfb_connect 2.4.2 against live VFB, Aug 2026):
+
+  ```text
+  Found 68 instances
+  [BANC]    18
+  [fw]      15
+  [fafb]    15
+  [mc]      13
+  [hb]       7
+
+            id                                       label  data_source
+  VFB_001052v1                 BANC_626:720575941624135932       [BANC]
+  VFB_fw035057   AL.MB_CA.108 (FlyWire:720575940637208718)         [fw]
+  VFB_00101203  Uniglomerular mALT DA1 lPN#R8 (FAFB:57381)       [fafb]
+  VFB_jrchjtdd             DA1_lPN_R (FlyEM-HB:5813039315)         [hb]
+  VFB_jrmc37h0                   DA1_lPN_L (MaleCNS:11721)         [mc]
+  ```
+
+  68 registered images, ~8 biological cells per hemisphere — records, not neurons. The `id` column is the reproducibility currency for every other route.
 
 mcp_content: |
   Point any MCP-capable assistant (Claude Desktop, Claude Code, Copilot…) at `https://vfb3-mcp.virtualflybrain.org` ([setup guide](https://github.com/VirtualFlyBrain/neurofly2026-workshop/blob/main/no-code/MCP_setup.md)) and it answers this with two tool calls. Here is a real transcript:
@@ -76,3 +94,11 @@ when_to_use: |
 The ontology gives each cell type one name, so a single query spans FlyWire, hemibrain, BANC, male-CNS, MANC, optic-lobe and CATMAID datasets at once.
 
 **Key question:** *Find all instances of a neuron type across every dataset.*
+
+### Try it next
+
+All of these are known to work — run them yourself and see what changes:
+
+- **Scale shock (Python):** `vfb.get_instances("alpha/beta Kenyon cell")` returns **7,212** records to DA1 lPN's 68. Which datasets contribute the most, and why might a numerous cell type be *less* completely catalogued?
+- **Chat:** ask *"What is DA1 lPN?"* for the ontology view with literature sources — then follow one of the EXPLORE chips it offers.
+- **Browser:** on the DA1 lPN term page, run *Subclasses of adult antennal lobe projection neuron DA1* from its parent type to meet the sibling glomerular types.

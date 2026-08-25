@@ -4,19 +4,28 @@ description: "Is this FlyWire neuron the same cell as that hemibrain one?"
 weight: 2
 route: python
 python_content: |
-  Cross-dataset identity via shared typing and morphology. Resolve both IDs, compare their ontology types, and confirm with NBLAST.
-  
+  Resolve both IDs, compare their ontology types, then let NBLAST rank candidates — filtering the score table by source dataset does the bridging.
+
   ```python
   from vfb_connect import vfb
-  
-  # Get neuron info from both datasets
-  fw_neuron = vfb.get_instances_by_id("VFB_fw035286")
-  hb_neuron = vfb.get_instances_by_id("VFB_jrchjtdb")
-  
-  # Compare cell types
-  print(f"FlyWire type: {fw_neuron['cell_type'].iloc[0]}")
-  print(f"Hemibrain type: {hb_neuron['cell_type'].iloc[0]}")
+
+  matches = vfb.get_similar_neurons("VFB_jrchjtdb",
+                                    similarity_score='NBLAST_score',
+                                    return_dataframe=True)
+  # best matches from a DIFFERENT dataset (FlyWire)
+  fw = matches[matches.source_id.str.contains('flywire')]
+  print(fw[['id', 'score', 'label', 'tags']].head(2))
   ```
+
+  **Verified output** (Aug 2026): 107 neighbours in total; the top FlyWire rows —
+
+  ```text
+            id  score                                      label
+  VFB_fw036329   0.68  AL.MB_CA.111 (FlyWire:720575940605102694)
+  VFB_fw035224   0.62  AL.MB_CA.127 (FlyWire:720575940603231916)
+  ```
+
+  Both carry the tags *adult antennal lobe projection neuron DA1 lPN* — same type annotation, different animal: that agreement between morphology (score) and ontology (`tags`) is the bridge. In-dataset hemibrain sisters score 0.75–0.80 for comparison, so expect a cross-dataset penalty.
 
 mcp_content: |
   The MCP exposes the pre-computed NBLAST neighbours of any connectome neuron, so cross-dataset bridging is one query plus a filter:
@@ -71,3 +80,9 @@ when_to_use: |
 Cross-dataset identity via shared typing and morphology.
 
 **Key question:** *Is this FlyWire neuron the same cell as that hemibrain one?*
+
+### Try it next
+
+- **Is the bridge symmetric?** NBLAST from the FlyWire match back: query `VFB_fw036329` the same way (66 neighbours; its own FlyWire sisters top the list at 0.78, FAFB at 0.74). Where does your original hemibrain neuron rank in the reverse direction?
+- **A third dataset:** bridge hemibrain → FAFB via `Uniglomerular mALT DA1 lPN#R1` (`VFB_00101201`, score 0.68) and check its type annotation agrees.
+- **Chat:** *"Which FlyWire neuron is the closest NBLAST match to hemibrain neuron VFB_jrchjtdf? …"* — a sister individual; do you get the same FlyWire cell?
