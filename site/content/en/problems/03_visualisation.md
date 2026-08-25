@@ -24,7 +24,7 @@ mcp_content: |
   >
   > **Assistant** → `get_term_info(VFB_jrchjtdb)` → images aligned to **JRCFIB2018Fum** (`VFB_00101384`) and **JRC2018Unisex** (`VFB_00101567`); classification, predicted transmitter, lineage
   >
-  > **Assistant:** DA1_lPN_R (FlyEM-HB:1734350908) is an *adult antennal lobe projection neuron DA1 lPN* (also typed *adult fruitless aDT-e (female) neuron*), lineage ALl1/BAlc, predicted cholinergic (91%, connectome data). View it in 3D over the hemibrain template: `https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrchjtdb&i=VFB_00101384,VFB_jrchjtdb` — swap the first ID in `i=` to `VFB_00101567` to see it in JRC2018Unisex alongside neurons from other datasets.
+  > **Assistant:** DA1_lPN_R (FlyEM-HB:1734350908) is an *adult antennal lobe projection neuron DA1 lPN* (also typed *adult fruitless aDT-e (female) neuron*), lineage ALl1/BAlc, predicted cholinergic (91%, connectome data). View it in 3D over the standard JRC2018Unisex template: `https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrchjtdb&i=VFB_00101567,VFB_jrchjtdb` — swap the first ID in `i=` to `VFB_00101384` to see it over its native hemibrain EM volume instead.
 
   Download formats (SWC, OBJ, NRRD) are listed per image, so "get me the skeleton file" is also one question away.
 
@@ -55,7 +55,7 @@ browser_content: |
 
   4. **Share the exact view.** The URL updates as you work: it records the template and every loaded neuron. Copy it into a paper, a Slack message or a lab notebook and anyone opens the identical scene — that is what the button below does.
 
-  **Worth noticing:** open an EM neuron like VFB_jrchjtdb and the raw hemibrain EM volume loads behind the skeleton — you can scroll the actual electron microscopy it was traced from.
+  **Worth noticing:** stick to the standard JRC2018Unisex space for comparisons — but if you open an EM neuron with its native template first in `i=` (e.g. `?id=VFB_jrchjtdb&i=VFB_00101384,VFB_jrchjtdb`), the raw hemibrain EM volume loads behind the skeleton and you can scroll the actual electron microscopy it was traced from.
 
 browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrmc37h9&i=VFB_00101567,VFB_jrmc37ha,VFB_jrmc37h9"
 

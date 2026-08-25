@@ -47,7 +47,9 @@ chat_screenshot_alt: "VFB Chat matching hemibrain DA1_lPN_R to its closest FlyWi
 browser_content: |
   The browser bridges datasets the same way the other routes do — NBLAST similarity plus shared cell-type annotation — but you get to *see* the evidence.
 
-  1. **Open the hemibrain neuron.** Use the button below to open **DA1_lPN_R (FlyEM-HB:1734350908)** — VFB_jrchjtdb. Its EM volume loads in the Slice Viewer and the skeleton appears in 3D.
+  1. **Open the hemibrain neuron in the standard space.** Use the button below to open **DA1_lPN_R (FlyEM-HB:1734350908)** — VFB_jrchjtdb — aligned to the JRC2018Unisex template, the shared coordinate space that makes cross-dataset comparison possible.
+
+     ![DA1_lPN_R over the JRC2018Unisex template with its NBLAST and connectivity queries listed](/img/browser-p2-neuron.png)
 
   2. **Run the NBLAST query.** Click the *Queries for DA1_lPN_R…* bar, hover **Neurons with ▸** and choose **Neurons with similar morphology to DA1_lPN_R [NBLAST mean score]**.
 
@@ -59,7 +61,7 @@ browser_content: |
 
   **Worth noticing:** identity across datasets is a judgement, not a lookup — scores drop smoothly and a different type (DL3 lPN) appears among the true DA1 matches. The browser makes that ambiguity visible.
 
-browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrchjtdb"
+browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrchjtdb&i=VFB_00101567,VFB_jrchjtdb"
 
 when_to_use: |
   - **API** for a defensible, reproducible mapping with NBLAST scores

@@ -42,7 +42,7 @@ chat_screenshot_alt: "VFB Chat showing top NBLAST matches for DA1_lPN_R with sco
 browser_content: |
   NBLAST similarity is a stored query in the browser — no R, no registration, instant answer.
 
-  1. **Open the query neuron.** Use the button below for hemibrain **DA1_lPN_R (FlyEM-HB:1734350908)** (VFB_jrchjtdb).
+  1. **Open the query neuron.** Use the button below for hemibrain **DA1_lPN_R (FlyEM-HB:1734350908)** (VFB_jrchjtdb), aligned to the JRC2018Unisex template so every match can be compared in the same space.
 
   2. **Find the query.** Click the *Queries for DA1_lPN_R…* bar and hover **Neurons with ▸**:
 
@@ -56,7 +56,7 @@ browser_content: |
 
   **Worth noticing:** scores fall smoothly with no clean threshold, and a morphologically similar *different* type (DL3 lPN, ≈0.65) sits among the DA1 matches — sort, look, and judge rather than trusting a cut-off.
 
-browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrchjtdb"
+browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrchjtdb&i=VFB_00101567,VFB_jrchjtdb"
 
 when_to_use: |
   - **API** when scores and thresholds matter for your analysis
