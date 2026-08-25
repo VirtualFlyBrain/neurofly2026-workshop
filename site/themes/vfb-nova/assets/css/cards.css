@@ -162,3 +162,18 @@ a.card:hover .card__arrow i { transform: translateX(4px); }
 
 /* --- ontology / term chips grid ----------------------------------------- */
 .chip-grid { display: flex; flex-wrap: wrap; gap: .5rem; }
+
+/* Code / prompt blocks inside cards (e.g. Example Prompt): wrap long lines instead of overflowing */
+.card pre {
+  margin: var(--sp-3) 0 0;
+  padding: var(--sp-4);
+  border-radius: var(--r-md);
+  border: 1px solid var(--line);
+  background: #0a0f1c;
+  font-size: .86rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  overflow-x: auto;
+}
+.card pre code { white-space: inherit; }
