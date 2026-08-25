@@ -19,7 +19,16 @@ python_content: |
   ```
 
 mcp_content: |
-  Ask about expression data and marker genes.
+  This is where the MCP route shines over the browser: scRNAseq coverage is a first-class query.
+
+  > **You:** For cell type 'Kenyon cell', what scRNAseq data does VFB have, and from which studies?
+  >
+  > **Assistant** → `get_term_info(FBbt_00003686)` → *anatScRNAseqQuery* available (count **79**)
+  > → `run_query(FBbt_00003686, anatScRNAseqQuery)` → 79 clusters, each with cell type, dataset and publication (PMID/DOI)
+  >
+  > **Assistant:** VFB links **79 scRNAseq clusters** to Kenyon cells and their subtypes, including: Davie 2018 (Cell, PMID 29909982) with separate α′/β′, α/β and γ clusters; Baker 2021 (Genome Res., PMID 34035044) female/male/mixed-sex adult KC clusters; Brunet Avalos 2019 (eLife) larval KCs; Mokashi 2021 (Front. Psychiatry). Each cluster record links its expressed genes with per-cluster expression levels — ask "top marker genes for the α/β cluster" to drill in.
+
+  **Tip:** ask your assistant to *check which subtypes have data first* (the cluster list above) rather than requesting a full profile of the parent class — "Kenyon cell" spans 37 subclasses and the full expansion is slow in every route.
 
 mcp_prompt: |
   For cell type 'DA1 lPN', what scRNAseq / expression data does VFB have, and which marker genes are associated with it?

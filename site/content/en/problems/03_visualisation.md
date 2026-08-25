@@ -18,7 +18,15 @@ python_content: |
   ```
 
 mcp_content: |
-  Request 3D visualisation through the MCP tool.
+  `get_term_info` returns the registered images for a neuron keyed by template brain — and the MCP documents how to turn those into a live 3D scene URL, so your assistant can hand you a clickable view:
+
+  > **You:** Show me neuron VFB_jrchjtdb in 3D and summarise what it is.
+  >
+  > **Assistant** → `get_term_info(VFB_jrchjtdb)` → images aligned to **JRCFIB2018Fum** (`VFB_00101384`) and **JRC2018Unisex** (`VFB_00101567`); classification, predicted transmitter, lineage
+  >
+  > **Assistant:** DA1_lPN_R (FlyEM-HB:1734350908) is an *adult antennal lobe projection neuron DA1 lPN* (also typed *adult fruitless aDT-e (female) neuron*), lineage ALl1/BAlc, predicted cholinergic (91%, connectome data). View it in 3D over the hemibrain template: `https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrchjtdb&i=VFB_00101384,VFB_jrchjtdb` — swap the first ID in `i=` to `VFB_00101567` to see it in JRC2018Unisex alongside neurons from other datasets.
+
+  Download formats (SWC, OBJ, NRRD) are listed per image, so "get me the skeleton file" is also one question away.
 
 mcp_prompt: |
   Show me the 3D image of neuron VFB_jrchjtdb and two of its strongest partners in the same template.

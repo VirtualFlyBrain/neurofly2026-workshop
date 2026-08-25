@@ -31,7 +31,22 @@ python_content: |
   ```
 
 mcp_content: |
-  Chain multiple queries together in a conversation.
+  With the MCP connected, the whole chain is one conversation — the assistant carries the IDs forward so every step is reproducible. A real end-to-end transcript, condensed:
+
+  > **You:** Starting from the mushroom body: find its intrinsic neuron types, pick one, show it, list its main partners, find its closest match in another connectome, and summarise any expression data — give me all the VFB IDs.
+  >
+  > **Assistant** →
+  > `search_terms("mushroom body")` → **FBbt_00005801**
+  > `get_term_info(FBbt_00005801)` → queries incl. *NeuronsPartHere* (602), *PartsOf* (176), *TransgeneExpressionHere* (4130)
+  > `get_hierarchy("mushroom body intrinsic neuron", subclass_of)` → Kenyon cell (FBbt_00003686) and its 37 subclasses
+  > `run_query(FBbt_00003686, ListAllAvailableImages)` → 32,328 records → picks a hemibrain KC with images
+  > `run_query(<KC id>, NeuronNeuronConnectivityQuery)` → ranked partners with synapse counts
+  > `run_query(<KC id>, SimilarMorphologyTo)` → cross-dataset NBLAST matches
+  > `run_query(FBbt_00003686, anatScRNAseqQuery)` → 79 clusters with publications
+  >
+  > **Assistant:** …a summary with every claim carrying a VFB ID, dataset and (for expression) a PMID — paste the IDs straight into `vfb_connect` to reproduce the analysis in Python.
+
+  The pattern to copy: **resolve the name to an ID first**, then let each result's IDs seed the next question. That is exactly what the Python route does — the MCP just lets your assistant drive it.
 
 mcp_prompt: |
   Starting from the mushroom body: find its intrinsic neuron types, pick one, show it, list its main partners, find its closest match in another connectome, and summarise any expression data — give me all the VFB IDs so I can reproduce this in vfb_connect.

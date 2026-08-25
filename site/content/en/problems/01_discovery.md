@@ -18,7 +18,17 @@ python_content: |
   **Expected result:** ~68 individual neurons classified as DA1 lPN across multiple datasets.
 
 mcp_content: |
-  The MCP tool can search VFB conversationally and return structured results with identifiers.
+  Point any MCP-capable assistant (Claude Desktop, Claude Code, Copilot…) at `https://vfb3-mcp.virtualflybrain.org` ([setup guide](https://github.com/VirtualFlyBrain/neurofly2026-workshop/blob/main/no-code/MCP_setup.md)) and it answers this with two tool calls. Here is a real transcript:
+
+  > **You:** Search VFB for the neuron type 'DA1 lPN' and list every individual neuron across all datasets, with their dataset and VFB ID.
+  >
+  > **Assistant** → `search_terms("DA1 lPN")` → exact match **FBbt_00067363**
+  > → `get_term_info(FBbt_00067363)` → available queries include *ListAllAvailableImages* (count **68**)
+  > → `run_query(FBbt_00067363, ListAllAvailableImages)`
+  >
+  > **Assistant:** VFB holds **68 registered images** of *adult antennal lobe projection neuron DA1 lPN*, from four connectomes: Male CNS v0.9 (Berg 2025) — e.g. DA1_lPN_L (MaleCNS:12314) `VFB_jrmc37ha`, DA1_lPN_R (MaleCNS:13064) `VFB_jrmc37h9`; hemibrain v1.2.1 — e.g. DA1_lPN_R (FlyEM-HB:1734350908) `VFB_jrchjtdb`; FlyWire v783; and FAFB-CATMAID. Each row carries the dataset, template space, licence and a link back to the source (neuPrint / Codex / CATMAID). Note these are image records, not cells — the class definition gives ~8 per hemisphere.
+
+  The tool results come back as structured tables with IDs, so the assistant can hand you exactly what `vfb_connect` needs — no copy-typing.
 
 mcp_prompt: |
   Search VFB for the neuron type 'DA1 lPN' and list every individual neuron across all datasets, with their dataset and VFB ID.

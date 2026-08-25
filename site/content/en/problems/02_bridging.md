@@ -19,7 +19,16 @@ python_content: |
   ```
 
 mcp_content: |
-  Ask the MCP tool to find cross-dataset matches and compare cell types.
+  The MCP exposes the pre-computed NBLAST neighbours of any connectome neuron, so cross-dataset bridging is one query plus a filter:
+
+  > **You:** Here's hemibrain neuron VFB_jrchjtdb. Find its closest FlyWire match and tell me if they're the same type.
+  >
+  > **Assistant** → `get_term_info(VFB_jrchjtdb)` → *SimilarMorphologyTo* available (count **107**)
+  > → `run_query(VFB_jrchjtdb, SimilarMorphologyTo)` → rows sorted by NBLAST score, each with source dataset
+  >
+  > **Assistant:** The top matches are other hemibrain DA1 lPNs (scores 0.80–0.75). The best **FlyWire** match is **AL.MB_CA.111 (FlyWire:720575940605102694)** `VFB_fw036329` at score **0.68** — annotated with the same types, *adult antennal lobe projection neuron DA1 lPN* and *adult fruitless aDT-e (female) neuron*, so connectome data indicates it is the corresponding cell in the other dataset. FAFB matches (Uniglomerular mALT DA1 lPN#R1, #R4) sit at the same score.
+
+  Because every row carries its source and template, the assistant can separate "same animal, another reconstruction" from "corresponding cell in a different dataset" — the crux of bridging.
 
 mcp_prompt: |
   Here's a FlyWire neuron VFB_id X. Find the morphologically closest neuron in the hemibrain and tell me if they're annotated as the same type.

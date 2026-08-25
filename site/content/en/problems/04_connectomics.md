@@ -19,7 +19,16 @@ python_content: |
   ```
 
 mcp_content: |
-  Ask for connectivity with specific filters.
+  The connectivity of any connectome neuron is a pre-computed query — the assistant fetches all partners with per-direction synapse counts and does the ranking itself:
+
+  > **You:** For neuron VFB_jrchjtdb, list the top 10 downstream partners by synaptic weight.
+  >
+  > **Assistant** → `get_term_info(VFB_jrchjtdb)` → *NeuronNeuronConnectivityQuery* (count **484**)
+  > → `run_query(VFB_jrchjtdb, NeuronNeuronConnectivityQuery, limit=0)` → 484 partners, each with **outputs** and **inputs** synapse counts → sorts by outputs
+  >
+  > **Assistant:** VFB holds 484 connected neurons for DA1_lPN_R (FlyEM-HB:1734350908). Top 10 by output synapses: v2LN30_R (73), DA1_vPN_R (61), lLN2T_c(Tortuous)_R (61), lLN2P_b(Patchy)_R (47), lLN2P_c(Patchy)_R (43), lLN2T_c(Tortuous)_R #2 (43), lLN2T_e(Tortuous)_R (33), LHAV4a4_R ×2 (30 each), M_vPNml55_R (30) — each with its VFB ID (VFB_jrchk8e8, VFB_jrchjtdh, …). *ConnectivityPerRegion* breaks the same edges down by neuropil for the "which are in the mushroom body?" follow-up.
+
+  **Worth noticing:** the chat route's answer for "DA1_lPN_R" used a *different individual* (FlyEM-HB:1734350788) and got different counts. Individuals are not interchangeable — always keep the ID.
 
 mcp_prompt: |
   For neuron VFB_jrchjtdb, list the top 10 downstream partners by synaptic weight, and tell me which are in the mushroom body.

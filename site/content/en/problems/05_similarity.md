@@ -15,7 +15,15 @@ python_content: |
   ```
 
 mcp_content: |
-  Request NBLAST results through the MCP tool.
+  NBLAST similarity is served ranked, with dataset provenance on every row:
+
+  > **You:** Run an NBLAST query for neuron VFB_jrchjtdb and return the top matches with scores across datasets.
+  >
+  > **Assistant** → `run_query(VFB_jrchjtdb, SimilarMorphologyTo)` → **107** neighbours, score-sorted
+  >
+  > **Assistant:** Top matches: DA1_lPN_R (FlyEM-HB:754534424) **0.80**, DA1_lPN_R (FlyEM-HB:754538881) **0.76**, DA1_lPN_R (FlyEM-HB:1734350788) **0.76**, DA1_lPN_R (FlyEM-HB:722817260) **0.75**, DA1_lPN_R (FlyEM-HB:5813039315) **0.75** — all hemibrain. The first cross-dataset hits arrive at **0.68**: Uniglomerular mALT DA1 lPN#R1 (FAFB) and AL.MB_CA.111 (FlyWire). Scores fall smoothly, and morphologically similar *other* types appear further down — there is no clean threshold, so treat the ranking as evidence to inspect, not a verdict.
+
+  Ask "load the top 5 into the 3D viewer" and the assistant can build the scene URL from the IDs in the same result.
 
 mcp_prompt: |
   Run an NBLAST query for neuron VFB_jrchjtdb and return the top matches with scores across datasets; note which come from BANC or male-CNS.
