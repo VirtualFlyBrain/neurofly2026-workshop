@@ -1,4 +1,8 @@
 {{ define "main" }}
+<style>
+.hero__setup-note { margin-top: var(--sp-4); font-size: .95rem; opacity: .85; }
+.hero__setup-note a { text-decoration: underline; }
+</style>
 <section class="hero">
   <canvas id="connectome" aria-hidden="true"></canvas>
   <div class="wrap">
@@ -10,7 +14,7 @@
         </h1>
         <p class="hero__sub">
           Interactive workshop materials from <a href="https://virtualflybrain.org">Virtual Fly Brain</a>.
-          Learn to find, bridge, visualise and analyse neurons across datasets — three ways.
+          Learn to find, bridge, visualise and analyse neurons across datasets — four ways.
         </p>
         <div class="hero__actions">
           <a href="/problems/p1-discovery/" class="btn btn--primary btn--lg">
@@ -21,7 +25,14 @@
             <i class="fas fa-list"></i>
             Browse All Problems
           </a>
+          <a href="/setup/" class="btn btn--lg">
+            <i class="fas fa-wrench"></i>
+            Set Up Your Tools
+          </a>
         </div>
+        <p class="hero__setup-note">
+          New here? <a href="/setup/">Set up your tools first</a> — two of the four routes need nothing installed, the other two take about five minutes.
+        </p>
       </div>
       <aside class="hero__aside reveal">
         <h3>Choose Your Route</h3>
@@ -62,15 +73,24 @@
     <div class="section__head reveal">
       <div>
         <p class="eyebrow">How It Works</p>
-        <h2>One Problem, Solved Three Ways</h2>
+        <h2>One Problem, Solved Four Ways</h2>
         <p>The workshop is built around seven real research questions. For each one, choose your preferred route based on your workflow and needs.</p>
       </div>
     </div>
     
-    <div class="grid grid--3" style="margin-top: var(--sp-6);">
+    <div class="grid grid--4" style="margin-top: var(--sp-6);">
+      <a class="card reveal" href="/setup/">
+        <span class="card__icon"><i class="fas fa-wrench"></i></span>
+        <h3 class="card__title">1. Set Up Your Tools</h3>
+        <p class="card__body">
+          Five minutes, once. <strong>Chat</strong> and the <strong>3D Browser</strong> need nothing installed;
+          <strong>Python</strong> is one <code>pip install</code> (or Colab); <strong>MCP</strong> is one URL in your AI client.
+          <strong>Setup guide &rarr;</strong>
+        </p>
+      </a>
       <div class="card reveal">
         <span class="card__icon"><i class="fas fa-code"></i></span>
-        <h3 class="card__title">1. Pick Your Route</h3>
+        <h3 class="card__title">2. Pick Your Route</h3>
         <p class="card__body">
           <strong>Python</strong> for reproducible analysis · 
           <strong>Chat</strong> for quick answers · 
@@ -80,14 +100,14 @@
       </div>
       <div class="card reveal">
         <span class="card__icon"><i class="fas fa-list-ol"></i></span>
-        <h3 class="card__title">2. Work Through Problems</h3>
+        <h3 class="card__title">3. Work Through Problems</h3>
         <p class="card__body">
           Start with <strong>P1: Discovery</strong> and progress through seven problems that build on each other, from finding neurons to integrating transcriptomics.
         </p>
       </div>
       <div class="card reveal">
         <span class="card__icon"><i class="fas fa-flag-checkered"></i></span>
-        <h3 class="card__title">3. Apply to Your Research</h3>
+        <h3 class="card__title">4. Apply to Your Research</h3>
         <p class="card__body">
           Use the same workflows with your own neurons, regions, and genes. All examples include VFB IDs for reproducibility.
         </p>
