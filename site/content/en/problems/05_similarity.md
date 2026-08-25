@@ -32,9 +32,23 @@ chat_screenshot: "/img/chat-p5-similarity.png"
 chat_screenshot_alt: "VFB Chat showing top NBLAST matches for DA1_lPN_R with scores across hemibrain, FAFB, FlyWire and FlyCircuit"
 
 browser_content: |
-  The Circuit Browser includes NBLAST search functionality.
+  NBLAST similarity is a stored query in the browser — no R, no registration, instant answer.
 
-browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?nblast=VFB_jrchjtdb"
+  1. **Open the query neuron.** Use the button below for hemibrain **DA1_lPN_R (FlyEM-HB:1734350908)** (VFB_jrchjtdb).
+
+  2. **Find the query.** Click the *Queries for DA1_lPN_R…* bar and hover **Neurons with ▸**:
+
+     ![The NBLAST query in the instance query menu](/img/browser-p5-nblast-menu.png)
+
+  3. **Read the ranked matches.** 107 neighbours, **Score** column pre-sorted (top hits ≈0.8). Type, dataset (Template_Space) and imaging technique come along for each row, with thumbnails.
+
+     ![NBLAST results sorted by score](/img/browser-p5-nblast-results.png)
+
+  4. **Overlay the top hits.** Tick the query neuron plus the top few matches — they load aligned in the 3D viewer so you can see *why* they scored high, and where the lower-scoring ones diverge.
+
+  **Worth noticing:** scores fall smoothly with no clean threshold, and a morphologically similar *different* type (DL3 lPN, ≈0.65) sits among the DA1 matches — sort, look, and judge rather than trusting a cut-off.
+
+browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrchjtdb"
 
 when_to_use: |
   - **API** when scores and thresholds matter for your analysis

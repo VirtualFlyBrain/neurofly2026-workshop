@@ -35,9 +35,27 @@ chat_screenshot: "/img/chat-p1-discovery.png"
 chat_screenshot_alt: "VFB Chat listing 68 DA1 lPN image records with VFB IDs across MaleCNS, FlyWire, hemibrain and BANC datasets"
 
 browser_content: |
-  The 3D Circuit Browser lets you explore neuron instances spatially. Search for the type and see all instances overlaid in template space.
+  The Circuit Browser turns discovery into three clicks: find the type, run one query, and get every registered image across datasets — with thumbnails you can drop straight into the 3D viewer.
 
-browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?q=DA1_lPN"
+  1. **Find the type.** Click the magnifying-glass icon (top right) and type *DA1 lPN*. Suggestions appear as you type, with coloured facet tags that separate classes, individual neurons and brain regions; the exact match sorts to the top. Pick **DA1 lPN (FBbt_00067363)** — or use the button below to open the same term page directly.
+
+  2. **Read the term page.** The Term Info panel (right) shows the full name and FBbt ID, synonyms from the literature, its classification, and tags like *Olfactory system* and *Cholinergic*. This is the same ontology record every other route uses — one name, every dataset.
+
+     ![Term Info for DA1 lPN with the Slice Viewer, 3D Viewer and Layers panels](/img/browser-p1-termpage.png)
+
+  3. **Open the query menu.** Click the *Queries for adult antennal lobe projection neuron DA1 lPN* bar at the top. Every query VFB can run on this class is listed — connectivity by class, driver lines, subclasses, expression reports, and the one we want: **List all available images of adult antennal lobe projection neuron DA1 lPN**.
+
+     ![The query menu for the DA1 lPN class](/img/browser-p1-queries.png)
+
+  4. **Run it.** The results panel reports **68** rows — every registered DA1 lPN image — with the dataset each comes from (Male CNS, hemibrain, FlyWire, BANC…), its template space, licence and a thumbnail. Type in *Filter Results* to narrow, click a column header to sort, or **Download results (CSV)** to take the table into Python.
+
+     ![68 DA1 lPN images across datasets, with thumbnails](/img/browser-p1-results.png)
+
+  5. **Tick the checkbox** on any row to load that neuron into the 3D viewer, then close the results with the blue ✕.
+
+  **Worth noticing:** 68 is the number of registered *images*, not cells — the ontology definition says ~8 DA1 lPNs per hemisphere. Records, not neurons: the same lesson as the Python route.
+
+browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=FBbt_00067363"
 
 when_to_use: |
   - **Chat** to find the right name fast and get oriented
