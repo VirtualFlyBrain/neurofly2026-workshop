@@ -54,7 +54,7 @@ paginate = 50
   route = "routes"
 
 [params]
-  description = "These 7 interactive sessions utilise material from Virtual Fly Brain. Learn how to find, bridge, and analyse neurons across datasets through 5 routes."
+  description = "7 interactive sessions utilise material from Virtual Fly Brain. Learn how to find, bridge, and analyse neurons across datasets through 5 routes."
   tagline = "VFB Self-Led Learning — NeuroFly 2026"
   copyright = "VirtualFlyBrain.org"
   github_repo = "https://github.com/VirtualFlyBrain/neurofly2026-workshop"
