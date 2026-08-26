@@ -4,7 +4,7 @@ description: "7 sessions, each answerable through 5 routes"
 aliases: ["/problems/"]
 ---
 
-Each session can be answered through any of 5 routes:
+On the left are the 7 sessions. Each one can be answered through any of 5 routes:
 
 | Route | What it is | Best for |
 |-------|-----------|----------|
