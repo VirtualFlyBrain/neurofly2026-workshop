@@ -3,7 +3,7 @@
 # =============================================================================
 
 baseURL = "https://workshop.virtualflybrain.org/"
-title = "VFB Workshop — NeuroFly 2026"
+title = "VFB Self-Led Learning — NeuroFly 2026"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 theme = "vfb-nova"
@@ -20,7 +20,7 @@ timeZone = "Europe/London"
     target = "content"
 
 [permalinks]
-  problems = "/problems/:slug/"
+  sessions = "/sessions/:slug/"
 
 [outputs]
   home = ["HTML"]
@@ -54,8 +54,8 @@ paginate = 50
   route = "routes"
 
 [params]
-  description = "Bridging connectomes and transcriptomics across the Drosophila CNS — Interactive workshop materials for NeuroFly 2026"
-  tagline = "VFB Workshop — NeuroFly 2026"
+  description = "These 7 interactive sessions utilise material from Virtual Fly Brain. Learn how to find, bridge, and analyse neurons across datasets through 5 routes."
+  tagline = "VFB Self-Led Learning — NeuroFly 2026"
   copyright = "VirtualFlyBrain.org"
   github_repo = "https://github.com/VirtualFlyBrain/neurofly2026-workshop"
   github_branch = "main"
@@ -82,7 +82,7 @@ paginate = 50
     name = "GitHub"
     url = "https://github.com/VirtualFlyBrain/neurofly2026-workshop"
     icon = "fa-brands fa-github"
-    desc = "Workshop source code"
+    desc = "Site source code"
   [[params.links.user]]
     name = "NeuroFly 2026"
     url = "https://neurofly.org/y2026/"
@@ -94,12 +94,12 @@ paginate = 50
   url = "https://virtualflybrain.org"
   weight = 10
 [[menu.main]]
-  name = "Workshop"
+  name = "Home"
   url = "/"
   weight = 20
 [[menu.main]]
-  name = "Problems"
-  url = "/problems/"
+  name = "Sessions"
+  url = "/sessions/"
   weight = 30
 [[menu.main]]
   name = "Setup"

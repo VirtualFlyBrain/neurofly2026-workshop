@@ -1,5 +1,7 @@
 ---
-title: "P4 · Connectomics"
+title: "Session 4 · Connectomics"
+slug: "session-4-connectomics"
+aliases: ["/problems/p4-connectomics/"]
 description: "Who are neuron X's strongest partners, and along what pathway?"
 weight: 4
 route: python

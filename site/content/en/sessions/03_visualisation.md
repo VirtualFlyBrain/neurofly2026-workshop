@@ -1,5 +1,7 @@
 ---
-title: "P3 · Visualisation"
+title: "Session 3 · Visualisation"
+slug: "session-3-visualisation"
+aliases: ["/problems/p3-visualisation/"]
 description: "Show these neurons together in a common template"
 weight: 3
 route: python
@@ -67,7 +69,7 @@ chat_screenshot_alt: "VFB Chat showing registered images of DA1_lPN_R with neuro
 browser_content: |
   This is the browser's home ground: publication-quality sanity-checking with zero installs.
 
-  1. **Load neurons.** Run any image query (see P1) and tick the checkboxes of the neurons you want — here the left and right Male CNS DA1 lPNs — or open the pre-built scene with the button below.
+  1. **Load neurons.** Run any image query (see Session 1) and tick the checkboxes of the neurons you want — here the left and right Male CNS DA1 lPNs — or open the pre-built scene with the button below.
 
   2. **Drive the scene.** Each neuron gets a colour and a row in the **Layers** panel: click the eye to hide/show, the swatch to recolour, the name to bring up its Term Info. The template brain stays as anatomical context, and the Slice Viewer tracks the same alignment so you can flick between 3D and section views.
 

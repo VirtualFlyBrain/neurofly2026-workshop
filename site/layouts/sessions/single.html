@@ -4,7 +4,7 @@
 <div class="doc">
   <details class="doc__side" open>
     <summary>
-      <span class="tree__label">Problems</span>
+      <span class="tree__label">Sessions</span>
       <i class="fas fa-chevron-down" aria-hidden="true"></i>
     </summary>
     <ul class="tree">
@@ -23,7 +23,7 @@
     <nav aria-label="Breadcrumb">
       <ol class="breadcrumb">
         <li><a href="{{ .Site.Home.Permalink }}">Home</a></li>
-        <li><a href="{{ "/problems/" | relURL }}">Problems</a></li>
+        <li><a href="{{ "/sessions/" | relURL }}">Sessions</a></li>
         <li>{{ .Title }}</li>
       </ol>
     </nav>
@@ -41,7 +41,7 @@
       <h2>Route A: Python API</h2>
       <p class="route-setup-link">
         <a class="btn btn--sm btn--ghost" href="{{ "/setup/#python" | relURL }}"><i class="fas fa-wrench"></i> First time? Set up Python &rarr;</a>
-        {{ with .Params.colab_python }}<a class="btn btn--sm btn--primary" href="{{ . }}" target="_blank" rel="noopener"><i class="fas fa-rocket"></i> Open this problem in Colab</a>{{ end }}
+        {{ with .Params.colab_python }}<a class="btn btn--sm btn--primary" href="{{ . }}" target="_blank" rel="noopener"><i class="fas fa-rocket"></i> Open this session in Colab</a>{{ end }}
       </p>
       {{ with .Params.python_content }}
       <div class="prose">
@@ -54,7 +54,7 @@
       <h2>Route E: R (via reticulate)</h2>
       <p class="route-setup-link">
         <a class="btn btn--sm btn--ghost" href="{{ "/setup/#r" | relURL }}"><i class="fas fa-wrench"></i> First time? Set up R + vfb_connect &rarr;</a>
-        {{ with .Params.colab_r }}<a class="btn btn--sm btn--primary" href="{{ . }}" target="_blank" rel="noopener"><i class="fas fa-rocket"></i> Open this problem in Colab (R)</a>{{ end }}
+        {{ with .Params.colab_r }}<a class="btn btn--sm btn--primary" href="{{ . }}" target="_blank" rel="noopener"><i class="fas fa-rocket"></i> Open this session in Colab (R)</a>{{ end }}
       </p>
       {{ with .Params.r_content }}
       <div class="prose">

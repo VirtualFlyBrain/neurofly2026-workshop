@@ -1,5 +1,7 @@
 ---
-title: "P1 · Discovery"
+title: "Session 1 · Discovery"
+slug: "session-1-discovery"
+aliases: ["/problems/p1-discovery/"]
 description: "Find every instance of a neuron type across all datasets"
 weight: 1
 route: python

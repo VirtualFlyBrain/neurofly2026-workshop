@@ -46,6 +46,6 @@ The [VFB MCP tool](https://vfb3-mcp.virtualflybrain.org) runs inside your own LL
 - **Say which dataset** when it matters ("in FlyWire", "in the male-CNS", "in BANC")
 - **One step at a time** — search, then drill in, then compare
 
-## Work Through the Problems
+## Work Through the Sessions
 
-Use the route selector on each [problem page](/problems/) to see the MCP and Chat prompts for each research question.
+Use the route selector on each [session page](/sessions/) to see the MCP and Chat prompts for each session.

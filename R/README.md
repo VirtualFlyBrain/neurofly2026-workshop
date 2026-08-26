@@ -25,7 +25,7 @@ Native-natverse `.Rmd` variants (nat / nat.nblast / neuprintr) remain a possible
 `read.neurons.vfb()` for pulling skeletons into `nat`.
 
 The **no-code (MCP / chat) routes are language-agnostic** — R users use the exact same
-[`../no-code/`](../no-code/) guides and [`../problems/`](../problems/) prompts. Only route **A**
+[`../no-code/`](../no-code/) guides and [`../sessions/`](../sessions/) prompts. Only route **A**
 (code) differs between the Python and R tracks.
 
 ### Setup (once filled)

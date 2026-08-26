@@ -1,5 +1,7 @@
 ---
-title: "P7 · Putting It Together"
+title: "Session 7 · Putting It Together"
+slug: "session-7-putting-it-together"
+aliases: ["/problems/p7-putting-it-together/"]
 description: "A mini-project using all routes"
 weight: 7
 route: python
@@ -120,7 +122,7 @@ chat_screenshot: "/img/chat-p7-together.png"
 chat_screenshot_alt: "VFB Chat showing multi-step conversation exploring mushroom body neurons through discovery, visualization, connectivity, and expression"
 
 browser_content: |
-  The whole P1→P6 chain works as one browsing session — every answer is a link to the next question, and the History menu retraces your steps.
+  The whole Session 1→Session 6 chain works as one browsing session — every answer is a link to the next question, and the History menu retraces your steps.
 
   1. **Start from the region.** Search *mushroom body* — the suggestion list's facet tags already separate the neuropil, its parts and its larval counterpart. Pick **mushroom body (FBbt_00005801)**.
 
@@ -132,9 +134,9 @@ browser_content: |
 
   3. **Region → type.** Run **Neurons with ▸ some part here** and pick a Kenyon cell from the results — or go via *Parts of mushroom body* to the calyx and its intrinsic neurons.
 
-  4. **Type → instance → partners.** From the Kenyon cell's term page, list its images (P1), tick one into the 3D viewer (P3), and run *Neurons connected to…* on it (P4).
+  4. **Type → instance → partners.** From the Kenyon cell's term page, list its images (Session 1), tick one into the 3D viewer (Session 3), and run *Neurons connected to…* on it (Session 4).
 
-  5. **Instance → matches → expression.** NBLAST its neighbours (P5), then check *Reports of transgene expression* for the type (P6).
+  5. **Instance → matches → expression.** NBLAST its neighbours (Session 5), then check *Reports of transgene expression* for the type (Session 6).
 
   6. **Keep the trail.** The **History** menu (top bar) lists every term and query you touched, and the final URL encodes your finished scene — paste it anywhere to hand a colleague your entire session.
 

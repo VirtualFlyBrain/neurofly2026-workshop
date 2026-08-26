@@ -1,5 +1,7 @@
 ---
-title: "P2 · Bridging & Identity"
+title: "Session 2 · Bridging & Identity"
+slug: "session-2-bridging-identity"
+aliases: ["/problems/p2-bridging-identity/"]
 description: "Is this FlyWire neuron the same cell as that hemibrain one?"
 weight: 2
 route: python

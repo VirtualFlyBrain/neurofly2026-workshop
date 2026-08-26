@@ -2,7 +2,7 @@
 
 ## Use this template for your own questions
 
-After working through the example problems, use this blank template to explore your own neurons of interest:
+After working through the example sessions, use this blank template to explore your own neurons of interest:
 
 ---
 

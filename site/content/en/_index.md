@@ -1,6 +1,6 @@
 ---
-title: "VFB Workshop — NeuroFly 2026"
-description: "Bridging connectomes and transcriptomics across the Drosophila CNS"
+title: "Self-Led Learning Sessions — NeuroFly 2026"
+description: "These 7 interactive sessions utilise material from Virtual Fly Brain. Learn how to find, bridge, and analyse neurons across datasets through 5 routes."
 ---
 
-Workshop materials for NeuroFly 2026.
+Self-led learning sessions for NeuroFly 2026.

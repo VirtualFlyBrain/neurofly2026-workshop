@@ -1,5 +1,7 @@
 ---
-title: "P5 · Similarity / NBLAST"
+title: "Session 5 · Similarity / NBLAST"
+slug: "session-5-similarity-nblast"
+aliases: ["/problems/p5-similarity-/"]
 description: "What's the morphological match in another dataset?"
 weight: 5
 route: python

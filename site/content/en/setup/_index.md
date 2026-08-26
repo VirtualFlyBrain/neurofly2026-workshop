@@ -1,9 +1,9 @@
 ---
 title: "Setup"
-description: "Get each of the four routes working on your system — most need no installation at all"
+description: "Get each of the five routes working on your system — most need no installation at all"
 ---
 
-Two of the five routes need zero setup (Chat and the 3D Browser); Python and R each need a single install command, and MCP needs you to point your own AI assistant at a URL. Do the ones you plan to use before the workshop; each takes a few minutes at most.
+Two of the five routes need zero setup (Chat and the 3D Browser); Python and R each need a single install command, and MCP needs you to point your own AI assistant at a URL. Do the ones you plan to use before you start; each takes a few minutes at most.
 
 ## Route A — Python (`vfb_connect`) {#python}
 
@@ -103,7 +103,7 @@ Worth knowing before you start:
 
 - You get **100 queries per day** (the counter sits next to the input box).
 - Short, single-entity questions resolve best — *"Which neurons are downstream of DA1_lPN_R?"* beats a long multi-clause sentence. Reuse the names the chat itself uses in its answers.
-- You can pre-load a question in the URL: `https://chat.virtualflybrain.org/?query=What+is+DA1+lPN%3F` — this is how the embedded examples on the problem pages work.
+- You can pre-load a question in the URL: `https://chat.virtualflybrain.org/?query=What+is+DA1+lPN%3F` — this is how the embedded examples on the session pages work.
 - Answers are AI-generated from VFB data: verify anything critical against the primary sources it links.
 
 ## Route D — 3D Circuit Browser {#browser}
@@ -112,10 +112,10 @@ Nothing to set up. Open **[v2.virtualflybrain.org](https://v2.virtualflybrain.or
 
 Worth knowing before you start:
 
-- Deep links do the setup for you: `…/geppetto?id=FBbt_00067363` opens a term page; `…/geppetto?id=X&i=TEMPLATE,IMG1,IMG2` rebuilds an entire 3D scene (template first in `i=`). Every "Open in Circuit Browser" button on the problem pages uses these.
+- Deep links do the setup for you: `…/geppetto?id=FBbt_00067363` opens a term page; `…/geppetto?id=X&i=TEMPLATE,IMG1,IMG2` rebuilds an entire 3D scene (template first in `i=`). Every "Open in Circuit Browser" button on the session pages uses these.
 - The URL updates as you work and **encodes your scene** — copy it any time to save or share exactly what you see.
 - If you ever hit a "VFB Error report" dialogue, just Reload — and check your link uses `?id=`, not a bare label.
 
 ---
 
-Once you are set up, start with [Problem 1: Discovery](/problems/p1-discovery/) — every problem page shows all four routes side by side.
+Once you are set up, start with [Session 1: Discovery](/sessions/session-1-discovery/) — every session page shows all five routes side by side.

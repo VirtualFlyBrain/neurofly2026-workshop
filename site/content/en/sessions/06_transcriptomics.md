@@ -1,5 +1,7 @@
 ---
-title: "P6 · Transcriptomics"
+title: "Session 6 · Transcriptomics"
+slug: "session-6-transcriptomics"
+aliases: ["/problems/p6-transcriptomics/"]
 description: "What's this cell type's expression profile and marker genes?"
 weight: 6
 route: python
@@ -78,7 +80,7 @@ browser_content: |
 
   4. **Cross-check a marker's driver.** Found an interesting gene via scRNAseq in another route? Search its driver line here and confirm where it actually expresses.
 
-  No screenshots needed for this one — the flow is identical to P1's search-and-query pattern. For expression levels and cluster tables, flip to Route A (Python), Route E (R) or Route C (Chat).
+  No screenshots needed for this one — the flow is identical to Session 1's search-and-query pattern. For expression levels and cluster tables, flip to Route A (Python), Route E (R) or Route C (Chat).
 
 browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=FBbt_00003686"
 
