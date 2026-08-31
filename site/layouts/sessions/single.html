@@ -51,7 +51,7 @@
     </div>
     
     <div class="route-content" data-route-content="r">
-      <h2>Route E: R (via reticulate)</h2>
+      <h2>Route B: R (via reticulate)</h2>
       <p class="route-setup-link">
         <a class="btn btn--sm btn--ghost" href="{{ "/setup/#r" | relURL }}"><i class="fas fa-wrench"></i> First time? Set up R + vfb_connect &rarr;</a>
         {{ with .Params.colab_r }}<a class="btn btn--sm btn--primary" href="{{ . }}" target="_blank" rel="noopener"><i class="fas fa-rocket"></i> Open this session in Colab (R)</a>{{ end }}
@@ -64,7 +64,7 @@
     </div>
 
     <div class="route-content" data-route-content="mcp">
-      <h2>Route B: MCP Tool</h2>
+      <h2>Route C: MCP Tool</h2>
       <p class="route-setup-link"><a class="btn btn--sm btn--ghost" href="{{ "/setup/#mcp" | relURL }}"><i class="fas fa-wrench"></i> First time? Connect the VFB MCP to your AI &rarr;</a></p>
       {{ with .Params.mcp_content }}
       <div class="prose">
@@ -80,7 +80,7 @@
     </div>
     
     <div class="route-content" data-route-content="chat">
-      <h2>Route C: VFB Chat</h2>
+      <h2>Route D: VFB Chat</h2>
       <p class="route-setup-link"><a class="btn btn--sm btn--ghost" href="{{ "/setup/#chat" | relURL }}"><i class="fas fa-wrench"></i> Nothing to install &mdash; tips before you start &rarr;</a></p>
       {{ with .Params.chat_content }}
       <div class="prose">
@@ -93,7 +93,7 @@
     </div>
     
     <div class="route-content" data-route-content="browser">
-      <h2>Route D: 3D Circuit Browser</h2>
+      <h2>Route E: 3D Circuit Browser</h2>
       <p class="route-setup-link"><a class="btn btn--sm btn--ghost" href="{{ "/setup/#browser" | relURL }}"><i class="fas fa-wrench"></i> Nothing to install &mdash; how the viewer works &rarr;</a></p>
       {{ with .Params.browser_content }}
       <div class="prose">
