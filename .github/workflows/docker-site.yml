@@ -55,13 +55,21 @@ jobs:
     - name: Build Docker image (multi-arch)
       run: |
         if [[ $GITHUB_REF == refs/heads/main* ]] || [[ $GITHUB_REF == refs/heads/master* ]] || [[ $GITHUB_REF == refs/tags/* ]]; then
+          # Real release: push a proper multi-arch manifest list to Docker Hub.
           PUSH_FLAG="--push"
+          PLATFORMS="linux/amd64,linux/arm64"
         else
+          # PR/branch build verification only: --load can't import a
+          # multi-platform manifest list into the local Docker daemon
+          # ("docker exporter does not currently support exporting
+          # manifest lists"), so build just the runner's native arch and
+          # load that single image for testing.
           PUSH_FLAG="--load"
+          PLATFORMS="linux/amd64"
         fi
         docker buildx build . \
           --file Dockerfile.site \
-          --platform linux/amd64,linux/arm64 \
+          --platform ${PLATFORMS} \
           --tag ${DOCKER_IMAGE}:${{ steps.version.outputs.version }} \
           --tag ${DOCKER_IMAGE}:latest \
           ${PUSH_FLAG}
