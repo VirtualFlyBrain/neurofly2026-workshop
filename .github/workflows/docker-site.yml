@@ -28,8 +28,19 @@ jobs:
       run: |
         if [[ $GITHUB_REF == refs/tags/* ]]; then
           VERSION=${GITHUB_REF#refs/tags/}
-        else
+        elif [[ $GITHUB_REF == refs/heads/* ]]; then
           VERSION=${GITHUB_REF#refs/heads/}
+          VERSION=${VERSION//\//-}   # branch names can contain slashes (e.g. fix/foo); tags can't
+        elif [[ $GITHUB_REF == refs/pull/* ]]; then
+          # PR builds run on the refs/pull/<N>/merge ref, not a branch, and
+          # that ref (and branch names with slashes, like fix/foo) aren't
+          # valid Docker tags. Tag PR builds by PR number instead.
+          PR_NUM=${GITHUB_REF#refs/pull/}
+          PR_NUM=${PR_NUM%/merge}
+          VERSION="pr-${PR_NUM}"
+        else
+          # Fallback for any other ref shape: sanitize slashes for a valid Docker tag.
+          VERSION=$(echo "${GITHUB_REF#refs/}" | tr '/' '-')
         fi
         echo "version=${VERSION}" >> $GITHUB_OUTPUT
         echo "Built version: ${VERSION}"
@@ -44,13 +55,21 @@ jobs:
     - name: Build Docker image (multi-arch)
       run: |
         if [[ $GITHUB_REF == refs/heads/main* ]] || [[ $GITHUB_REF == refs/heads/master* ]] || [[ $GITHUB_REF == refs/tags/* ]]; then
+          # Real release: push a proper multi-arch manifest list to Docker Hub.
           PUSH_FLAG="--push"
+          PLATFORMS="linux/amd64,linux/arm64"
         else
+          # PR/branch build verification only: --load can't import a
+          # multi-platform manifest list into the local Docker daemon
+          # ("docker exporter does not currently support exporting
+          # manifest lists"), so build just the runner's native arch and
+          # load that single image for testing.
           PUSH_FLAG="--load"
+          PLATFORMS="linux/amd64"
         fi
         docker buildx build . \
           --file Dockerfile.site \
-          --platform linux/amd64,linux/arm64 \
+          --platform ${PLATFORMS} \
           --tag ${DOCKER_IMAGE}:${{ steps.version.outputs.version }} \
           --tag ${DOCKER_IMAGE}:latest \
           ${PUSH_FLAG}

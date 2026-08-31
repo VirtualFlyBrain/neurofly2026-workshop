@@ -29,7 +29,7 @@ print(len(df))                     # -> 68
 
 The first `import` establishes connections and caches term data, so give it a couple of minutes the first time; after that it is fast. `navis` (for 3D plotting) is installed as a dependency — `.plot3d()` works out of the box in Jupyter/Colab.
 
-## Route E — R (via reticulate) {#r}
+## Route B — R (via reticulate) {#r}
 
 R users get the identical `vfb_connect` engine through [`reticulate`](https://rstudio.github.io/reticulate/) — same calls, same numbers, ordinary R data frames back.
 
@@ -59,7 +59,7 @@ nrow(df)                                # -> 68
 
 Two R-specific habits: write integer arguments with an `L` suffix (`weight = 20L`), and flatten list-columns with `sapply(col, paste, collapse=",")` before `table()`/`dplyr`. **natverse users:** [natverse/vfbconnectr](https://github.com/natverse/vfbconnectr) wraps the same package and adds `read.neurons.vfb()` to pull skeletons straight into `nat` (verified working against vfb-connect 2.4.2).
 
-## Route B — Your LLM + the VFB MCP {#mcp}
+## Route C — Your LLM + the VFB MCP {#mcp}
 
 The **Model Context Protocol (MCP)** lets your own AI assistant call VFB directly, so it answers from live VFB data instead of memory. The hosted server is:
 
@@ -95,7 +95,7 @@ Nothing to install — you register that URL with your client. Source: [VirtualF
 
 **Verify it works:** ask your assistant *"What is DA1 lPN? Use the VFB tools."* — you should see it call `search_terms` / `get_term_info` and answer with the FBbt ID and literature sources. If it answers instantly with no tool calls, it is answering from memory: check the connector is enabled for the conversation.
 
-## Route C — VFB Chat {#chat}
+## Route D — VFB Chat {#chat}
 
 Nothing to set up. Open **[chat.virtualflybrain.org](https://chat.virtualflybrain.org)** in any browser and ask a question.
 
@@ -106,7 +106,7 @@ Worth knowing before you start:
 - You can pre-load a question in the URL: `https://chat.virtualflybrain.org/?query=What+is+DA1+lPN%3F` — this is how the embedded examples on the session pages work.
 - Answers are AI-generated from VFB data: verify anything critical against the primary sources it links.
 
-## Route D — 3D Circuit Browser {#browser}
+## Route E — 3D Circuit Browser {#browser}
 
 Nothing to set up. Open **[v2.virtualflybrain.org](https://v2.virtualflybrain.org/)** in a modern browser (WebGL required — any recent Chrome, Firefox, Safari or Edge; the first load takes a few seconds while the template brain streams in).
 

@@ -28,8 +28,19 @@ jobs:
       run: |
         if [[ $GITHUB_REF == refs/tags/* ]]; then
           VERSION=${GITHUB_REF#refs/tags/}
-        else
+        elif [[ $GITHUB_REF == refs/heads/* ]]; then
           VERSION=${GITHUB_REF#refs/heads/}
+          VERSION=${VERSION//\//-}   # branch names can contain slashes (e.g. fix/foo); tags can't
+        elif [[ $GITHUB_REF == refs/pull/* ]]; then
+          # PR builds run on the refs/pull/<N>/merge ref, not a branch, and
+          # that ref (and branch names with slashes, like fix/foo) aren't
+          # valid Docker tags. Tag PR builds by PR number instead.
+          PR_NUM=${GITHUB_REF#refs/pull/}
+          PR_NUM=${PR_NUM%/merge}
+          VERSION="pr-${PR_NUM}"
+        else
+          # Fallback for any other ref shape: sanitize slashes for a valid Docker tag.
+          VERSION=$(echo "${GITHUB_REF#refs/}" | tr '/' '-')
         fi
         echo "version=${VERSION}" >> $GITHUB_OUTPUT
         echo "Built version: ${VERSION}"

@@ -1,0 +1,27 @@
+{{/* Reveal-on-scroll: adds .is-in to .reveal elements as they enter the viewport.
+     Pairs with the .js .reveal / .js .reveal.is-in rules in css/base.css — those
+     rules ship the opacity:0 starting state, this is what removes it. Runs on
+     every page (cheap no-op if there are no .reveal elements) since both the
+     homepage and the sessions index use the class. */}}
+<script>
+(function () {
+  var els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('is-in'); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
