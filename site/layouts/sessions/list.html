@@ -40,7 +40,22 @@
         <h3 class="card__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
         <p class="card__body">{{ .Description }}</p>
         <div class="card__meta">
-          <span class="pill"><i class="fas fa-route"></i> {{ .Params.route | default "python" }}</span>
+          {{/* Every session offers the same set of routes (see the route selector on
+               the session page itself) — list whichever *_content params this session
+               actually has, rather than the old single "route" front-matter field,
+               which was always literally "python" and made every card look
+               Python-only. */}}
+          {{ $routes := slice }}
+          {{ if .Params.python_content }}{{ $routes = $routes | append "Python" }}{{ end }}
+          {{ if .Params.r_content }}{{ $routes = $routes | append "R" }}{{ end }}
+          {{ if .Params.mcp_content }}{{ $routes = $routes | append "MCP" }}{{ end }}
+          {{ if .Params.chat_content }}{{ $routes = $routes | append "Chat" }}{{ end }}
+          {{ if .Params.browser_content }}{{ $routes = $routes | append "3D Browser" }}{{ end }}
+          {{ range $routes }}
+          <span class="pill"><i class="fas fa-route"></i> {{ . }}</span>
+          {{ else }}
+          <span class="pill"><i class="fas fa-route"></i> Python</span>
+          {{ end }}
         </div>
         <span class="card__arrow">View session <i class="fas fa-arrow-right"></i></span>
       </article>
