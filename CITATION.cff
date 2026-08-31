@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this workshop material, please cite it as below."
+title: "VFB Workshop — NeuroFly 2026: Bridging connectomes and transcriptomics across the Drosophila CNS"
+type: software
+authors:
+  - family-names: Court
+    given-names: Robert
+    email: robert.court@ed.ac.uk
+    affiliation: "University of Edinburgh"
+    # orcid: "https://orcid.org/XXXX-XXXX-XXXX-XXXX"  # add if you have one
+version: "1.0"
+date-released: "2026-08-31"
+url: "https://workshop.virtualflybrain.org"
+repository-code: "https://github.com/VirtualFlyBrain/neurofly2026-workshop"
+license: GPL-2.0
+keywords:
+  - Drosophila
+  - connectomics
+  - transcriptomics
+  - neuroanatomy
+  - "Virtual Fly Brain"
+  - "NeuroFly 2026"
