@@ -1,0 +1,28 @@
+{
+  "title": "VFB Workshop — NeuroFly 2026: Bridging connectomes and transcriptomics across the Drosophila CNS",
+  "description": "Interactive workshop materials from Virtual Fly Brain (VFB) for NeuroFly 2026 (21st Biennial European Drosophila Neurobiology Conference, University of Cologne, Germany, 7-11 September 2026). Covers finding, bridging, visualising and analysing neurons across connectomic and transcriptomic datasets, shown three ways: Python, VFB Chat / the VFB MCP, and the 3D Circuit Browser.",
+  "creators": [
+    {
+      "name": "Court, Robert",
+      "affiliation": "University of Edinburgh"
+    }
+  ],
+  "license": "GPL-2.0",
+  "upload_type": "lesson",
+  "access_right": "open",
+  "keywords": [
+    "Drosophila",
+    "connectomics",
+    "transcriptomics",
+    "neuroanatomy",
+    "Virtual Fly Brain",
+    "NeuroFly2026"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://workshop.virtualflybrain.org",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}
