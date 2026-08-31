@@ -11,6 +11,20 @@ theme = "vfb-nova"
 enableGitInfo = false
 timeZone = "Europe/London"
 
+# GA4 property shared with VFB's other VFB3-generation tools (vfb3-mcp,
+# vfb3-mcp-preview, chat.virtualflybrain.org) - see RancherServices
+# vfb-services-live/docker-compose.yml GA_MEASUREMENT_ID. Note this differs
+# from the classic www.virtualflybrain.org / geppetto-vfb property
+# (G-K7DDZVVXM7); this one was chosen deliberately since the workshop leans
+# on the VFB3 tools it's teaching (MCP, Chat). Hugo's built-in
+# google_analytics.html template (wired in baseof.html) is wrapped there in
+# an explicit hugo.IsProduction guard, so the gtag.js snippet only fires on
+# a production build (the default for plain `hugo`/`hugo --minify`, which is
+# what Dockerfile.site uses) - not on `hugo server` during local dev.
+[services]
+  [services.googleAnalytics]
+    id = "G-QKCC1GEBQ9"
+
 [security]
   allowContent = ['^text/html$', '^text/markdown$', '^text/x-org$', '^text/asciidoc$']
 

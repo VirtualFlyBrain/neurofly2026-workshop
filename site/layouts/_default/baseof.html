@@ -18,7 +18,15 @@
   {{ $css := slice (resources.Get "css/tokens.css") (resources.Get "css/base.css") (resources.Get "css/nav.css") (resources.Get "css/docs.css") (resources.Get "css/palette.css") (resources.Get "css/prose.css") (resources.Get "css/cards.css") (resources.Get "css/hero.css") (resources.Get "css/content-hooks.css") (resources.Get "css/compat.css") }}
   {{ $styles := $css | resources.Concat "css/bundle.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $styles.Permalink }}">
-  
+
+  <!-- GA4 (feeds the same property as vfb3-mcp/vfbchat). Hugo's internal
+       template doesn't gate on environment in this Hugo version, so gate it
+       ourselves - otherwise `hugo server` during local dev/testing would
+       send real hits into the shared production property. -->
+  {{ if hugo.IsProduction }}
+  {{ template "_internal/google_analytics.html" . }}
+  {{ end }}
+
   {{ block "head" . }}{{ end }}
 </head>
 <body class="js">
