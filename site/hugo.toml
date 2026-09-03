@@ -37,7 +37,7 @@ timeZone = "Europe/London"
   sessions = "/sessions/:slug/"
 
 [outputs]
-  home = ["HTML"]
+  home = ["HTML", "JSON"]   # /index.json feeds the search palette
   section = ["HTML", "RSS"]
   page = ["HTML"]
 

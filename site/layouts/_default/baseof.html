@@ -41,8 +41,11 @@
   </main>
   
   {{ partial "footer.html" . }}
+  {{ partial "palette.html" . }}
   
   {{ block "scripts" . }}{{ end }}
+  {{ $search := resources.Get "js/search.js" | minify | fingerprint }}
+  <script src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}" defer></script>
   
   {{ partial "reveal.html" . }}
   

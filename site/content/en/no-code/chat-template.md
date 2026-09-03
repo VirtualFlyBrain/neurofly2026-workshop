@@ -1,3 +1,7 @@
+---
+title: "VFB Chat question template"
+description: "A blank template for asking VFB Chat about your own neurons of interest"
+---
 # VFB Chat - Blank Question Template
 
 ## Use this template for your own questions

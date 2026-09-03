@@ -1,0 +1,23 @@
+{{/* Search palette: site pages from /index.json, plus VFB anatomy terms live
+     from the same SOLR core the 3D browser uses (opened there). Same engine as
+     virtualflybrain.org (themes/vfb-nova/assets/js/app.js in VFB2); the index
+     URL carries the build time so a cached copy never outlives a rebuild. */}}
+<div class="palette" hidden role="dialog" aria-modal="true" aria-label="Search"
+     data-index="{{ "/index.json" | relURL }}?v={{ now.Format "20060102150405" }}"
+     data-solr="https://solr.virtualflybrain.org/solr/ontology/select"
+     data-browser="https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto">
+  <div class="palette__box">
+    <div class="palette__field">
+      <i class="fas fa-magnifying-glass"></i>
+      <input id="palette-input" type="search" autocomplete="off" spellcheck="false"
+             placeholder="Search the workshop — sessions, setup, neurons, brain regions…" aria-label="Search query">
+      <kbd class="js-close-palette" role="button" tabindex="0">esc</kbd>
+    </div>
+    <ul class="palette__results" id="palette-results"></ul>
+    <div class="palette__foot">
+      <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> open</span>
+      <span style="margin-left:auto">Anatomy terms open in the <a href="https://v2.virtualflybrain.org/" target="_blank" rel="noopener">3D&nbsp;browser</a></span>
+    </div>
+  </div>
+</div>

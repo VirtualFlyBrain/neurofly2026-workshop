@@ -1,0 +1,23 @@
+{{- /* Client-side search index for the nav search palette (see
+     assets/js/search.js). Every authored page on the site; the session pages
+     keep most of their text in front-matter route blocks (python_content,
+     r_content, …) rather than .Content, so those are folded into "body" or a
+     search for "get_instances" would find nothing. */ -}}
+{{- $pinned := slice "/sessions/" "/setup/" "/no-code/" -}}
+{{- $out := slice -}}
+{{- range site.Pages -}}
+  {{- if and (not .IsHome) (ne .Kind "taxonomy") (ne .Kind "term") -}}
+    {{- $p := . -}}
+    {{- $body := .Plain -}}
+    {{- range slice "python_content" "r_content" "mcp_content" "chat_content" "browser_content" -}}
+      {{- with index $p.Params . -}}{{- $body = printf "%s %s" $body (. | plainify) -}}{{- end -}}
+    {{- end -}}
+    {{- $out = $out | append (dict
+        "title" (.LinkTitle | default .File.ContentBaseName) "url" .RelPermalink "section" .Section
+        "desc" (.Description | truncate 120 | chomp | htmlUnescape)
+        "keywords" (.Params.keywords | default slice)
+        "body" ($body | truncate 4000 | chomp | htmlUnescape)
+        "pinned" (in $pinned .RelPermalink)) -}}
+  {{- end -}}
+{{- end -}}
+{{- $out | jsonify -}}
