@@ -1,0 +1,4 @@
+{{- /* External links open in a new tab (workshop feedback, NeuroFly 2026); site-relative links stay in this one. Applies to .Content and to markdownify'd front-matter blocks. */ -}}
+{{- $dest := .Destination -}}
+{{- $external := and (or (hasPrefix $dest "http://") (hasPrefix $dest "https://")) (not (hasPrefix $dest site.BaseURL)) -}}
+<a href="{{ $dest | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $external }} target="_blank" rel="noopener"{{ end }}>{{ .Text | safeHTML }}</a>
