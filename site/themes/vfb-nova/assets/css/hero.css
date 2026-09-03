@@ -179,13 +179,12 @@
 .notice strong { color: var(--text); }
 .notice p:last-child { margin-bottom: 0; }
 
-.hero__news-icon--fly {
-  background: var(--grad-brand);
-  color: #05070e;
-}
-
+/* Route icons in the hero aside are bare glyphs on the card — there is no
+   .hero__news-icon chip to sit on, so a background here paints the whole
+   grid row. Match the Font Awesome glyphs beside it: ~1em, inherited colour. */
 .hero__news-icon--fly svg {
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 1.05em;
+  height: 1.05em;
   fill: currentColor;
+  display: block;
 }
