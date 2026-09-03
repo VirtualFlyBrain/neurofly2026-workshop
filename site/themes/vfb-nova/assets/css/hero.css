@@ -179,13 +179,12 @@
 .notice strong { color: var(--text); }
 .notice p:last-child { margin-bottom: 0; }
 
-/* The 3D Browser route is marked with the VFB logo, masked from
-   virtualflybrain.org by .fly-glyph (nav.css). Route icons in the hero aside
-   are bare glyphs on the card — there is no .hero__news-icon chip to sit on,
-   so a background here would paint the whole grid row. Take the row's colour
-   and match the optical height of the Font Awesome glyphs beside it. */
-.hero__news-icon--fly .fly-glyph {
-  width: 1.55em;
-  height: .82em;
-  background: currentColor;
+/* Route icons in the hero aside are bare glyphs on the card — there is no
+   .hero__news-icon chip to sit on, so a background here paints the whole
+   grid row. Match the Font Awesome glyphs beside it: ~1em, inherited colour. */
+.hero__news-icon--fly svg {
+  width: 1.05em;
+  height: 1.05em;
+  fill: currentColor;
+  display: block;
 }
