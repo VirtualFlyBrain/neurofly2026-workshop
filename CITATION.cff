@@ -8,8 +8,8 @@ authors:
     email: robert.court@ed.ac.uk
     affiliation: "University of Edinburgh"
     # orcid: "https://orcid.org/XXXX-XXXX-XXXX-XXXX"  # add if you have one
-version: "1.0"
-date-released: "2026-08-31"
+version: "1.3"
+date-released: "2026-09-03"
 url: "https://workshop.virtualflybrain.org"
 repository-code: "https://github.com/VirtualFlyBrain/neurofly2026-workshop"
 license: GPL-2.0
