@@ -128,6 +128,10 @@ paginate = 50
   url = "/no-code/"
   weight = 50
 [[menu.main]]
+  name = "Questions"
+  url = "/questions/"
+  weight = 60
+[[menu.main]]
   name = "Launch VFB"
   url = "https://v2.virtualflybrain.org/"
   weight = 90
