@@ -14,6 +14,7 @@ These aren't scripted demos: they're genuine queries, the tool calls that answer
 | [Ring-shaped neurons in the fly connectome](/questions/ring-shaped-neurons/) | 7 Sept 2026 | Which VFB neuron types have a ring-shaped morphology, and what does VFB hold on them |
 | [What feeds the moonwalker descending neuron?](/questions/mdn-inputs/) | 7 Sept 2026 | MDN's strongest presynaptic partners, cross-checked across two independent connectomes |
 | [Split-GAL4 lines targeting PPL1](/questions/ppl1-splits/) | 8 Sept 2026 | Why the whole-class query undercounts, and where PPL1's real split coverage lives, subtype by subtype |
+| [Connections to Tm3](/questions/tm3-connections/) | 8 Sept 2026 | Tm3's strongest recorded inputs, and why the whole-class connectivity query surfaces ontology umbrella terms first |
 
 ## Adding another one
 
