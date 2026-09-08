@@ -1,0 +1,112 @@
+{{/* Embed a self-contained static HTML page (e.g. a generated VFB figure) in an iframe, VFB Nova styled.
+     Usage: {{< embed-page src="/questions/eb-ring-neurons.html" title="Ellipsoid body ring neurons" height="1650" >}} */}}
+{{ $src := .Get "src" }}
+{{ $title := .Get "title" | default "Generated page" }}
+{{ $height := .Get "height" | default "900" }}
+<div class="embedded-page">
+  <div class="embedded-page__header">
+    <div class="embedded-page__title">
+      <svg class="embedded-page__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="4" width="18" height="16" rx="2"/>
+        <path d="M3 9h18M8 4v5"/>
+      </svg>
+      <span>{{ $title }}</span>
+    </div>
+    <a href="{{ $src | relURL }}"
+       target="_blank"
+       rel="noopener"
+       class="embedded-page__link btn btn--sm btn--ghost">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+      </svg>
+      <span>Open full page</span>
+    </a>
+  </div>
+  <div class="embedded-page__container" style="--embed-h: {{ $height }}px;">
+    <iframe
+      src="{{ $src | relURL }}"
+      class="embedded-page__iframe"
+      title="{{ $title }}"
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+<style>
+.embedded-page {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--elev-1);
+  border: 1px solid var(--line);
+  margin: var(--sp-5) 0;
+  box-shadow: var(--shadow-1);
+}
+
+.embedded-page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--surface);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.embedded-page__title {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-display);
+  font-size: var(--step-0);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.embedded-page__icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+
+.embedded-page__link {
+  color: var(--brand);
+  white-space: nowrap;
+}
+
+.embedded-page__link:hover {
+  color: var(--cyan);
+}
+
+.embedded-page__container {
+  position: relative;
+  width: 100%;
+  height: var(--embed-h, 900px);
+  background: var(--bg);
+}
+
+/* .prose iframe (theme prose.css) sets aspect-ratio/height:auto at equal-ish
+   specificity — chain both classes so this wins regardless of source order. */
+.embedded-page .embedded-page__iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  background: var(--bg);
+}
+
+@media (max-width: 768px) {
+  .embedded-page__header {
+    flex-wrap: wrap;
+  }
+
+  .embedded-page__link span {
+    display: none;
+  }
+}
+</style>
