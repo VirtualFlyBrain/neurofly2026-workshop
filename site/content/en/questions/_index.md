@@ -16,14 +16,22 @@ These aren't scripted demos: they're genuine queries, the tool calls that answer
 | [Split-GAL4 lines targeting PPL1](/questions/ppl1-splits/) | 8 Sept 2026 | Why the whole-class query undercounts, and where PPL1's real split coverage lives, subtype by subtype |
 | [Connections to Tm3](/questions/tm3-connections/) | 8 Sept 2026 | Tm3's strongest recorded inputs, and why the whole-class connectivity query surfaces ontology umbrella terms first |
 
-## Adding another one
+Each entry records the query as it was asked, the VFB MCP tools and queries used to answer it, what came back, and the caveats — not just the headline numbers.
 
-Each entry is its own page under `site/content/en/questions/`, plus (if it produced a standalone figure) a static HTML file under `site/static/questions/`. To add one:
+<!--
+Adding another entry (contributor notes — not rendered):
 
-1. Copy the front matter block from an existing page (`ring-shaped-neurons.md` is the simplest template) and give it the next `weight` (they list in weight order).
-2. Write the question as it was actually asked, how it was answered (which tools/queries), and what came back — including the caveats, not just the headline numbers.
-3. If there's a generated figure, drop the self-contained HTML file in `site/static/questions/` and embed it with the `embed-page` shortcode:
-   ```
-   {{</* embed-page src="/questions/your-file.html" title="Figure title" height="1400" */>}}
-   ```
+Each entry is its own page under site/content/en/questions/, plus (if it produced a
+standalone figure) a static HTML file under site/static/questions/. To add one:
+
+1. Copy the front matter block from an existing page (ring-shaped-neurons.md is the
+   simplest template) and give it the next `weight` (they list in weight order).
+2. Write the question as it was actually asked, how it was answered (which
+   tools/queries), and what came back, including the caveats.
+3. If there is a generated figure, drop the self-contained HTML file in
+   site/static/questions/ and embed it with the embed-page shortcode:
+     {{</* embed-page src="/questions/your-file.html" title="Figure title" height="1400" */>}}
+   Set height to the figure's full rendered height at ~675px width WITH all images
+   loaded (lazy-loaded images make it measure short), or the bottom gets clipped.
 4. Add a row to the table above.
+-->
