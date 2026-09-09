@@ -18,7 +18,7 @@ L3 is a lamina monopolar neuron, Tm9 a transmedullary neuron — a canonical, he
 
 1. `search_terms` to canonicalise both types — **L3** = lamina monopolar neuron L3 (`FBbt:00003721`), **Tm9** = transmedullary neuron Tm9 (`FBbt:00003797`). Worth noting the immature-neuron terms and the Tm9a/Tm9b subtypes that also match the text search.
 2. `list_connectome_datasets` to see what's currently loaded.
-3. `query_connectivity` with **both** ends fixed (L3 upstream, Tm9 downstream) and `group_by_class=false`, so we get individual neuron-to-neuron pairs rather than a class-level aggregate, at synapse threshold ≥1. This is a live cross-dataset query; the both-ends L3→Tm9 form returned **5,356 pairs**.
+3. `query_connectivity` with **both** ends fixed (L3 upstream, Tm9 downstream) and `group_by_class=false`, so we get individual neuron-to-neuron pairs rather than a class-level aggregate, at synapse threshold ≥1. This is a live cross-dataset query; the both-ends L3→Tm9 form returned **5,356 pairs** across four datasets — we set BANC's two aside (far too few for a distribution), leaving **5,354 pairs** across three optic-lobe connectomes.
 4. Binned each pair by its synapse count and drew one frequency polygon per dataset.
 
 Direction matters: we queried **L3→Tm9** (Tm9 postsynaptic), the biologically dominant direction — the reverse is negligible.
@@ -34,12 +34,10 @@ The three well-sampled datasets agree almost exactly — median synaptic weight 
 | male-CNS (v1.0) | 2,511 | 2 | 22 | 19.2 | 47 |
 | FlyWire (v783) | 1,528 | 2 | 21 | 18.6 | 47 |
 | Optic Lobe (v1.0.1) | 1,315 | 2 | 23 | 19.7 | 47 |
-| BANC (v888) | 2 | 20 | 22 | 22.0 | 24 |
 
 **Worth being honest about:**
 
-- **Dataset coverage.** Only optic-lobe connectomes reconstruct these cells. Hemibrain, MANC, FAFB-CATMAID and the larval L1 CNS were excluded — they don't contain L3/Tm9. BANC currently exposes just 2 such pairs, far too few to say anything about its distribution.
-- **Version drift.** The version tags stamped on the returned edges (male-CNS **v1.0**, BANC **v888**) ran *ahead* of what `list_connectome_datasets` advertised (v0.9, v626) — the connectivity backend and the dataset registry are populated separately, so trust the per-edge source tag, not the registry, for provenance.
+- **Dataset coverage.** Only optic-lobe connectomes reconstruct these cells. Hemibrain, MANC, FAFB-CATMAID and the larval L1 CNS were excluded — they don't contain L3/Tm9 — and BANC was set aside because its current VFB load holds only 2 L3→Tm9 pairs, far too few to say anything about a distribution.
 - **Not normalised.** These are raw pair counts. Datasets differ in how many optic-lobe columns were reconstructed, so compare the *shapes* of the distributions, not the absolute peak heights.
 
 ## Sources

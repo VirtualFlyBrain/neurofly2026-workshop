@@ -35,7 +35,7 @@ th{color:var(--muted);font-weight:600;font-size:.76rem;text-transform:uppercase;
 .note{color:var(--muted);font-size:.82rem;margin:.6rem .1rem 0;max-width:74ch}
 </style></head><body><div class="wrap">
 <h1>L3 → Tm9 connection strength across connectome datasets</h1>
-<p class="sub">Every individual L3→Tm9 neuron pair in VFB (5,356 pairs, synapse threshold ≥1), binned by synapse count. Distributions are near-identical across the three well-sampled datasets — a low-count shoulder of weak/incidental contacts plus a broad main peak around 22–30 synapses (the genuine columnar retinotopic connection). Hover a point for its value.</p>
+<p class="sub">Every individual L3→Tm9 neuron pair in VFB (5,354 pairs, synapse threshold ≥1), binned by synapse count. Distributions are near-identical across the three well-sampled datasets — a low-count shoulder of weak/incidental contacts plus a broad main peak around 22–30 synapses (the genuine columnar retinotopic connection). Hover a point for its value.</p>
 <div class="fig">
 <svg viewBox="0 0 900 470" role="img" aria-label="Frequency polygon of L3 to Tm9 synapse counts per dataset">
 <line class="grid" x1="58" y1="424.0" x2="882" y2="424.0"/>
@@ -217,13 +217,10 @@ th{color:var(--muted);font-weight:600;font-size:.76rem;text-transform:uppercase;
 <circle class="s3 hov" cx="830.5" cy="421.9" r="7" opacity="0"><title>Optic Lobe — 45 synapses: 2 pairs</title></circle>
 <circle class="s3 hov" cx="847.7" cy="420.9" r="7" opacity="0"><title>Optic Lobe — 46 synapses: 3 pairs</title></circle>
 <circle class="s3 hov" cx="864.8" cy="423.0" r="7" opacity="0"><title>Optic Lobe — 47 synapses: 1 pairs</title></circle>
-<circle class="s4 pt" cx="401.3" cy="423.0" r="3.4"><title>BANC — 20 synapses: 1 pair(s)</title></circle>
-<circle class="s4 pt" cx="470.0" cy="423.0" r="3.4"><title>BANC — 24 synapses: 1 pair(s)</title></circle>
 </svg>
 <div class="legend"><span class="lg"><i class="sw s1"></i>male-CNS <em>(n=2,511)</em></span>
 <span class="lg"><i class="sw s2"></i>FlyWire <em>(n=1,528)</em></span>
-<span class="lg"><i class="sw s3"></i>Optic Lobe <em>(n=1,315)</em></span>
-<span class="lg"><i class="sw s4"></i>BANC <em>(n=2)</em></span></div>
+<span class="lg"><i class="sw s3"></i>Optic Lobe <em>(n=1,315)</em></span></div>
 </div>
 <table>
 <thead><tr><th>Dataset</th><th>Pairs</th><th>Min</th><th>Median</th><th>Mean</th><th>Max</th></tr></thead>
@@ -231,7 +228,6 @@ th{color:var(--muted);font-weight:600;font-size:.76rem;text-transform:uppercase;
 <tr><td><span class="sw s1"></span>male-CNS</td><td>2,511</td><td>2</td><td>22</td><td>19.2</td><td>47</td></tr>
 <tr><td><span class="sw s2"></span>FlyWire</td><td>1,528</td><td>2</td><td>21</td><td>18.6</td><td>47</td></tr>
 <tr><td><span class="sw s3"></span>Optic Lobe</td><td>1,315</td><td>2</td><td>23</td><td>19.7</td><td>47</td></tr>
-<tr><td><span class="sw s4"></span>BANC</td><td>2</td><td>20</td><td>22</td><td>22.0</td><td>24</td></tr>
 </tbody></table>
-<p class="note">BANC contributes only 2 L3→Tm9 pairs in the current VFB load (shown as dots, not a line). Hemibrain, FAFB-CATMAID, MANC and larval L1 are excluded — L3/Tm9 are optic-lobe cells those datasets don’t cover. Source-version tags on the edges (male-CNS v1.0, FlyWire v783, Optic Lobe v1.0.1, BANC v888) can run ahead of VFB’s dataset registry. Data pulled live with the VFB MCP <code>query_connectivity</code> tool.</p>
+<p class="note">Hemibrain, FAFB-CATMAID, MANC and larval L1 are excluded — L3/Tm9 are optic-lobe cells those datasets don’t cover. BANC is also excluded: its current VFB load holds only 2 L3→Tm9 pairs, too few to form a distribution. Counts are raw (un-normalised), so compare the shapes of the distributions rather than absolute peak heights. Data pulled live with the VFB MCP <code>query_connectivity</code> tool.</p>
 </div></body></html>
