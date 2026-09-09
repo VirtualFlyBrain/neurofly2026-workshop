@@ -12,7 +12,7 @@ date: 2026-09-08
 
 > "Splits targeting PPL1?"
 
-Terse, but a very typical table question: someone working on the dopaminergic PPL1 cluster wanted to know what split-GAL4 tools exist to target it.
+A typical table question: someone working on the dopaminergic PPL1 cluster wanted to know what split-GAL4 tools exist to target it.
 
 ## How we answered it
 

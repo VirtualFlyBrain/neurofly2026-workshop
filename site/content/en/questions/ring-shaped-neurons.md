@@ -16,7 +16,7 @@ A visitor wanted to know whether VFB could find neurons by the shape of their ar
 
 ## How we answered it
 
-VFB has no shape-based search (that's what NBLAST similarity search is for, starting from a seed neuron — see the [Similarity session](/sessions/05_similarity/)), so the first step was to check whether "ring-shaped" already exists as a named biological category. It does: the **ellipsoid body ring neurons**, a well-described class in the fly central complex. The MCP tools used, in order:
+VFB has no shape-based search (that's what NBLAST similarity search is for, starting from a seed neuron — see the [Similarity session](/sessions/session-5-similarity-nblast/)), so the first step was to check whether "ring-shaped" already exists as a named biological category. It does: the **ellipsoid body ring neurons**, a well-described class in the fly central complex. The MCP tools used, in order:
 
 1. `search_terms` for "ring neuron" and "circular" — confirms the class exists and rules out unrelated hits (mostly visceral muscle, which also happens to be called "circular muscle").
 2. `get_hierarchy` (`subclass_of`, descendants) on the top class — pulls out the full subtype tree.
@@ -27,9 +27,9 @@ VFB has no shape-based search (that's what NBLAST similarity search is for, star
 
 The **[adult ellipsoid body ring neuron](https://virtualflybrain.org/reports/FBbt_00003649)** (`FBbt:00003649`, synonym *TL neuron*) splits into two branches: six intrinsic **R-neuron** subtypes (ER1–ER6, GABAergic, ~150 per hemisphere per the literature) and eight **extrinsic ring neuron** subtypes (ExR1–ExR8, mixed neurotransmitters). VFB holds 1,217 registered images across the class — mostly from the male CNS v0.9 connectome (Berg et al., 2025), plus FlyWire, BANC and hemibrain.
 
-The figure below shows one representative neuron per subtype, each a genuine VFB-registered image on the JRC2018U template — not an illustration.
+The figure below shows one representative neuron for each subtype, each a genuine VFB-registered image on the JRC2018U template — not an illustration. That is 13 panels rather than 14: VFB currently holds no registered image for ExR2 (`FBbt:00110327`).
 
-{{< embed-page src="/questions/eb-ring-neurons.html" title="Ellipsoid body ring neurons — one representative per subtype" height="1900" >}}
+{{< embed-page src="/questions/eb-ring-neurons.html" title="Ellipsoid body ring neurons — one representative per subtype" height="2600" >}}
 
 **Worth being honest about:** this answers "which named class is ring-shaped", not "find me anything ring-shaped by silhouette" — VFB has no morphology-only search of that kind. The two serotonergic/dopaminergic outliers (ExR3, ExR5) also extend well beyond the ellipsoid body, so "ring-shaped" only describes part of their arbour.
 
