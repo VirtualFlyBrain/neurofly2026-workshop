@@ -39,7 +39,6 @@ The three well-sampled datasets agree almost exactly — median synaptic weight 
 **Worth being honest about:**
 
 - **Dataset coverage.** Only optic-lobe connectomes reconstruct these cells. Hemibrain, MANC, FAFB-CATMAID and the larval L1 CNS were excluded — they don't contain L3/Tm9. BANC currently exposes just 2 such pairs, far too few to say anything about its distribution.
-- **Version drift.** The version tags stamped on the returned edges (male-CNS **v1.0**, BANC **v888**) ran *ahead* of what `list_connectome_datasets` advertised (v0.9, v626) — the connectivity backend and the dataset registry are populated separately, so trust the per-edge source tag, not the registry, for provenance.
 - **Not normalised.** These are raw pair counts. Datasets differ in how many optic-lobe columns were reconstructed, so compare the *shapes* of the distributions, not the absolute peak heights.
 
 ## Sources
