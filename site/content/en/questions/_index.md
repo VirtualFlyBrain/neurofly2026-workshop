@@ -15,6 +15,7 @@ These aren't scripted demos: they're genuine queries, the tool calls that answer
 | [What feeds the moonwalker descending neuron?](/questions/mdn-inputs/) | 7 Sept 2026 | MDN's strongest presynaptic partners, cross-checked across two independent connectomes |
 | [Split-GAL4 lines targeting PPL1](/questions/ppl1-splits/) | 8 Sept 2026 | Why the whole-class query undercounts, and where PPL1's real split coverage lives, subtype by subtype |
 | [Connections to Tm3](/questions/tm3-connections/) | 8 Sept 2026 | Tm3's strongest recorded inputs, and why the whole-class connectivity query surfaces ontology umbrella terms first |
+| [Connectivity between L3 and Tm9](/questions/l3-tm9-connections/) | 9 Sept 2026 | The per-pair synapse-count distribution of a canonical optic-lobe connection, and how consistently it holds across four connectomes |
 
 Each entry records the query as it was asked, the VFB MCP tools and queries used to answer it, what came back, and the caveats — not just the headline numbers.
 
