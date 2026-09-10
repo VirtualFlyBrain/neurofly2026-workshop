@@ -18,6 +18,7 @@ These aren't scripted demos: they're genuine queries, the tool calls that answer
 | [Connectivity between L3 and Tm9](/questions/l3-tm9-connections/) | 9 Sept 2026 | The per-pair synapse-count distribution of a canonical optic-lobe connection, and how consistently it holds across three connectomes |
 | [What neuromodulator data does VFB hold?](/questions/neuromodulator-data/) | 9 Sept 2026 | Curated class assertions versus per-neuron EM transmitter predictions, and where the gaps are |
 | [MBONs, the 'dopaminergic' DNp32, and flight](/questions/dnp32-mbon-flight/) | 9 Sept 2026 | Weak MBON20/MBON35 input, three connectomes predicting three different monoamines, and output that goes to leg and jump motor neurons rather than wing or haltere |
+| [Can you reply in Persian?](/questions/reply-in-persian/) | 10 Sept 2026 | Questions in Persian and Hungarian, what VFB Chat got wrong with them, what changed, and how to get the same right with the MCP and your own AI |
 
 Each entry records the query as it was asked, the VFB MCP tools and queries used to answer it, what came back, and the caveats — not just the headline numbers.
 
