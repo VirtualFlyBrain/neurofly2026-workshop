@@ -82,7 +82,7 @@ browser_content: |
 
   No screenshots needed for this one — the flow is identical to Session 1's search-and-query pattern. For expression levels and cluster tables, flip to Route A (Python), Route B (R) or Route D (Chat).
 
-browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=FBbt_00003686"
+browser_url: "https://v3.virtualflybrain.org/org.geppetto.frontend/geppetto?id=FBbt_00003686"
 
 try_next: |
   - **Subtype contrast:** profile `"adult Kenyon cell"` (69,168 rows, ~70 s) and compare which markers separate the γ clusters from α/β in the Davie 2018 data.

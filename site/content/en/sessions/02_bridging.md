@@ -89,7 +89,7 @@ browser_content: |
 
   **Worth noticing:** identity across datasets is a judgement, not a lookup — scores drop smoothly and a different type (DL3 lPN) appears among the true DA1 matches. The browser makes that ambiguity visible.
 
-browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrchjtdb&i=VFB_00101567,VFB_jrchjtdb"
+browser_url: "https://v3.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrchjtdb&i=VFB_00101567,VFB_jrchjtdb"
 
 try_next: |
   - **Is the bridge symmetric?** NBLAST from the FlyWire match back: query `VFB_fw036329` the same way (66 neighbours; its own FlyWire sisters top the list at 0.78, FAFB at 0.74). Where does your original hemibrain neuron rank in the reverse direction?

@@ -108,7 +108,7 @@ Worth knowing before you start:
 
 ## Route E — 3D Circuit Browser {#browser}
 
-Nothing to set up. Open **[v2.virtualflybrain.org](https://v2.virtualflybrain.org/)** in a modern browser (WebGL required — any recent Chrome, Firefox, Safari or Edge; the first load takes a few seconds while the template brain streams in).
+Nothing to set up. Open **[v2.virtualflybrain.org](https://v3.virtualflybrain.org/)** in a modern browser (WebGL required — any recent Chrome, Firefox, Safari or Edge; the first load takes a few seconds while the template brain streams in).
 
 Worth knowing before you start:
 

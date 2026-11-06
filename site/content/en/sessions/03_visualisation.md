@@ -48,7 +48,7 @@ mcp_content: |
   >
   > **Assistant** → `get_term_info(VFB_jrchjtdb)` → images aligned to **JRCFIB2018Fum** (`VFB_00101384`) and **JRC2018Unisex** (`VFB_00101567`); classification, predicted transmitter, lineage
   >
-  > **Assistant:** DA1_lPN_R (FlyEM-HB:1734350908) is an *adult antennal lobe projection neuron DA1 lPN* (also typed *adult fruitless aDT-e (female) neuron*), lineage ALl1/BAlc, predicted cholinergic (91%, connectome data). View it in 3D over the standard JRC2018Unisex template: `https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrchjtdb&i=VFB_00101567,VFB_jrchjtdb` — swap the first ID in `i=` to `VFB_00101384` to see it over its native hemibrain EM volume instead.
+  > **Assistant:** DA1_lPN_R (FlyEM-HB:1734350908) is an *adult antennal lobe projection neuron DA1 lPN* (also typed *adult fruitless aDT-e (female) neuron*), lineage ALl1/BAlc, predicted cholinergic (91%, connectome data). View it in 3D over the standard JRC2018Unisex template: `https://v3.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrchjtdb&i=VFB_00101567,VFB_jrchjtdb` — swap the first ID in `i=` to `VFB_00101384` to see it over its native hemibrain EM volume instead.
 
   Download formats (SWC, OBJ, NRRD) are listed per image, so "get me the skeleton file" is also one question away.
 
@@ -81,7 +81,7 @@ browser_content: |
 
   **Worth noticing:** stick to the standard JRC2018Unisex space for comparisons — but if you open an EM neuron with its native template first in `i=` (e.g. `?id=VFB_jrchjtdb&i=VFB_00101384,VFB_jrchjtdb`), the raw hemibrain EM volume loads behind the skeleton and you can scroll the actual electron microscopy it was traced from.
 
-browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrmc37h9&i=VFB_00101567,VFB_jrmc37ha,VFB_jrmc37h9"
+browser_url: "https://v3.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrmc37h9&i=VFB_00101567,VFB_jrmc37ha,VFB_jrmc37h9"
 
 try_next: |
   - **Build the circuit scene:** add the strongest partner v2LN30_R (`VFB_jrchk8e8`) to the viewer URL — `…?id=VFB_jrchjtdb&i=VFB_00101567,VFB_jrchjtdb,VFB_jrchk8e8` — and look at where their arbours interleave in the antennal lobe.

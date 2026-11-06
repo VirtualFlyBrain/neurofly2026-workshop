@@ -91,7 +91,7 @@ browser_content: |
 
   **Worth noticing:** scores fall smoothly with no clean threshold, and a morphologically similar *different* type (DL3 lPN, ≈0.65) sits among the DA1 matches — sort, look, and judge rather than trusting a cut-off.
 
-browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrchjtdb&i=VFB_00101567,VFB_jrchjtdb"
+browser_url: "https://v3.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrchjtdb&i=VFB_00101567,VFB_jrchjtdb"
 
 try_next: |
   - **Does the ranking replicate?** Run the identical query from another hemibrain sister, `VFB_jrchjtdd` — it returns ~112 neighbours. Do the FlyWire and FAFB matches keep their order?

@@ -46,7 +46,7 @@ The fix went into VFB Chat the same day, and the design follows from the second 
 - "Can you reply in Persian?" re-renders the previous answer in Persian, links, chips and all, and pins the conversation.
 - Right-to-left scripts align correctly in the chat window.
 
-The same three messages, put to the fixed build against the live VFB data: the Persian question is answered in Persian; the Hungarian question answers with the count the table shows ([392](https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?q=FBbt_00003678,TransgeneExpressionHere), linked), the example expression patterns, and chips in Hungarian; and "can you reply in persian?" gives that answer back in Persian with its link intact. A chip clicked afterwards is answered in Persian too, with all thirteen of its term links.
+The same three messages, put to the fixed build against the live VFB data: the Persian question is answered in Persian; the Hungarian question answers with the count the table shows ([392](https://v3.virtualflybrain.org/org.geppetto.frontend/geppetto?q=FBbt_00003678,TransgeneExpressionHere), linked), the example expression patterns, and chips in Hungarian; and "can you reply in persian?" gives that answer back in Persian with its link intact. A chip clicked afterwards is answered in Persian too, with all thirteen of its term links.
 
 ## Doing the same with the MCP and your own AI
 
