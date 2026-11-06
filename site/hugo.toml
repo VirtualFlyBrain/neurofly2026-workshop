@@ -133,7 +133,7 @@ paginate = 50
   weight = 60
 [[menu.main]]
   name = "Launch VFB"
-  url = "https://v2.virtualflybrain.org/"
+  url = "https://v3.virtualflybrain.org/"
   weight = 90
   [menu.main.params]
     cta = true

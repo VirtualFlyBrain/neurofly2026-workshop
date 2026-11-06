@@ -118,7 +118,7 @@ browser_content: |
 
   **Worth noticing:** 68 is the number of registered *images*, not cells — the ontology definition says ~8 DA1 lPNs per hemisphere. Records, not neurons: the same lesson as the Python route.
 
-browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=FBbt_00067363"
+browser_url: "https://v3.virtualflybrain.org/org.geppetto.frontend/geppetto?id=FBbt_00067363"
 
 try_next: |
   All of these are known to work — run them yourself and see what changes:

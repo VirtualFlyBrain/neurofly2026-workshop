@@ -18,7 +18,7 @@ Choose the right tool for your needs. Chat and the 3D Browser need nothing insta
 
 ### Route E: 3D Circuit Browser — Visual Exploration
 
-The [Circuit Browser](https://v2.virtualflybrain.org/) is VFB's interactive 3D viewer — nothing to install, works in any modern browser (WebGL required). Point and click instead of asking a question: open a neuron's term page and build up a scene from there.
+The [Circuit Browser](https://v3.virtualflybrain.org/) is VFB's interactive 3D viewer — nothing to install, works in any modern browser (WebGL required). Point and click instead of asking a question: open a neuron's term page and build up a scene from there.
 
 **Best for:** Exploring morphology and connectivity visually, browsing a circuit hop by hop, sharing exactly what you're looking at (the URL encodes the scene)
 

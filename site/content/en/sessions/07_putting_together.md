@@ -142,7 +142,7 @@ browser_content: |
 
   **Worth noticing:** you never typed an ID. The graph carried you from a word ("mushroom body") to specific, citable individuals with IDs — which is exactly what you then feed to `vfb_connect` to make it reproducible.
 
-browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=FBbt_00005801"
+browser_url: "https://v3.virtualflybrain.org/org.geppetto.frontend/geppetto?id=FBbt_00005801"
 
 try_next: |
   - **Change the region:** rerun the whole chain from the *antennal lobe* or *lateral horn* — every synaptic neuropil carries the same query set (*Neurons with part here*, *Parts of*, *Transgene expression*…).

@@ -107,7 +107,7 @@ browser_content: |
 
   **Worth noticing:** the instance query menu also offers **Show connectivity per region** — the same partners broken down by neuropil, which answers "which of these connections are in the mushroom body?" without any code.
 
-browser_url: "https://v2.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrmc37h9"
+browser_url: "https://v3.virtualflybrain.org/org.geppetto.frontend/geppetto?id=VFB_jrmc37h9"
 
 try_next: |
   - **How stable is a ranking?** Run the same question on the sister individual `VFB_jrchjtdf` (FlyEM-HB:1734350788) — its top partners are v2LN30_R (60), DA1_vPN_R (59), lLN2T_c (47). Same cast, different counts: how much do individual neurons of one type vary?
